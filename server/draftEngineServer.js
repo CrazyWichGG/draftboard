@@ -79,6 +79,10 @@ export function initDraftSession(gridSizeStr = '5x5', players = []) {
   const { rows, cols, total } = parseGridDimensions(gridSizeStr);
   const usedIds = new Set();
   const initialOptions = drawRandomGoals(2, usedIds);
+  // Mark all initial options as seen in usedIds
+  initialOptions.forEach(opt => {
+    if (opt && opt.id) usedIds.add(opt.id);
+  });
 
   const rerolls = {};
   const claimed = {};
@@ -110,7 +114,18 @@ export function makePick(draftState, selectedGoal) {
     return draftState;
   }
 
-  const activePlayer = draftState.players[draftState.turnIndex];
+  if (!draftState.players || draftState.players.length === 0) {
+    return { ...draftState, isComplete: true };
+  }
+
+  const validTurnIndex = (draftState.turnIndex || 0) % draftState.players.length;
+  const activePlayer = draftState.players[validTurnIndex];
+
+  if (!activePlayer || !activePlayer.id) {
+    console.warn('[DraftEngineServer] makePick called with invalid activePlayer');
+    return draftState;
+  }
+
   const newBoard = [...draftState.board];
   newBoard[draftState.currentSlotIndex] = {
     ...selectedGoal,
@@ -120,14 +135,21 @@ export function makePick(draftState, selectedGoal) {
 
   const nextSlotIndex = draftState.currentSlotIndex + 1;
   const isComplete = nextSlotIndex >= draftState.totalSlots;
-  const nextTurnIndex = (draftState.turnIndex + 1) % draftState.players.length;
+  const nextTurnIndex = (validTurnIndex + 1) % draftState.players.length;
 
-  const newUsedIds = new Set([...draftState.usedGoalIds, selectedGoal.id]);
+  // Add ALL presented options from current turn to newUsedIds
+  const currentOptionIds = (draftState.currentOptions || []).map(g => g.id);
+  const newUsedIds = new Set([...(draftState.usedGoalIds || []), selectedGoal.id, ...currentOptionIds]);
+
   const nextOptions = isComplete ? [] : drawRandomGoals(2, newUsedIds);
+  // Mark new options as seen
+  nextOptions.forEach(opt => {
+    if (opt && opt.id) newUsedIds.add(opt.id);
+  });
 
   const updatedClaimed = {
     ...draftState.claimedCounts,
-    [activePlayer.id]: (draftState.claimedCounts[activePlayer.id] || 0) + 1,
+    [activePlayer.id]: ((draftState.claimedCounts && draftState.claimedCounts[activePlayer.id]) || 0) + 1,
   };
 
   const historyEntry = {
@@ -145,23 +167,29 @@ export function makePick(draftState, selectedGoal) {
     currentOptions: nextOptions,
     claimedCounts: updatedClaimed,
     isComplete,
-    history: [historyEntry, ...draftState.history],
+    history: [historyEntry, ...(draftState.history || [])],
   };
 }
 
 export function executeReroll(draftState, playerId) {
-  if (!draftState) return draftState;
-  const activePlayer = draftState.players[draftState.turnIndex];
+  if (!draftState || !draftState.players || draftState.players.length === 0) return draftState;
 
-  if (activePlayer.id !== playerId) return draftState;
-  if (draftState.usedRerolls[playerId]) return draftState;
+  const validTurnIndex = (draftState.turnIndex || 0) % draftState.players.length;
+  const activePlayer = draftState.players[validTurnIndex];
 
-  const currentOptionIds = new Set((draftState.currentOptions || []).map(o => o.id));
-  const usedIds = new Set([...draftState.usedGoalIds, ...currentOptionIds]);
-  const newOptions = drawRandomGoals(2, usedIds);
+  if (!activePlayer || activePlayer.id !== playerId) return draftState;
+  if (draftState.usedRerolls && draftState.usedRerolls[playerId]) return draftState;
+
+  const currentOptionIds = (draftState.currentOptions || []).map(o => o.id);
+  const newUsedIds = new Set([...(draftState.usedGoalIds || []), ...currentOptionIds]);
+  const newOptions = drawRandomGoals(2, newUsedIds);
+  newOptions.forEach(opt => {
+    if (opt && opt.id) newUsedIds.add(opt.id);
+  });
 
   return {
     ...draftState,
+    usedGoalIds: Array.from(newUsedIds),
     currentOptions: newOptions,
     usedRerolls: {
       ...draftState.usedRerolls,

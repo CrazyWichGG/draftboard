@@ -11,7 +11,7 @@ export default function App() {
   const [currentLobby, setCurrentLobby] = useState(null);
   const [inDraftPhase, setInDraftPhase] = useState(false);
   const [socketId, setSocketId] = useState(socket.id);
-  const [serverTimer, setServerTimer] = useState(15);
+  const [serverTimer, setServerTimer] = useState(10);
   const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
@@ -141,33 +141,23 @@ export default function App() {
   };
 
   return (
-    <div className={`flex flex-col justify-between selection:bg-cyan-500/30 selection:text-cyan-200 ${
-      inDraftPhase ? 'h-screen h-dvh p-2 sm:p-3 overflow-hidden' : 'min-h-screen p-4 sm:p-6 lg:p-8'
-    }`}>
-      {/* Header Bar */}
-      <header className={`max-w-6xl w-full mx-auto flex items-center justify-between border-b border-cyan-500/20 shrink-0 ${
-        inDraftPhase ? 'py-1.5 mb-1.5' : 'py-4 mb-6'
+    <div className={`flex flex-col justify-between selection:bg-cyan-500/30 selection:text-cyan-200 ${inDraftPhase ? 'h-screen h-dvh p-2 sm:p-3 overflow-hidden' : 'min-h-screen p-4 sm:p-6 lg:p-8'
       }`}>
-        <div className="flex items-center gap-3">
-          <img 
-            src="/logo.svg" 
-            alt="Draftout Logo" 
-            className="w-10 h-10 object-contain shrink-0 [image-rendering:pixelated]" 
+      {/* Header Bar */}
+      <header className={`max-w-6xl w-full mx-auto flex items-center justify-between border-b border-cyan-500/20 shrink-0 ${inDraftPhase ? 'py-1.5 mb-1.5' : 'py-4 mb-6'
+        }`}>
+        <div className="flex items-center gap-3.5">
+          <img
+            src="/logo.svg"
+            alt="Draftout Logo"
+            className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 object-contain shrink-0 [image-rendering:pixelated]"
           />
           <div>
-            <h1 className="text-2xl sm:text-3xl font-bold tracking-wider text-white flex items-center gap-2 leading-none">
-              <span className="text-cyan-300 font-title text-2xl sm:text-3xl">DraftBoard</span>
-              <span className="text-[10px] font-pixel bg-cyan-400/10 text-cyan-300 px-2 py-0.5 rounded border border-cyan-300/25 tracking-normal">
-                WEB LOBBY
-              </span>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-title font-bold tracking-wider text-white leading-none">
+              DraftBoard
             </h1>
-            <p className="text-[11px] text-neutral-400 font-sans mt-0.5">Draftout Custom Board Drafter</p>
+            <p className="text-[11px] text-neutral-400 font-sans mt-1">Draftout Custom Board Drafter</p>
           </div>
-        </div>
-
-        <div className="hidden sm:flex items-center gap-2 text-xs font-mono text-cyan-300/80 bg-neutral-900 px-3 py-1.5 rounded-lg border border-cyan-400/20">
-          <Gamepad2 className="w-4 h-4 text-cyan-400" />
-          <span className="font-pixel text-[10px]">MINECRAFT DRAFTING ENGINE</span>
         </div>
       </header>
 
@@ -175,49 +165,51 @@ export default function App() {
       <main className={`flex-1 flex items-center justify-center min-h-0 ${inDraftPhase ? 'my-0.5 overflow-hidden' : 'my-4'}`}>
         {currentLobby ? (
           inDraftPhase ? (
-            <DraftingPhaseView 
-              lobbyData={currentLobby} 
+            <DraftingPhaseView
+              lobbyData={currentLobby}
               serverTimer={serverTimer}
-              onResetLobby={handleResetLobby} 
+              onResetLobby={handleResetLobby}
             />
           ) : (
-            <LobbyRoomView 
-              lobbyData={currentLobby} 
-              onLeaveLobby={handleResetLobby} 
+            <LobbyRoomView
+              lobbyData={currentLobby}
+              onLeaveLobby={handleResetLobby}
             />
           )
         ) : (
           <div className="flex flex-col items-center w-full space-y-6">
-            {errorMessage && (
-              <div className="bg-red-500/10 border border-red-500/40 text-red-300 text-xs px-4 py-3 rounded-xl max-w-sm w-full text-center">
-                {errorMessage}
-              </div>
-            )}
+            {/* Glowing Slider Tab Switcher */}
+            <div className="relative bg-neutral-900/90 p-1.5 flex items-center border border-cyan-500/30 max-w-sm w-full shadow-inner overflow-hidden">
+              {/* Sliding Glowing Background Pill */}
+              <div
+                className="absolute top-1.5 bottom-1.5 w-[calc(50%-6px)] bg-cyan-400 tab-slider-glow transition-all duration-300 ease-out"
+                style={{
+                  left: activeTab === 'create' ? '6px' : 'calc(50% + 0px)',
+                }}
+              />
 
-            {/* Tab Switcher */}
-            <div className="bg-neutral-900 p-1.5 rounded-xl flex items-center gap-2 border border-cyan-500/30 max-w-sm w-full">
               <button
+                type="button"
                 onClick={() => { setActiveTab('create'); setErrorMessage(''); }}
-                className={`flex-1 py-2.5 px-4 rounded-lg text-xs font-semibold flex items-center justify-center gap-2 transition-all ${
-                  activeTab === 'create'
-                    ? 'bg-cyan-400 text-neutral-950 font-bold'
-                    : 'text-cyan-300/70 hover:text-cyan-200 hover:bg-neutral-800'
-                }`}
+                className={`relative z-10 flex-1 py-2.5 px-3 font-bold flex items-center justify-center gap-1.5 transition-colors duration-200 cursor-pointer ${activeTab === 'create'
+                  ? 'text-neutral-950 font-extrabold'
+                  : 'text-white hover:text-cyan-200'
+                  }`}
               >
-                <Sparkles className="w-4 h-4" />
-                <span>Create Room</span>
+                <Sparkles className={`w-4 h-4 transition-transform ${activeTab === 'create' ? 'scale-110' : ''}`} />
+                <span className="font-pixel text-xs sm:text-sm uppercase tracking-wider">Create Room</span>
               </button>
 
               <button
+                type="button"
                 onClick={() => { setActiveTab('join'); setErrorMessage(''); }}
-                className={`flex-1 py-2.5 px-4 rounded-lg text-xs font-semibold flex items-center justify-center gap-2 transition-all ${
-                  activeTab === 'join'
-                    ? 'bg-cyan-400 text-neutral-950 font-bold'
-                    : 'text-cyan-300/70 hover:text-cyan-200 hover:bg-neutral-800'
-                }`}
+                className={`relative z-10 flex-1 py-2.5 px-3 font-bold flex items-center justify-center gap-1.5 transition-colors duration-200 cursor-pointer ${activeTab === 'join'
+                  ? 'text-neutral-950 font-extrabold'
+                  : 'text-white hover:text-cyan-200'
+                  }`}
               >
-                <LogIn className="w-4 h-4" />
-                <span>Join Room</span>
+                <LogIn className={`w-4 h-4 transition-transform ${activeTab === 'join' ? 'scale-110' : ''}`} />
+                <span className="font-pixel text-xs sm:text-sm uppercase tracking-wider">Join Room</span>
               </button>
             </div>
 
@@ -231,12 +223,12 @@ export default function App() {
         )}
       </main>
 
-      {/* Footer */}
-      <footer className={`max-w-6xl w-full mx-auto text-center border-t border-cyan-500/10 text-xs text-neutral-500 shrink-0 ${
-        inDraftPhase ? 'py-1 text-[10px]' : 'py-4 space-y-1'
-      }`}>
-        <div>DraftBoard &bull; Draftout Custom Board Drafter &bull; Not affiliated with DraftoutMC, Mojang or Microsoft</div>
-      </footer>
+      {/* Footer (Hidden completely during drafting phase) */}
+      {!inDraftPhase && (
+        <footer className="max-w-6xl w-full mx-auto text-center border-t border-cyan-500/10 text-xs text-neutral-500 shrink-0 pt-6">
+          <div>Not affiliated with DraftoutMC, Mojang, or Microsoft.</div>
+        </footer>
+      )}
     </div>
   );
 }

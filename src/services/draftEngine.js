@@ -2,7 +2,7 @@ import masterGoals from '../../GOALS.json';
 
 /**
  * DraftEngine Service
- * Manages goal selection from GOALS.json, turn ordering, rerolls, and FINAL.json export payload.
+ * Manages goal selection from GOALS.json, turn ordering, rerolls, and BOARD.json export payload.
  */
 
 export function getMasterGoals() {
@@ -165,7 +165,7 @@ export function executeReroll(draftState) {
 }
 
 /**
- * Export FINAL.json strictly formatted for the Draftout Minecraft mod
+ * Export BOARD.json strictly formatted for the Draftout Minecraft mod
  * Schema requirement:
  * {
  *   "size": 5,

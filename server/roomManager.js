@@ -45,15 +45,16 @@ export async function resolvePlayerIdentity(username) {
 }
 
 export function generateRoomCode() {
+  const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   let code = '';
   do {
-    code = `DF-${Math.floor(1000 + Math.random() * 9000)}`;
+    code = Array.from({ length: 6 }, () => chars[Math.floor(Math.random() * chars.length)]).join('');
   } while (rooms.has(code));
   return code;
 }
 
 export async function createRoom(socketId, hostData) {
-  const roomCode = hostData.roomCode || generateRoomCode();
+  const roomCode = (hostData.roomCode ? String(hostData.roomCode).toUpperCase().trim() : generateRoomCode());
   const identity = await resolvePlayerIdentity(hostData.hostUsername);
 
   const hostPlayer = {
@@ -69,12 +70,12 @@ export async function createRoom(socketId, hostData) {
   const newRoom = {
     roomCode,
     boardSize: hostData.boardSize || '5x5',
-    turnTime: parseInt(hostData.turnTime, 10) || 15,
+    turnTime: parseInt(hostData.turnTime, 10) || 10,
     players: [hostPlayer],
     inDraftPhase: false,
     draftState: null,
     turnTimer: null,
-    remainingTime: 15,
+    remainingTime: parseInt(hostData.turnTime, 10) || 10,
   };
 
   rooms.set(roomCode, newRoom);
@@ -87,6 +88,25 @@ export async function joinRoom(socketId, joinData) {
 
   if (!room) {
     throw new Error(`Room '${roomCode}' does not exist.`);
+  }
+
+  const cleanUsername = (joinData.username || '').trim();
+  const existingPlayer = room.players.find(p => p.username.toLowerCase() === cleanUsername.toLowerCase());
+
+  // Handle re-joining (e.g. page refresh)
+  if (existingPlayer) {
+    const oldSocketId = existingPlayer.socketId;
+    existingPlayer.socketId = socketId;
+    existingPlayer.id = socketId;
+
+    if (room.draftState && room.draftState.players) {
+      const draftPlayer = room.draftState.players.find(p => p.socketId === oldSocketId || p.username.toLowerCase() === cleanUsername.toLowerCase());
+      if (draftPlayer) {
+        draftPlayer.socketId = socketId;
+        draftPlayer.id = socketId;
+      }
+    }
+    return room;
   }
 
   if (room.players.length >= 4) {
@@ -165,6 +185,19 @@ export function leaveRoom(socketId) {
         room.players[0].isHost = true;
       }
 
+      // Sync draftState.players if in draft phase
+      if (room.inDraftPhase && room.draftState && room.draftState.players) {
+        const draftPlayerIdx = room.draftState.players.findIndex(p => p.socketId === socketId);
+        if (draftPlayerIdx !== -1) {
+          room.draftState.players.splice(draftPlayerIdx, 1);
+        }
+        if (room.draftState.players.length === 0) {
+          destroyRoom(code);
+          return { roomCode: code, destroyed: true, removedPlayer };
+        }
+        room.draftState.turnIndex = room.draftState.turnIndex % room.draftState.players.length;
+      }
+
       return { roomCode: code, destroyed: false, room, removedPlayer };
     }
   }
@@ -194,7 +227,10 @@ export function handleMakePick(socketId, roomCode, selectedGoal, io) {
   const room = rooms.get(roomCode);
   if (!room || !room.inDraftPhase || !room.draftState) return null;
 
-  const activePlayer = room.draftState.players[room.draftState.turnIndex];
+  const activePlayer = (room.draftState.players && room.draftState.players.length > 0)
+    ? room.draftState.players[room.draftState.turnIndex % room.draftState.players.length]
+    : null;
+
   if (!activePlayer || activePlayer.socketId !== socketId) {
     return null; // Not active player's turn
   }
@@ -214,7 +250,10 @@ export function handleExecuteReroll(socketId, roomCode, io) {
   const room = rooms.get(roomCode);
   if (!room || !room.inDraftPhase || !room.draftState) return null;
 
-  const activePlayer = room.draftState.players[room.draftState.turnIndex];
+  const activePlayer = (room.draftState.players && room.draftState.players.length > 0)
+    ? room.draftState.players[room.draftState.turnIndex % room.draftState.players.length]
+    : null;
+
   if (!activePlayer || activePlayer.socketId !== socketId) {
     return null;
   }
@@ -231,28 +270,36 @@ export function startTurnTimer(roomCode, io) {
   room.remainingTime = room.turnTime;
 
   room.turnTimer = setInterval(() => {
-    room.remainingTime -= 1;
+    const currentRoom = rooms.get(roomCode);
+    if (!currentRoom || currentRoom.players.length === 0) {
+      clearTurnTimer(room);
+      return;
+    }
 
-    const activePlayer = room.draftState ? room.draftState.players[room.draftState.turnIndex] : null;
+    currentRoom.remainingTime -= 1;
+
+    const activePlayer = (currentRoom.draftState && currentRoom.draftState.players && currentRoom.draftState.players.length > 0)
+      ? currentRoom.draftState.players[currentRoom.draftState.turnIndex % currentRoom.draftState.players.length]
+      : null;
 
     io.to(roomCode).emit('turn_timer_tick', {
-      remainingTime: room.remainingTime,
+      remainingTime: currentRoom.remainingTime,
       activePlayerId: activePlayer ? activePlayer.id : null,
     });
 
-    if (room.remainingTime <= 0) {
+    if (currentRoom.remainingTime <= 0) {
       // Time expired: Auto-pick first presented goal option
-      if (room.draftState && room.draftState.currentOptions && room.draftState.currentOptions.length > 0) {
-        const defaultGoal = room.draftState.currentOptions[0];
-        room.draftState = makePick(room.draftState, defaultGoal);
+      if (currentRoom.draftState && currentRoom.draftState.currentOptions && currentRoom.draftState.currentOptions.length > 0 && activePlayer) {
+        const defaultGoal = currentRoom.draftState.currentOptions[0];
+        currentRoom.draftState = makePick(currentRoom.draftState, defaultGoal);
 
-        if (room.draftState.isComplete) {
-          clearTurnTimer(room);
+        if (currentRoom.draftState && currentRoom.draftState.isComplete) {
+          clearTurnTimer(currentRoom);
         } else {
-          room.remainingTime = room.turnTime;
+          currentRoom.remainingTime = currentRoom.turnTime;
         }
 
-        io.to(roomCode).emit('room_state_updated', sanitizeRoomState(room));
+        io.to(roomCode).emit('room_state_updated', sanitizeRoomState(currentRoom));
       }
     }
   }, 1000);

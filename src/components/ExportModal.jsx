@@ -22,7 +22,7 @@ export default function ExportModal({ draftState, onResetLobby }) {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'FINAL.json';
+    a.download = 'BOARD.json';
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -37,19 +37,19 @@ export default function ExportModal({ draftState, onResetLobby }) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fadeIn">
-      <div className="draftout-panel mc-bevel rounded-2xl max-w-2xl w-full p-6 sm:p-8 space-y-6 shadow-2xl border border-cyan-400/40">
+      <div className="draftout-panel mc-bevel max-w-2xl w-full p-6 sm:p-8 space-y-6 shadow-2xl border border-cyan-400/40">
         {/* Header */}
         <div className="flex items-center justify-between pb-4 border-b border-cyan-500/20">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-cyan-400/10 border border-cyan-400/30 flex items-center justify-center text-cyan-300">
+            <div className="w-10 h-10 bg-cyan-400/10 border border-cyan-400/30 flex items-center justify-center text-cyan-300">
               <CheckCircle2 className="w-6 h-6" />
             </div>
             <div>
-              <h2 className="text-2xl font-title text-cyan-300 tracking-wider">DRAFT COMPLETE!</h2>
+              <h2 className="text-2xl font-title text-white tracking-wider">DRAFT COMPLETE!</h2>
               <p className="text-xs text-neutral-400">Board fully populated & ready for Minecraft export</p>
             </div>
           </div>
-          <span className="text-xs font-mono font-bold bg-neutral-900 text-cyan-300 px-3 py-1.5 rounded border border-cyan-500/30">
+          <span className="text-xs font-mono font-bold bg-neutral-900 text-cyan-300 px-3 py-1.5 border border-cyan-500/30">
             {draftState.gridSize} Board ({draftState.totalSlots} Goals)
           </span>
         </div>
@@ -57,8 +57,8 @@ export default function ExportModal({ draftState, onResetLobby }) {
         {/* Stats Breakdown */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           {draftState.players.map((player) => (
-            <div key={player.id} className="mc-bevel-inset p-3 rounded-lg flex items-center gap-3">
-              <div className="w-8 h-8 rounded shrink-0 overflow-hidden bg-neutral-950 border border-cyan-500/30">
+            <div key={player.id} className="mc-bevel-inset p-3 flex items-center gap-3">
+              <div className="w-8 h-8 shrink-0 overflow-hidden bg-neutral-950 border border-cyan-500/30">
                 <img 
                   src={getPlayerAvatar(player)} 
                   alt={player.username} 
@@ -84,10 +84,10 @@ export default function ExportModal({ draftState, onResetLobby }) {
           <div className="flex items-center justify-between">
             <button
               onClick={() => setShowRaw(!showRaw)}
-              className="text-xs font-semibold text-cyan-300/80 hover:text-cyan-200 flex items-center gap-1.5"
+              className="text-xs font-semibold text-white hover:text-cyan-200 flex items-center gap-1.5"
             >
               <FileJson className="w-4 h-4 text-cyan-400" />
-              {showRaw ? 'Hide Raw FINAL.json Payload' : 'Preview Raw FINAL.json Payload'}
+              {showRaw ? 'Hide Raw BOARD.json Payload' : 'Preview Raw BOARD.json Payload'}
             </button>
 
             {showRaw && (
@@ -102,7 +102,7 @@ export default function ExportModal({ draftState, onResetLobby }) {
           </div>
 
           {showRaw && (
-            <pre className="mc-bevel-inset p-4 rounded-lg text-[11px] font-mono text-cyan-200 max-h-48 overflow-y-auto whitespace-pre-wrap select-all">
+            <pre className="mc-bevel-inset p-4 text-[11px] font-mono text-cyan-200 max-h-48 overflow-y-auto whitespace-pre-wrap select-all">
               {jsonString}
             </pre>
           )}
@@ -112,15 +112,15 @@ export default function ExportModal({ draftState, onResetLobby }) {
         <div className="flex flex-col sm:flex-row items-center gap-3 pt-2">
           <button
             onClick={handleDownload}
-            className="w-full sm:flex-1 py-3.5 px-6 rounded-xl bg-cyan-400 hover:bg-cyan-300 text-neutral-950 font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-md active:scale-98 cursor-pointer"
+            className="w-full sm:flex-1 py-3.5 px-6 bg-cyan-400 hover:bg-cyan-300 text-neutral-950 font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-[0_0_15px_rgba(34,211,238,0.4)] hover:shadow-[0_0_25px_rgba(34,211,238,0.75)] active:scale-98 cursor-pointer"
           >
             <Download className="w-5 h-5 text-neutral-950" />
-            <span className="font-pixel text-xs">DOWNLOAD FINAL.JSON</span>
+            <span className="font-pixel text-xs">DOWNLOAD BOARD.JSON</span>
           </button>
 
           <button
             onClick={onResetLobby}
-            className="w-full sm:w-auto py-3.5 px-6 rounded-xl bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 text-neutral-300 text-xs font-bold flex items-center justify-center gap-2 transition-all cursor-pointer"
+            className="w-full sm:w-auto py-3.5 px-6 bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 hover:border-cyan-400/40 text-neutral-300 text-xs font-bold flex items-center justify-center gap-2 transition-all hover:shadow-[0_0_15px_rgba(34,211,238,0.35)] cursor-pointer"
           >
             <RotateCcw className="w-4 h-4" />
             <span className="font-pixel text-xs">New Draft</span>

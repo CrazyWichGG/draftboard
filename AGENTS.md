@@ -43,15 +43,19 @@ Build a real-time, web-based alternative to the in-game drafting system for the 
 ## Frontend Styling & Aesthetics
 * **Default Theme:** The web interface must replicate the color palette and styling of the official Draftout website (e.g., `https://draftoutmc.com/wiki`) by default.
 * **Color Palette:** Utilize deep dark backgrounds (like Tailwind's `bg-neutral-950`) heavily accented with bright cyan (e.g., `text-cyan-300`, `border-cyan-300/25`, `bg-cyan-300/10`).
-* **No Glows or Gradients:** Do not use CSS gradients or glowing effects (e.g., heavy neon box-shadows, blooming text) by default unless explicitly instructed. The design should remain relatively flat or restricted to solid-color highlights and Minecraft menu bevels.
-* **Minecraft GUI:** Replicate the exact aesthetic of the in-game Minecraft GUI for the drafting board components, including CSS-generated bevels, custom slots, and pixelated fonts.
-* **Customization:** While the Draftout website theme is the default baseline, the styling and colors must be implemented in a way that allows the user to easily change or override them upon request.
+* **Semi-Transparent Panels:** Panels and bevels utilize semi-transparent dark backgrounds (`rgba(18, 18, 21, 0.65)`) with `backdrop-filter: blur(4px)`.
+* **Sharp Corners (No Rounded Corners):** Cards, panels, inputs, tooltips, slots, and modals must use sharp, square corners (`rounded-none`). **EXCEPTION:** Pulsing status indicator dots (e.g., before **DRAFT LOBBY ACTIVE** and turn indicator dots) must strictly remain circles (`rounded-full`).
+* **No Crown Overlays on Avatars:** Player head avatars must render cleanly without crown icons overlaid on top.
+* **No Glows or Gradients:** Do not use CSS gradients or glowing effects by default unless explicitly instructed.
+* **Minecraft GUI:** Replicate the exact aesthetic of the in-game Minecraft GUI for the drafting board components, including CSS-generated bevels, custom slots, and pixelated fonts (`font-pixel`).
+* **Progress Bar:** Smooth continuous 1s linear transition. Colored **Green** (`bg-emerald-400`) during client turn and **Red** (`bg-rose-500`) during opponent turns.
+* **Footer Disclaimer:** Completely hidden during active drafting sessions (`inDraftPhase`), rendered on home/lobby views with clean spacing.
 
 ---
 
 ## Data Sources
-* **Crafatar API (Skin Fetching):** The application will use the [Crafatar API](https://crafatar.com/) (e.g., `https://crafatar.com/avatars/{uuid}?size=64&overlay`) to easily fetch pre-cropped, 2D player head avatars. The backend will need to resolve the user's Minecraft username to a UUID using the Mojang API first, and then pass that UUID to the frontend to render the Crafatar image.
-* **Master Goals List:** The application will read the available goals from a static, local GOALS.json file. Do **not** write scripts to scrape, generate, or modify this file, as it will be managed and updated manually. The structure will always match this format:
+* **Crafatar API (Skin Fetching):** The application will use the [Crafatar API](https://crafatar.com/) (e.g., `https://crafatar.com/avatars/{uuid}?size=64&overlay`) to fetch pre-cropped 2D player head avatars, with Minotar fallback.
+* **Master Goals List:** The application reads available goals from a static, local `GOALS.json` file. Do **not** write scripts to scrape or modify this file. Format:
 ```json
   {
     "id": "ALL_UPPERCASE_ID_FOR_EXPORT",
@@ -67,26 +71,24 @@ Build a real-time, web-based alternative to the in-game drafting system for the 
 
 ### 1. Lobby Creation & Joining
 
-* A Host creates a room and configures settings: Board size (3x3 up to 7x7) and turn time limit (default 15s).
-* The web app generates a shareable room code.
-* Up to 3 additional players join using the code.
-* Players must enter their Minecraft usernames. The backend queries the Mojang API to fetch their UUID and raw skin texture, which the frontend then parses to display their player head.
+* **Room Configuration:** Host creates a room with configurable **Board Size** (3x3, 4x4, 5x5 [DEFAULT], 6x6, 7x7) and **Picking Time Limit** (10s [DEFAULT], 15s, 30s, 45s, 60s).
+* **Room Code:** Generates a 6-character uppercase alphanumeric code (e.g. `X7K9P2`). Codes are masked by default (`••••••`) with an eye toggle button. Lowercase input is normalized to uppercase automatically.
+* **Join Errors:** Error messages display inline directly beneath the Room Code input field (`text-rose-400 font-pixel mt-2`).
+* **Players:** Up to 4 players join per room. Reconnection on page refresh is supported seamlessly by username without interrupting ongoing drafts.
 
 ### 2. Drafting Phase
 
-* **Turn Order:** The system randomly determines the picking order among the connected players.
-* **UI Layout:** The current client's player head/name is anchored on the left. The other players are listed vertically on the right.
-* **Selection:** On a player's turn, they are presented with 2 randomly selected goals from the static master JSON list. They must pick 1 to place on the board.
-* **Reroll System:** Each player has one (1) single-use reroll to cycle the 2 presented goals.
-* **Timer:** Players have 15 seconds to pick. If the timer expires, the system auto-picks the first goal and passes the turn.
-* **Real-time Sync:** All UI updates (board filling up, turn indicators changing, timer ticking down) are synced instantly across all clients via Socket.io.
+* **Turn Order:** System randomly determines picking order among connected players.
+* **UI Layout:** Anchored client player is on the left (`YOU`). Opponents are listed vertically on the right.
+* **Selection & Goal Pool Tracking:** On a player's turn, 2 goals are presented from `GOALS.json`. All presented goals are tracked in `usedGoalIds` to ensure goals never repeat during a drafting session unless the master pool runs out.
+* **Reroll System:** Each player has one (1) single-use boolean reroll (`REROLL (1 LEFT)` / `REROLL USED`).
+* **Timer:** Default 10 seconds picking time limit. Timer auto-picks option #1 if time expires.
+* **Real-time Sync:** All UI updates, board states, turn indicators, and timers sync instantly via Socket.io.
 
 ### 3. Export
 
 * Once the grid is fully populated, the draft ends.
-* The system compiles the selected goals into the final payload format.
-* Players are prompted to download a `FINAL.json` file formatted specifically for the Draftout mod to play the drafted board in-game.
-* **Export Format Strictness:** The generated JSON must rigidly follow the exact format below. The `id` keys must map directly from the master `GOALS.json` file. Data-driven goals (such as colored wool, colored sheep, or leather armor piece combinations) must include their respective `"data"` property. The size value is a single integer ranged from 3 to 7. Use the exact format from this example for `FINAL.json`:
+* Players are prompted to download `BOARD.json` formatted specifically for the Draftout Minecraft mod:
 
 ```json
 {
@@ -102,20 +104,7 @@ Build a real-time, web-based alternative to the in-game drafting system for the 
     {
       "id": "KILL_COLORED_SHEEP",
       "data": "yellow"
-    },
-    {
-      "id": "OBTAIN_COLORED_GLAZED_TERRACOTTA",
-      "data": "light_gray"
-    },
-    {
-      "id": "OBTAIN_64_COLORED_CONCRETE",
-      "data": "brown"
-    },
-    {
-      "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
-      "data": "leather_boots&gray"
     }
-    ...and so on
   ]
 }
 ```
@@ -128,6 +117,6 @@ Before finalizing any task, updating the user, or committing code, the agent mus
 
 1. **Requirements Check:** Does the completed code strictly meet the constraints and features requested in the step/task?
 2. **Syntax & Logic Review:** Manually dry-run the written code to check for missing imports, undeclared variables, endless loops, or syntax errors.
-3. **Data Structure Validation:** Ensure any data passed to the frontend or exported (like the final `FINAL.json`) strictly conforms to the expected schemas.
+3. **Data Structure Validation:** Ensure any data passed to the frontend or exported (like the final `BOARD.json`) strictly conforms to expected schemas.
 4. **State Consistency:** Verify that real-time Socket.io event emissions and React state updates align perfectly without causing race conditions.
-5. **Aesthetic Compliance:** Confirm that UI updates utilize Tailwind correctly to maintain the default Draftout web theme and strict Minecraft GUI aesthetic (pixelated fonts, specific bevel colors, etc.), unless instructed otherwise.
+5. **Aesthetic Compliance:** Confirm that UI updates utilize Tailwind correctly to maintain the default Draftout web theme and strict Minecraft GUI aesthetic (sharp square corners except for pulsing status dots, pixelated fonts, specific bevel colors, etc.).

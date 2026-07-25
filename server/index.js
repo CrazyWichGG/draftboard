@@ -174,7 +174,7 @@ function handlePlayerDisconnect(socket) {
 
 // SPA Fallback for Client Routing in Production
 if (fs.existsSync(distPath)) {
-  app.get('*', (req, res, next) => {
+  app.use((req, res, next) => {
     if (req.path.startsWith('/api') || req.path.startsWith('/socket.io')) {
       return next();
     }
