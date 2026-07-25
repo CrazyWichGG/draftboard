@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Mojangles';
+  src: url('/fonts/Mojangles.ttf') format('truetype'),
+       url('/fonts/Mojangles.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MinecraftSeven';
+  src: url('/fonts/MinecraftSeven.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  body {
+    background-color: #09090b;
+    background-image: linear-gradient(to bottom, rgba(9, 9, 11, 0.45), rgba(9, 9, 11, 0.55)), url('/background.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #f5f5f5;
+  }
+}
+
+/* Flat Minecraft GUI Bevel Utilities (No Gradients or Neon Glows) */
+.mc-bevel {
+  background-color: #18181b;
+  border-style: solid;
+  border-width: 3px;
+  border-color: #27272a #09090b #09090b #27272a;
+}
+
+.mc-bevel-inset {
+  background-color: #09090b;
+  border-style: solid;
+  border-width: 3px;
+  border-color: #000000 #27272a #27272a #000000;
+}
+
+.mc-slot {
+  background-color: #121215;
+  border: 2px solid #27272a;
+}
+
+.mc-slot-active {
+  background-color: #09090b;
+  border: 2px solid #67e8f9;
+}
+
+.draftout-panel {
+  background-color: #121215;
+  border: 1px solid rgba(103, 232, 249, 0.25);
+}
+
+.draftout-panel-header {
+  background-color: #17171c;
+  border-bottom: 1px solid rgba(103, 232, 249, 0.2);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #09090b;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
