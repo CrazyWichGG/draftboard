@@ -226,7 +226,15 @@ export default function App() {
       {/* Footer (Hidden completely during drafting phase) */}
       {!inDraftPhase && (
         <footer className="max-w-6xl w-full mx-auto text-center border-t border-cyan-500/10 text-xs text-neutral-500 shrink-0 pt-6">
-          <div>Not affiliated with DraftoutMC, Mojang, or Microsoft.</div>
+          <div className="flex items-center justify-center gap-2 flex-wrap">
+            <span className="flex items-center gap-1">
+              <span>Made by</span>
+              <a className="font-bold hover:underline" href="https://github.com/CrazyWichGG" target="_blank" rel="noopener noreferrer">CrazyWichGG</a>
+              <span>for the community</span>
+            </span>
+            <span className="text-neutral-600 select-none">•</span>
+            <span>Not affiliated with DraftoutMC, Mojang, or Microsoft</span>
+          </div>
         </footer>
       )}
     </div>
