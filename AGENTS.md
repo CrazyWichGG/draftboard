@@ -1,4 +1,4 @@
-# AGENTS.md - DraftBoard - Draftout Custom Web Lobby
+# AGENTS.md - DraftBoard - Draftout Custom Board Drafter
 
 ## AI Agent Directives (CRITICAL)
 Read and strictly adhere to the following rules before taking any action on this project:
