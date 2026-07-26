@@ -1996,5 +1996,150 @@
     "id": "OBTAIN_WRITTEN_BOOK",
     "text": "Write a Book",
     "texture": "/assets/goals/write_a_book.png"
+  },
+  {
+    "id": "KILL_HUSK",
+    "text": "Kill Husk",
+    "texture": "/assets/goals/kill_husk.png"
+  },
+  {
+    "id": "KILL_GHAST",
+    "text": "Kill Ghast",
+    "texture": "/assets/goals/kill_ghast.png"
+  },
+  {
+    "id": "OBTAIN_ANCIENT_DEBRIS",
+    "text": "Obtain Ancient Debris",
+    "texture": "/assets/goals/obtain_ancient_debris.png"
+  },
+  {
+    "id": "OBTAIN_AMETHYST_BLOCK",
+    "text": "Obtain Amethyst Block",
+    "texture": "/assets/goals/obtain_amethyst_block.png"
+  },
+  {
+    "id": "OBTAIN_WITHER_SKELETON_SKULL",
+    "text": "Obtain Wither Skeleton Skull",
+    "texture": "/assets/goals/obtain_wither_skeleton_skull.png"
+  },
+  {
+    "id": "OBTAIN_END_ROD",
+    "text": "Obtain End Rod",
+    "texture": "/assets/goals/obtain_end_rod.png"
+  },
+  {
+    "id": "OBTAIN_DRAGON_EGG",
+    "text": "Obtain Dragon Egg",
+    "texture": "/assets/goals/obtain_dragon_egg.png"
+  },
+  {
+    "id": "OBTAIN_OBSERVER",
+    "text": "Obtain Observer",
+    "texture": "/assets/goals/obtain_observer.png"
+  },
+  {
+    "id": "OBTAIN_4_UNIQUE_SEEDS",
+    "text": "Obtain 4 Unique Seeds",
+    "texture": "/assets/goals/obtain_4_unique_seeds.png"
+  },
+  {
+    "id": "OBTAIN_TINTED_GLASS",
+    "text": "Obtain Tinted Glass",
+    "texture": "/assets/goals/obtain_tinted_glass.png"
+  },
+  {
+    "id": "EAT_CHORUS_FRUIT",
+    "text": "Eat Chorus Fruit",
+    "texture": "/assets/goals/eat_chorus_fruit.png"
+  },
+  {
+    "id": "GET_WHAT_A_DEAL_ADVANCEMENT",
+    "text": "Trade with a Villager",
+    "texture": "/assets/goals/trade_with_a_villager.png"
+  },
+  {
+    "id": "GET_HIRED_HELP_ADVANCEMENT",
+    "text": "Construct an Iron Golem",
+    "texture": "/assets/goals/construct_an_iron_golem.png"
+  },
+  {
+    "id": "GET_LEVITATION_STATUS_EFFECT",
+    "text": "Get Levitation",
+    "texture": "/assets/goals/get_levitation.png"
+  },
+  {
+    "id": "GET_A_TERRIBLE_FORTRESS_ADVANCEMENT",
+    "text": "Find a Fortress",
+    "texture": "/assets/goals/find_a_fortress.png"
+  },
+  {
+    "id": "GET_THE_CITY_AT_THE_END_OF_THE_GAME_ADVANCEMENT",
+    "text": "Find an End City",
+    "texture": "/assets/goals/find_an_end_city.png"
+  },
+  {
+    "id": "GET_THOSE_WERE_THE_DAYS_ADVANCEMENT",
+    "text": "Find a Bastion",
+    "texture": "/assets/goals/find_a_bastion.png"
+  },
+  {
+    "id": "RIDE_HORSE",
+    "text": "Ride a Horse",
+    "texture": "/assets/goals/ride_a_horse.png"
+  },
+  {
+    "id": "USE_GLOW_INK_WARPED",
+    "text": "Use Glow Ink on Warped Sign",
+    "texture": "/assets/goals/use_glow_ink_on_warped_sign.png"
+  },
+  {
+    "id": "USE_GLOW_INK_NETHER",
+    "text": "Use Glow Ink on Crimson or Warped Sign",
+    "texture": "/assets/goals/use_glow_ink_on_crimson_or_warped_sign.png"
+  },
+  {
+    "id": "OBTAIN_SOUL_CAMPFIRE",
+    "text": "Obtain Soul Campfire",
+    "texture": "/assets/goals/obtain_soul_campfire.png"
+  },
+  {
+    "id": "ENRAGE_ENDERMAN",
+    "text": "Enrage Enderman",
+    "texture": "/assets/goals/enrage_enderman.png"
+  },
+  {
+    "id": "PLACE_HANGING_SIGN",
+    "text": "Place a Hanging Sign",
+    "texture": "/assets/goals/place_a_hanging_sign.png"
+  },
+  {
+    "id": "OBTAIN_64_ARROWS",
+    "text": "Obtain 64 Arrows",
+    "texture": "/assets/goals/obtain_64_arrows.png"
+  },
+  {
+    "id": "VISIT_ALL_CAVE_BIOMES",
+    "text": "Visit all Cave Biomes",
+    "texture": "/assets/goals/visit_all_cave_biomes.png"
+  },
+  {
+    "id": "SPY_15_UNIQUE_MOBS",
+    "text": "Spy on 15 Unique Mobs",
+    "texture": "/assets/goals/spy_on_15_unique_mobs.png"
+  },
+  {
+    "id": "SPY_25_UNIQUE_MOBS",
+    "text": "Spy on 25 Unique Mobs",
+    "texture": "/assets/goals/spy_on_25_unique_mobs.png"
+  },
+  {
+    "id": "DIE_TO_TRIDENT",
+    "text": "Die to Trident",
+    "texture": "/assets/goals/die_to_trident.png"
+  },
+  {
+    "id": "TURN_IRON_GOLEM_UPSIDE_DOWN",
+    "text": "Name an Iron Golem 'Dinnerbone'",
+    "texture": "/assets/goals/name_an_iron_golem_dinnerbone.png"
   }
 ]
