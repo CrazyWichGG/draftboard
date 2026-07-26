@@ -156,7 +156,7 @@ export default function App() {
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-title font-bold tracking-wider text-white leading-none">
               DraftBoard
             </h1>
-            <p className="text-[11px] text-neutral-400 font-sans mt-1">Draftout Custom Board Drafter</p>
+            <p className="text-[11px] text-neutral-400 font-sans mt-1">Custom Board Drafter for Draftout v1.14.0</p>
           </div>
         </div>
       </header>
