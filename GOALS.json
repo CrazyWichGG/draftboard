@@ -1494,11 +1494,6 @@
     "texture": "/assets/goals/toot_a_goat_horn.png"
   },
   {
-    "id": "GET_WHAT_A_DEAL_ADVANCEMENT",
-    "text": "Trade with a Villager",
-    "texture": "/assets/goals/trade_with_a_villager.png"
-  },
-  {
     "id": "TUNE_NOTEBLOCK",
     "text": "Tune a Note Block",
     "texture": "/assets/goals/tune_a_note_block.png"
