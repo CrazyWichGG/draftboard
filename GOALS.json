@@ -1494,7 +1494,7 @@
     "texture": "/assets/goals/toot_a_goat_horn.png"
   },
   {
-    "id": "TRADE_WITH_VILLAGER",
+    "id": "GET_WHAT_A_DEAL_ADVANCEMENT",
     "text": "Trade with a Villager",
     "texture": "/assets/goals/trade_with_a_villager.png"
   },
