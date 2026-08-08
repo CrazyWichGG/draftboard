@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: 'draftboard-server',
+      name: 'draftboard',
       script: './server/index.js',
       instances: 1,
       autorestart: true,
