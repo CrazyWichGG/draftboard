@@ -74,7 +74,7 @@ Build a real-time, web-based alternative to the in-game drafting system for the 
 * **Room Configuration:** Host creates a room with configurable **Board Size** (3x3, 4x4, 5x5 [DEFAULT], 6x6, 7x7) and **Picking Time Limit** (10s [DEFAULT], 15s, 30s, 45s, 60s).
 * **Room Code:** Generates a 6-character uppercase alphanumeric code (e.g. `X7K9P2`). Codes are masked by default (`••••••`) with an eye toggle button. Lowercase input is normalized to uppercase automatically.
 * **Join Errors:** Error messages display inline directly beneath the Room Code input field (`text-rose-400 font-pixel mt-2`).
-* **Players:** Up to 4 players join per room. Reconnection on page refresh is supported seamlessly by username without interrupting ongoing drafts.
+* **Players:** Up to 4 players join per room.
 
 ### 2. Drafting Phase
 
@@ -111,7 +111,7 @@ Build a real-time, web-based alternative to the in-game drafting system for the 
 
 ---
 
-## ✅ Verification Process
+## Verification Process
 
 Before finalizing any task, updating the user, or committing code, the agent must perform the following self-checks:
 
