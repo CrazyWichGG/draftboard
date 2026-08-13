@@ -140,11 +140,6 @@
     "texture": "/assets/goals/construct_a_copper_golem.png"
   },
   {
-    "id": "CONSTRUCT_IRON_GOLEM",
-    "text": "Construct an Iron Golem",
-    "texture": "/assets/goals/construct_an_iron_golem.png"
-  },
-  {
     "id": "CRAFT_20_UNIQUE_ITEMS",
     "text": "Craft 20 Unique Items",
     "texture": "/assets/goals/craft_20_unique_items.png"
@@ -158,6 +153,11 @@
     "id": "CRAFT_100_UNIQUE_ITEMS",
     "text": "Craft 100 Unique Items",
     "texture": "/assets/goals/craft_100_unique_items.png"
+  },
+  {
+    "id": "CRAFT_ARMOR_TRIM",
+    "text": "Duplicate any Armor Trim",
+    "texture": "/assets/goals/craft_armor_trim.png"
   },
   {
     "id": "DEAL_400_DAMAGE",
@@ -263,6 +263,11 @@
     "id": "DRINK_WATER_BOTTLE",
     "text": "Drink Water Bottle",
     "texture": "/assets/goals/drink_water_bottle.png"
+  },
+  {
+    "id": "DUPLICATE_ALLAY",
+    "text": "Duplicate Allay",
+    "texture": "/assets/goals/duplicate_allay.png"
   },
   {
     "id": "EAT_5_UNIQUE_FOOD",
@@ -681,6 +686,11 @@
     "texture": "/assets/goals/mine_a_spawner.png"
   },
   {
+    "id": "MINE_3_TYPES_OF_ICE",
+    "text": "Mine 3 types of Ice",
+    "texture": "/assets/goals/mine_3_types_of_ice.png"
+  },
+  {
     "id": "MINE_CRAFTER",
     "text": "Mine Crafter",
     "texture": "/assets/goals/mine_crafter.png"
@@ -749,6 +759,11 @@
     "id": "GET_WAX_ON_ADVANCEMENT",
     "text": "Obtain \"Wax On\" Advancement",
     "texture": "/assets/goals/obtain_wax_on_advancement.png"
+  },
+  {
+    "id": "OBTAIN_2_ARMOR_TRIMS",
+    "text": "Obtain 2 Unique Armor Trims",
+    "texture": "/assets/goals/obtain_2_armor_trims.png"
   },
   {
     "id": "OBTAIN_3_HORSE_ARMORS",
@@ -1250,7 +1265,7 @@
   },
   {
     "id": "OBTAIN_ENCHANT_BOTTLE",
-    "text": "Obtain Experience Bottle",
+    "text": "Obtain Bottle o' Enchanting",
     "texture": "/assets/goals/obtain_experience_bottle.png"
   },
   {
@@ -1530,8 +1545,8 @@
   },
   {
     "id": "USE_GLOW_INK_CRIMSON",
-    "text": "Use Glow Ink on Crimson or Warped Sign",
-    "texture": "/assets/goals/use_glow_ink_on_crimson_or_warped_sign.png"
+    "text": "Use Glow Ink on Crimson Sign",
+    "texture": "/assets/goals/use_glow_ink_crimson.png"
   },
   {
     "id": "USE_GRINDSTONE",
@@ -1986,6 +2001,11 @@
     "id": "WEAR_UNIQUE_COLORED_LEATHER_ARMOR",
     "text": "Wear Full Leather Armor, in different colors",
     "texture": "/assets/goals/wear_full_leather_armor_in_different_colors.png"
+  },
+  {
+    "id": "WEAR_UNIQUE_ARMOR",
+    "text": "Wear Full Armor with different materials",
+    "texture": "/assets/goals/wear_unique_armor.png"
   },
   {
     "id": "OBTAIN_WRITTEN_BOOK",
