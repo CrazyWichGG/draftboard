@@ -197,7 +197,7 @@ export default function DraftingPhaseView({ lobbyData, serverTimer, onResetLobby
                   {/* Goal Option Text */}
                   <div className="flex-1 min-w-0">
                     <div className={`flex items-center justify-between ${isLeftOption ? 'flex-row-reverse' : 'flex-row'}`}>
-                      <span className="text-[9px] font-mono text-cyan-300/70 uppercase">OPTION #{optionIdx + 1}</span>
+                      <span className="text-[9px] font-mono text-cyan-300/70 uppercase">OPTION {optionIdx + 1}</span>
                       {isCurrentClientTurn && (
                         <span className="text-[9px] font-pixel text-cyan-300 bg-cyan-400/10 px-1.5 py-0.5 border border-cyan-400/30">
                           CLICK TO PICK
