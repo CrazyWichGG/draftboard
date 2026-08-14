@@ -4,7 +4,7 @@ import JoinRoomCard from './components/JoinRoomCard';
 import LobbyRoomView from './components/LobbyRoomView';
 import DraftingPhaseView from './components/DraftingPhaseView';
 import { socket, createRoomSocket, joinRoomSocket, leaveRoomSocket } from './services/socket';
-import { Gamepad2, Sparkles, LogIn, Swords } from 'lucide-react';
+import { Gamepad2, Sparkles, LogIn, Swords, Github } from 'lucide-react';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('create');
@@ -159,6 +159,15 @@ export default function App() {
             <p className="text-[11px] text-neutral-400 font-sans mt-1">Custom Board Drafter for Draftout v1.15.0</p>
           </div>
         </div>
+
+        <a
+          href="https://github.com/CrazyWichGG/draftboard"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-10 h-10 sm:w-11 sm:h-11 bg-[#121215]/65 hover:bg-[#18181b]/80 border border-neutral-700/60 hover:border-neutral-400/80 backdrop-blur-[4px] text-white hover:text-neutral-100 transition-all duration-200 flex items-center justify-center shrink-0 shadow-sm select-none"
+        >
+          <Github className="w-5 h-5 sm:w-6 sm:h-6 shrink-0" />
+        </a>
       </header>
 
       {/* Main Content View */}
