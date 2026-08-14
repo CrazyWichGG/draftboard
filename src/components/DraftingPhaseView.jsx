@@ -310,7 +310,7 @@ export default function DraftingPhaseView({ lobbyData, serverTimer, onResetLobby
                     >
                       {/* Slot Number Tag */}
                       <span className="text-[8px] font-mono font-bold text-neutral-500/70 absolute top-0.5 left-1 z-10 pointer-events-none">
-                        #{index + 1}
+                        {index + 1}
                       </span>
 
                       {/* Slot Content - FULL ICON IN GRID CELL */}
@@ -331,7 +331,7 @@ export default function DraftingPhaseView({ lobbyData, serverTimer, onResetLobby
 
                       {/* Claimed Player Avatar Badge */}
                       {isClaimed && slotItem.claimedBy && (
-                        <div className="absolute bottom-0.5 right-0.5 w-3.5 h-3.5 overflow-hidden border border-cyan-400/50 bg-neutral-950 z-10">
+                        <div className="absolute bottom-0.5 right-0.5 w-3.5 h-3.5 overflow-hidden bg-neutral-950 z-10">
                           <img
                             src={getPlayerAvatar(slotItem.claimedBy)}
                             alt={slotItem.claimedBy.username}
@@ -349,14 +349,14 @@ export default function DraftingPhaseView({ lobbyData, serverTimer, onResetLobby
                         <div className={`absolute z-[100] left-1/2 -translate-x-1/2 hidden group-hover:flex flex-col w-52 p-2.5 bg-neutral-950/95 border border-cyan-400/60 shadow-2xl pointer-events-none text-left backdrop-blur-md ${isTopHalf ? 'top-full mt-2' : 'bottom-full mb-2'
                           }`}>
                           <p className="text-[10px] font-mono text-cyan-300 font-bold uppercase mb-1">
-                            Slot #{index + 1}
+                            Slot {index + 1}
                           </p>
                           <p className="text-xs font-bold text-white leading-snug mb-2">
                             {slotItem.text}
                           </p>
                           {slotItem.claimedBy && (
                             <div className="flex items-center gap-2 pt-1.5 border-t border-neutral-800">
-                              <div className="mc-bevel-inset w-5 h-5 overflow-hidden p-0.5 shrink-0 bg-neutral-900 border border-cyan-400/40 flex items-center justify-center">
+                              <div className="w-5 h-5 overflow-hidden p-0.5 shrink-0 bg-neutral-900 flex items-center justify-center">
                                 <img
                                   src={getPlayerAvatar(slotItem.claimedBy)}
                                   alt={slotItem.claimedBy?.username || 'Player'}
