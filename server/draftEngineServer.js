@@ -5,9 +5,11 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Load static master GOALS.json
+// Load static master GOALS.json and queueGoalIds.json
 const goalsPath = path.resolve(__dirname, '../GOALS.json');
+const queueGoalsPath = path.resolve(__dirname, './queueGoalIds.json');
 let masterGoals = [];
+let queueGoalSet = new Set();
 
 export function loadMasterGoals() {
   try {
@@ -19,7 +21,19 @@ export function loadMasterGoals() {
   return masterGoals;
 }
 
+export function loadQueueGoalIds() {
+  try {
+    const fileData = fs.readFileSync(queueGoalsPath, 'utf8');
+    const ids = JSON.parse(fileData);
+    queueGoalSet = new Set(ids);
+  } catch (err) {
+    console.error('[DraftEngineServer] Error loading queueGoalIds.json:', err.message);
+  }
+  return queueGoalSet;
+}
+
 loadMasterGoals();
+loadQueueGoalIds();
 
 export function getMasterGoals() {
   if (!masterGoals || masterGoals.length === 0) {
@@ -28,8 +42,15 @@ export function getMasterGoals() {
   return masterGoals;
 }
 
-export function drawRandomGoals(count = 2, usedGoalIds = new Set()) {
-  const goalsList = getMasterGoals();
+export function drawRandomGoals(count = 2, usedGoalIds = new Set(), goalPool = 'queue') {
+  let goalsList = getMasterGoals();
+  if (goalPool === 'queue') {
+    if (!queueGoalSet || queueGoalSet.size === 0) {
+      loadQueueGoalIds();
+    }
+    goalsList = goalsList.filter(g => queueGoalSet.has(g.id));
+  }
+
   const usedSet = usedGoalIds instanceof Set ? usedGoalIds : new Set(usedGoalIds);
 
   // 1. Group master goals by base category ID (e.g. KILL_COLORED_SHEEP -> [variants...])
@@ -75,10 +96,10 @@ export function parseGridDimensions(gridSizeStr = '5x5') {
   return { rows: 5, cols: 5, total: 25 };
 }
 
-export function initDraftSession(gridSizeStr = '5x5', players = []) {
+export function initDraftSession(gridSizeStr = '5x5', players = [], goalPool = 'queue') {
   const { rows, cols, total } = parseGridDimensions(gridSizeStr);
   const usedIds = new Set();
-  const initialOptions = drawRandomGoals(2, usedIds);
+  const initialOptions = drawRandomGoals(2, usedIds, goalPool);
   // Mark all initial options as seen in usedIds
   initialOptions.forEach(opt => {
     if (opt && opt.id) usedIds.add(opt.id);
@@ -93,6 +114,7 @@ export function initDraftSession(gridSizeStr = '5x5', players = []) {
 
   return {
     gridSize: gridSizeStr,
+    goalPool: goalPool,
     rows,
     cols,
     totalSlots: total,
@@ -141,7 +163,7 @@ export function makePick(draftState, selectedGoal) {
   const currentOptionIds = (draftState.currentOptions || []).map(g => g.id);
   const newUsedIds = new Set([...(draftState.usedGoalIds || []), selectedGoal.id, ...currentOptionIds]);
 
-  const nextOptions = isComplete ? [] : drawRandomGoals(2, newUsedIds);
+  const nextOptions = isComplete ? [] : drawRandomGoals(2, newUsedIds, draftState.goalPool || 'queue');
   // Mark new options as seen
   nextOptions.forEach(opt => {
     if (opt && opt.id) newUsedIds.add(opt.id);
@@ -182,7 +204,7 @@ export function executeReroll(draftState, playerId) {
 
   const currentOptionIds = (draftState.currentOptions || []).map(o => o.id);
   const newUsedIds = new Set([...(draftState.usedGoalIds || []), ...currentOptionIds]);
-  const newOptions = drawRandomGoals(2, newUsedIds);
+  const newOptions = drawRandomGoals(2, newUsedIds, draftState.goalPool || 'queue');
   newOptions.forEach(opt => {
     if (opt && opt.id) newUsedIds.add(opt.id);
   });

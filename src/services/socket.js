@@ -38,8 +38,8 @@ export function toggleReadySocket(roomCode) {
   socket.emit('toggle_ready', { roomCode });
 }
 
-export function updateRoomSettingsSocket(roomCode, { boardSize, turnTime }) {
-  socket.emit('update_room_settings', { roomCode, boardSize, turnTime });
+export function updateRoomSettingsSocket(roomCode, { boardSize, turnTime, goalPool }) {
+  socket.emit('update_room_settings', { roomCode, boardSize, turnTime, goalPool });
 }
 
 export function startDraftSocket(roomCode) {

@@ -105,8 +105,8 @@ io.on('connection', (socket) => {
   });
 
   // Update Room Settings Event (Host Only)
-  socket.on('update_room_settings', ({ roomCode, boardSize, turnTime }) => {
-    const room = updateRoomSettings(socket.id, roomCode, { boardSize, turnTime });
+  socket.on('update_room_settings', ({ roomCode, boardSize, turnTime, goalPool }) => {
+    const room = updateRoomSettings(socket.id, roomCode, { boardSize, turnTime, goalPool });
     if (room) {
       io.to(roomCode).emit('room_state_updated', sanitizeRoomState(room));
     }

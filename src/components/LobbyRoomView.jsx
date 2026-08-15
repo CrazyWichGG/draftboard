@@ -43,6 +43,7 @@ export default function LobbyRoomView({ lobbyData, onLeaveLobby }) {
     updateRoomSettingsSocket(lobbyData.roomCode, {
       boardSize: newSize,
       turnTime: lobbyData.turnTime,
+      goalPool: lobbyData.goalPool || 'queue',
     });
   };
 
@@ -51,6 +52,16 @@ export default function LobbyRoomView({ lobbyData, onLeaveLobby }) {
     updateRoomSettingsSocket(lobbyData.roomCode, {
       boardSize: lobbyData.boardSize,
       turnTime: newTime,
+      goalPool: lobbyData.goalPool || 'queue',
+    });
+  };
+
+  const handleGoalPoolChange = (newPool) => {
+    if (!isHost) return;
+    updateRoomSettingsSocket(lobbyData.roomCode, {
+      boardSize: lobbyData.boardSize,
+      turnTime: lobbyData.turnTime,
+      goalPool: newPool,
     });
   };
 
@@ -306,6 +317,50 @@ export default function LobbyRoomView({ lobbyData, onLeaveLobby }) {
                     >
                       <span>{time}s</span>
                       {isDefault && (
+                        <span className="text-[7px] font-pixel text-amber-300 leading-none">
+                          DEFAULT
+                        </span>
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Goal Pool Selector with DEFAULT badge */}
+            <div className="space-y-2">
+              <label className="block text-xs font-semibold text-white uppercase tracking-wider flex items-center justify-between">
+                <span className="flex items-center gap-1.5">
+                  <ShieldCheck className="w-3.5 h-3.5 text-cyan-400" />
+                  Goal Pool
+                </span>
+                <span className="font-mono text-cyan-300 font-bold uppercase">
+                  {(lobbyData.goalPool || 'queue') === 'queue' ? 'Queue (379)' : 'All Goals (407)'}
+                </span>
+              </label>
+
+              <div className="grid grid-cols-2 gap-1.5">
+                {[
+                  { id: 'queue', label: 'QUEUE POOL (379)', isDefault: true },
+                  { id: 'all', label: 'ALL GOALS (407)', isDefault: false },
+                ].map((pool) => {
+                  const isSelected = (lobbyData.goalPool || 'queue') === pool.id;
+
+                  return (
+                    <button
+                      key={pool.id}
+                      type="button"
+                      disabled={!isHost}
+                      onClick={() => handleGoalPoolChange(pool.id)}
+                      className={`py-2 px-1 text-xs font-bold transition-all border flex flex-col items-center justify-center gap-0.5 ${isSelected
+                        ? 'bg-cyan-400/20 border-cyan-400 text-cyan-200 shadow-[0_0_12px_rgba(34,211,238,0.4)]'
+                        : isHost
+                          ? 'bg-neutral-900 border-neutral-800 text-neutral-400 hover:border-cyan-500/50 hover:text-neutral-200 hover:shadow-[0_0_12px_rgba(34,211,238,0.3)] cursor-pointer'
+                          : 'bg-neutral-950 border-neutral-800 text-neutral-600 opacity-60 cursor-not-allowed'
+                        }`}
+                    >
+                      <span className="font-pixel text-[10px]">{pool.label}</span>
+                      {pool.isDefault && (
                         <span className="text-[7px] font-pixel text-amber-300 leading-none">
                           DEFAULT
                         </span>

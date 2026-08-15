@@ -71,6 +71,7 @@ export async function createRoom(socketId, hostData) {
     roomCode,
     boardSize: hostData.boardSize || '5x5',
     turnTime: parseInt(hostData.turnTime, 10) || 10,
+    goalPool: hostData.goalPool || 'queue',
     players: [hostPlayer],
     inDraftPhase: false,
     draftState: null,
@@ -144,7 +145,7 @@ export function toggleReady(socketId, roomCode) {
   return room;
 }
 
-export function updateRoomSettings(socketId, roomCode, { boardSize, turnTime }) {
+export function updateRoomSettings(socketId, roomCode, { boardSize, turnTime, goalPool }) {
   const room = rooms.get(roomCode);
   if (!room) return null;
 
@@ -163,6 +164,9 @@ export function updateRoomSettings(socketId, roomCode, { boardSize, turnTime }) 
   if (turnTime) {
     room.turnTime = parseInt(turnTime, 10);
     room.remainingTime = room.turnTime;
+  }
+  if (goalPool) {
+    room.goalPool = goalPool;
   }
 
   return room;
@@ -216,7 +220,7 @@ export function startDraft(socketId, roomCode, io) {
   // Randomize picking order among connected players
   const randomizedPlayers = [...room.players].sort(() => 0.5 - Math.random());
   room.players = randomizedPlayers;
-  room.draftState = initDraftSession(room.boardSize, randomizedPlayers);
+  room.draftState = initDraftSession(room.boardSize, randomizedPlayers, room.goalPool || 'queue');
   room.inDraftPhase = true;
 
   startTurnTimer(roomCode, io);

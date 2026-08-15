@@ -49,6 +49,7 @@ export default function CreateRoomCard({ onCreateRoom }) {
       hostAvatar: avatarUrl,
       boardSize: '5x5',
       turnTime: 10,
+      goalPool: 'queue',
     });
   };
 
