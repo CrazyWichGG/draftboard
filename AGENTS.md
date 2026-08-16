@@ -64,6 +64,7 @@ Build a real-time, web-based alternative to the in-game drafting system for the 
     "data": "optional format for some goals only"
   }
 ```
+* **Queue Goal List:** The application filters goals for the Queue Pool using a static, local `server/queueGoalIds.json` file. Format: `["ID"]` or `["ID::data"]` containing composite goal keys matching active goals on `https://draftoutmc.com/wiki`.
 
 ---
 
@@ -71,7 +72,7 @@ Build a real-time, web-based alternative to the in-game drafting system for the 
 
 ### 1. Lobby Creation & Joining
 
-* **Room Configuration:** Host creates a room with configurable **Board Size** (3x3, 4x4, 5x5 [DEFAULT], 6x6, 7x7) and **Picking Time Limit** (10s [DEFAULT], 15s, 30s, 45s, 60s).
+* **Room Configuration:** Host creates a room with configurable **Goal Pool** (**Queue Pool** [DEFAULT, 379 goals], **All Goals** [407 goals]), **Board Size** (3x3, 4x4, 5x5 [DEFAULT], 6x6, 7x7), and **Picking Time Limit** (10s [DEFAULT], 15s, 30s, 45s, 60s). Goal Pool is positioned as the first configuration option.
 * **Room Code:** Generates a 6-character uppercase alphanumeric code (e.g. `X7K9P2`). Codes are masked by default (`••••••`) with an eye toggle button. Lowercase input is normalized to uppercase automatically.
 * **Join Errors:** Error messages display inline directly beneath the Room Code input field (`text-rose-400 font-pixel mt-2`).
 * **Players:** Up to 4 players join per room.
@@ -80,7 +81,7 @@ Build a real-time, web-based alternative to the in-game drafting system for the 
 
 * **Turn Order:** System randomly determines picking order among connected players.
 * **UI Layout:** Anchored client player is on the left (`YOU`). Opponents are listed vertically on the right.
-* **Selection & Goal Pool Tracking:** On a player's turn, 2 goals are presented from `GOALS.json`. All presented goals are tracked in `usedGoalIds` to ensure goals never repeat during a drafting session unless the master pool runs out.
+* **Selection & Goal Pool Tracking:** On a player's turn, 2 goals are presented based on the room's selected Goal Pool filter (Queue Pool or All Goals). All presented goals are tracked in `usedGoalIds` to ensure goals never repeat during a drafting session unless the goal pool runs out.
 * **Reroll System:** Each player has one (1) single-use boolean reroll (`REROLL (1 LEFT)` / `REROLL USED`).
 * **Timer:** Default 10 seconds picking time limit. Timer auto-picks option #1 if time expires.
 * **Real-time Sync:** All UI updates, board states, turn indicators, and timers sync instantly via Socket.io.
