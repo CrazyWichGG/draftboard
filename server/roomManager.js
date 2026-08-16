@@ -92,22 +92,13 @@ export async function joinRoom(socketId, joinData) {
   }
 
   const cleanUsername = (joinData.username || '').trim();
+  if (!cleanUsername) {
+    throw new Error('Username is required.');
+  }
+
   const existingPlayer = room.players.find(p => p.username.toLowerCase() === cleanUsername.toLowerCase());
-
-  // Handle re-joining (e.g. page refresh)
   if (existingPlayer) {
-    const oldSocketId = existingPlayer.socketId;
-    existingPlayer.socketId = socketId;
-    existingPlayer.id = socketId;
-
-    if (room.draftState && room.draftState.players) {
-      const draftPlayer = room.draftState.players.find(p => p.socketId === oldSocketId || p.username.toLowerCase() === cleanUsername.toLowerCase());
-      if (draftPlayer) {
-        draftPlayer.socketId = socketId;
-        draftPlayer.id = socketId;
-      }
-    }
-    return room;
+    throw new Error(`A player with the name '${cleanUsername}' already exists in this room.`);
   }
 
   if (room.players.length >= 4) {
