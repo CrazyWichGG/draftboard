@@ -42,13 +42,18 @@ export function getMasterGoals() {
   return masterGoals;
 }
 
+export function getGoalKey(g) {
+  if (!g) return '';
+  return g.data ? `${g.id}::${g.data}` : g.id;
+}
+
 export function drawRandomGoals(count = 2, usedGoalIds = new Set(), goalPool = 'queue') {
   let goalsList = getMasterGoals();
   if (goalPool === 'queue') {
     if (!queueGoalSet || queueGoalSet.size === 0) {
       loadQueueGoalIds();
     }
-    goalsList = goalsList.filter(g => queueGoalSet.has(g.id));
+    goalsList = goalsList.filter(g => queueGoalSet.has(getGoalKey(g)));
   }
 
   const usedSet = usedGoalIds instanceof Set ? usedGoalIds : new Set(usedGoalIds);
