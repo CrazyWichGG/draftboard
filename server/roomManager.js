@@ -1,7 +1,16 @@
-import { initDraftSession, makePick, executeReroll, generateFinalJsonPayload } from './draftEngineServer.js';
+import {
+  initDraftSession,
+  makePick,
+  executeReroll,
+  generateFinalJsonPayload,
+  getGoalCategories
+} from './draftEngineServer.js';
 
 // In-memory store for active rooms
 const rooms = new Map();
+
+const BAN_TURN_TIME = 60;
+const INTERMISSION_TIME = 30;
 
 // Helper to fetch Mojang UUID and avatar
 export async function resolvePlayerIdentity(username) {
@@ -72,7 +81,11 @@ export async function createRoom(socketId, hostData) {
     boardSize: hostData.boardSize || '5x5',
     turnTime: parseInt(hostData.turnTime, 10) || 10,
     goalPool: hostData.goalPool || 'queue',
+    enableBanPhase: hostData.enableBanPhase === true || hostData.enableBanPhase === 'true' || false,
+    bansPerPlayer: parseInt(hostData.bansPerPlayer, 10) || 2,
     players: [hostPlayer],
+    inBanPhase: false,
+    banState: null,
     inDraftPhase: false,
     draftState: null,
     turnTimer: null,
@@ -105,8 +118,8 @@ export async function joinRoom(socketId, joinData) {
     throw new Error(`Room '${roomCode}' is full (maximum 4 players).`);
   }
 
-  if (room.inDraftPhase) {
-    throw new Error(`Room '${roomCode}' has already started drafting.`);
+  if (room.inDraftPhase || room.inBanPhase) {
+    throw new Error(`Room '${roomCode}' has already started the match.`);
   }
 
   const identity = await resolvePlayerIdentity(joinData.username);
@@ -136,7 +149,7 @@ export function toggleReady(socketId, roomCode) {
   return room;
 }
 
-export function updateRoomSettings(socketId, roomCode, { boardSize, turnTime, goalPool }) {
+export function updateRoomSettings(socketId, roomCode, { boardSize, turnTime, goalPool, enableBanPhase, bansPerPlayer }) {
   const room = rooms.get(roomCode);
   if (!room) return null;
 
@@ -145,7 +158,7 @@ export function updateRoomSettings(socketId, roomCode, { boardSize, turnTime, go
     return null;
   }
 
-  if (room.inDraftPhase) {
+  if (room.inDraftPhase || room.inBanPhase) {
     return null;
   }
 
@@ -158,6 +171,12 @@ export function updateRoomSettings(socketId, roomCode, { boardSize, turnTime, go
   }
   if (goalPool) {
     room.goalPool = goalPool;
+  }
+  if (enableBanPhase !== undefined) {
+    room.enableBanPhase = Boolean(enableBanPhase);
+  }
+  if (bansPerPlayer !== undefined) {
+    room.bansPerPlayer = parseInt(bansPerPlayer, 10) || 2;
   }
 
   return room;
@@ -178,6 +197,22 @@ export function leaveRoom(socketId) {
       // Reassign host if the host left
       if (removedPlayer.isHost && room.players.length > 0) {
         room.players[0].isHost = true;
+      }
+
+      // Sync banState.players if in ban phase
+      if (room.inBanPhase && room.banState && room.banState.players) {
+        const banPlayerIdx = room.banState.players.findIndex(p => p.socketId === socketId);
+        if (banPlayerIdx !== -1) {
+          room.banState.players.splice(banPlayerIdx, 1);
+        }
+        if (room.banState.players.length === 0) {
+          destroyRoom(code);
+          return { roomCode: code, destroyed: true, removedPlayer };
+        }
+        room.banState.totalBanTurns = room.banState.players.length * (room.banState.bansPerPlayer || 2);
+        if (room.banState.turnIndex >= room.banState.totalBanTurns && !room.banState.isIntermission) {
+          room.banState.isIntermission = true;
+        }
       }
 
       // Sync draftState.players if in draft phase
@@ -205,17 +240,191 @@ export function startDraft(socketId, roomCode, io) {
 
   const hostPlayer = room.players.find(p => p.isHost);
   if (!hostPlayer || hostPlayer.socketId !== socketId) {
-    throw new Error('Only the room host can start the draft.');
+    throw new Error('Only the room host can start the match.');
   }
 
-  // Randomize picking order among connected players
+  // Randomize picking order once among connected players (preserved across ban and draft)
   const randomizedPlayers = [...room.players].sort(() => 0.5 - Math.random());
   room.players = randomizedPlayers;
-  room.draftState = initDraftSession(room.boardSize, randomizedPlayers, room.goalPool || 'queue');
+
+  if (room.enableBanPhase) {
+    // Start Ban Phase
+    room.inBanPhase = true;
+    room.inDraftPhase = false;
+    const categories = getGoalCategories(room.goalPool || 'queue');
+    const bansPerPlayer = room.bansPerPlayer || 2;
+
+    room.banState = {
+      enabled: true,
+      bansPerPlayer,
+      turnIndex: 0,
+      players: randomizedPlayers,
+      bannedGoals: [],
+      bannedGoalIds: [],
+      isIntermission: false,
+      isComplete: false,
+      totalBanTurns: randomizedPlayers.length * bansPerPlayer,
+      categories,
+    };
+
+    startBanTimer(roomCode, io);
+    return room;
+  }
+
+  // Direct Draft Phase Start
+  room.inBanPhase = false;
   room.inDraftPhase = true;
+  room.draftState = initDraftSession(room.boardSize, randomizedPlayers, room.goalPool || 'queue');
 
   startTurnTimer(roomCode, io);
   return room;
+}
+
+export function handleMakeBan(socketId, roomCode, categoryId, io) {
+  const room = rooms.get(roomCode);
+  if (!room || !room.inBanPhase || !room.banState || room.banState.isIntermission || room.banState.isComplete) {
+    return null;
+  }
+
+  const activePlayer = (room.banState.players && room.banState.players.length > 0)
+    ? room.banState.players[room.banState.turnIndex % room.banState.players.length]
+    : null;
+
+  if (!activePlayer || activePlayer.socketId !== socketId) {
+    return null; // Not active player's turn
+  }
+
+  if (room.banState.bannedGoalIds.includes(categoryId)) {
+    return null; // Already banned
+  }
+
+  const category = (room.banState.categories || []).find(c => c.id === categoryId) || {
+    id: categoryId,
+    text: categoryId,
+    texture: '',
+  };
+
+  room.banState.bannedGoals.push({
+    categoryId,
+    goal: category,
+    bannedBy: activePlayer,
+    isSkipped: false,
+  });
+  room.banState.bannedGoalIds.push(categoryId);
+
+  room.banState.turnIndex += 1;
+
+  if (room.banState.turnIndex >= room.banState.totalBanTurns) {
+    // All ban turns completed -> enter Intermission Phase
+    room.banState.isIntermission = true;
+    startIntermissionTimer(roomCode, io);
+  } else {
+    resetBanTurnTimer(roomCode, io);
+  }
+
+  return room;
+}
+
+export function startBanTimer(roomCode, io) {
+  const room = rooms.get(roomCode);
+  if (!room) return;
+
+  clearTurnTimer(room);
+  room.remainingTime = BAN_TURN_TIME;
+
+  room.turnTimer = setInterval(() => {
+    const currentRoom = rooms.get(roomCode);
+    if (!currentRoom || currentRoom.players.length === 0) {
+      clearTurnTimer(room);
+      return;
+    }
+
+    currentRoom.remainingTime -= 1;
+
+    const activePlayer = (currentRoom.banState && currentRoom.banState.players && currentRoom.banState.players.length > 0)
+      ? currentRoom.banState.players[currentRoom.banState.turnIndex % currentRoom.banState.players.length]
+      : null;
+
+    io.to(roomCode).emit('turn_timer_tick', {
+      remainingTime: currentRoom.remainingTime,
+      activePlayerId: activePlayer ? activePlayer.id : null,
+    });
+
+    if (currentRoom.remainingTime <= 0) {
+      // Time expired: Auto-timeout skips ban pick
+      if (currentRoom.banState && activePlayer) {
+        currentRoom.banState.bannedGoals.push({
+          categoryId: null,
+          goal: null,
+          bannedBy: activePlayer,
+          isSkipped: true,
+        });
+
+        currentRoom.banState.turnIndex += 1;
+
+        if (currentRoom.banState.turnIndex >= currentRoom.banState.totalBanTurns) {
+          currentRoom.banState.isIntermission = true;
+          startIntermissionTimer(roomCode, io);
+        } else {
+          currentRoom.remainingTime = BAN_TURN_TIME;
+        }
+
+        io.to(roomCode).emit('room_state_updated', sanitizeRoomState(currentRoom));
+      }
+    }
+  }, 1000);
+}
+
+export function resetBanTurnTimer(roomCode, io) {
+  const room = rooms.get(roomCode);
+  if (!room) return;
+  room.remainingTime = BAN_TURN_TIME;
+}
+
+export function startIntermissionTimer(roomCode, io) {
+  const room = rooms.get(roomCode);
+  if (!room) return;
+
+  clearTurnTimer(room);
+  room.remainingTime = INTERMISSION_TIME;
+  io.to(roomCode).emit('room_state_updated', sanitizeRoomState(room));
+
+  room.turnTimer = setInterval(() => {
+    const currentRoom = rooms.get(roomCode);
+    if (!currentRoom || currentRoom.players.length === 0) {
+      clearTurnTimer(room);
+      return;
+    }
+
+    currentRoom.remainingTime -= 1;
+
+    io.to(roomCode).emit('turn_timer_tick', {
+      remainingTime: currentRoom.remainingTime,
+      activePlayerId: null,
+    });
+
+    if (currentRoom.remainingTime <= 0) {
+      // Intermission complete: Transition to Drafting Phase
+      clearTurnTimer(currentRoom);
+      currentRoom.banState.isComplete = true;
+      currentRoom.inBanPhase = false;
+      currentRoom.inDraftPhase = true;
+
+      // Seed usedGoalIds with banned categories so they never appear
+      currentRoom.draftState = initDraftSession(
+        currentRoom.boardSize,
+        currentRoom.players,
+        currentRoom.goalPool || 'queue',
+        currentRoom.banState.bannedGoalIds
+      );
+
+      const cleanState = sanitizeRoomState(currentRoom);
+      io.to(roomCode).emit('draft_started', cleanState);
+      io.to(roomCode).emit('room_state_updated', cleanState);
+
+      startTurnTimer(roomCode, io);
+    }
+  }, 1000);
 }
 
 export function handleMakePick(socketId, roomCode, selectedGoal, io) {
@@ -331,3 +540,4 @@ export function sanitizeRoomState(room) {
   const { turnTimer, ...cleanRoom } = room;
   return cleanRoom;
 }
+

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import CreateRoomCard from './components/CreateRoomCard';
 import JoinRoomCard from './components/JoinRoomCard';
 import LobbyRoomView from './components/LobbyRoomView';
+import BanPhaseView from './components/BanPhaseView';
 import DraftingPhaseView from './components/DraftingPhaseView';
 import { socket, createRoomSocket, joinRoomSocket, leaveRoomSocket } from './services/socket';
 import { Gamepad2, Sparkles, LogIn, Swords, Github } from 'lucide-react';
@@ -9,10 +10,13 @@ import { Gamepad2, Sparkles, LogIn, Swords, Github } from 'lucide-react';
 export default function App() {
   const [activeTab, setActiveTab] = useState('create');
   const [currentLobby, setCurrentLobby] = useState(null);
+  const [inBanPhase, setInBanPhase] = useState(false);
   const [inDraftPhase, setInDraftPhase] = useState(false);
   const [socketId, setSocketId] = useState(socket.id);
   const [serverTimer, setServerTimer] = useState(10);
   const [errorMessage, setErrorMessage] = useState('');
+
+  const isMatchActive = inBanPhase || inDraftPhase;
 
   useEffect(() => {
     function onConnect() {
@@ -22,6 +26,7 @@ export default function App() {
     function onRoomStateUpdated(roomData) {
       if (!roomData) {
         setCurrentLobby(null);
+        setInBanPhase(false);
         setInDraftPhase(false);
         return;
       }
@@ -35,6 +40,14 @@ export default function App() {
 
       const updatedPlayers = (roomData.players || []).map(mapPlayer);
 
+      let updatedBanState = roomData.banState;
+      if (updatedBanState && updatedBanState.players) {
+        updatedBanState = {
+          ...updatedBanState,
+          players: updatedBanState.players.map(mapPlayer),
+        };
+      }
+
       let updatedDraftState = roomData.draftState;
       if (updatedDraftState && updatedDraftState.players) {
         updatedDraftState = {
@@ -46,11 +59,13 @@ export default function App() {
       const updatedLobby = {
         ...roomData,
         players: updatedPlayers,
+        banState: updatedBanState,
         draftState: updatedDraftState,
       };
 
       setCurrentLobby(updatedLobby);
-      setInDraftPhase(roomData.inDraftPhase);
+      setInBanPhase(Boolean(roomData.inBanPhase));
+      setInDraftPhase(Boolean(roomData.inDraftPhase));
       if (roomData.remainingTime !== undefined) {
         setServerTimer(roomData.remainingTime);
       }
@@ -62,7 +77,6 @@ export default function App() {
 
     function onDraftStarted(roomData) {
       onRoomStateUpdated(roomData);
-      setInDraftPhase(true);
     }
 
     socket.on('connect', onConnect);
@@ -102,6 +116,7 @@ export default function App() {
       }
 
       setCurrentLobby({ ...room, players: updatedPlayers, draftState: updatedDraftState });
+      setInBanPhase(false);
       setInDraftPhase(false);
     } catch (err) {
       setErrorMessage(err.message);
@@ -128,6 +143,7 @@ export default function App() {
       }
 
       setCurrentLobby({ ...room, players: updatedPlayers, draftState: updatedDraftState });
+      setInBanPhase(false);
       setInDraftPhase(false);
     } catch (err) {
       setErrorMessage(err.message);
@@ -137,15 +153,18 @@ export default function App() {
   const handleResetLobby = () => {
     leaveRoomSocket();
     setCurrentLobby(null);
+    setInBanPhase(false);
     setInDraftPhase(false);
   };
 
   return (
-    <div className={`flex flex-col justify-between selection:bg-cyan-500/30 selection:text-cyan-200 ${inDraftPhase ? 'h-screen h-dvh p-2 sm:p-3 overflow-hidden' : 'min-h-screen p-4 sm:p-6 lg:p-8'
-      }`}>
+    <div className={`flex flex-col justify-between selection:bg-cyan-500/30 selection:text-cyan-200 ${
+      isMatchActive ? 'h-screen h-dvh p-2 sm:p-3 overflow-hidden' : 'min-h-screen p-4 sm:p-6 lg:p-8'
+    }`}>
       {/* Header Bar */}
-      <header className={`max-w-6xl w-full mx-auto flex items-center justify-between border-b border-cyan-500/20 shrink-0 ${inDraftPhase ? 'py-1.5 mb-1.5' : 'py-4 mb-6'
-        }`}>
+      <header className={`max-w-6xl w-full mx-auto flex items-center justify-between border-b border-cyan-500/20 shrink-0 ${
+        isMatchActive ? 'py-1.5 mb-1.5' : 'py-4 mb-6'
+      }`}>
         <div className="flex items-center gap-3.5">
           <img
             src="/logo.svg"
@@ -171,9 +190,15 @@ export default function App() {
       </header>
 
       {/* Main Content View */}
-      <main className={`flex-1 flex items-center justify-center min-h-0 ${inDraftPhase ? 'my-0.5 overflow-hidden' : 'my-4'}`}>
+      <main className={`flex-1 flex items-center justify-center min-h-0 ${isMatchActive ? 'my-0.5 overflow-hidden' : 'my-4'}`}>
         {currentLobby ? (
-          inDraftPhase ? (
+          inBanPhase ? (
+            <BanPhaseView
+              lobbyData={currentLobby}
+              serverTimer={serverTimer}
+              onResetLobby={handleResetLobby}
+            />
+          ) : inDraftPhase ? (
             <DraftingPhaseView
               lobbyData={currentLobby}
               serverTimer={serverTimer}
@@ -232,8 +257,8 @@ export default function App() {
         )}
       </main>
 
-      {/* Footer (Hidden completely during drafting phase) */}
-      {!inDraftPhase && (
+      {/* Footer (Hidden completely during active match phase) */}
+      {!isMatchActive && (
         <footer className="max-w-6xl w-full mx-auto text-center border-t border-cyan-500/10 text-xs text-neutral-500 shrink-0 pt-6">
           <div className="flex items-center justify-center gap-2 flex-wrap">
             <span className="flex items-center gap-1">
@@ -249,3 +274,4 @@ export default function App() {
     </div>
   );
 }
+

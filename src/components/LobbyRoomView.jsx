@@ -13,7 +13,8 @@ import {
   Clock3,
   Settings,
   Eye,
-  EyeOff
+  EyeOff,
+  Ban
 } from 'lucide-react';
 import { getAvatarUrl } from '../services/mojangApi';
 import { toggleReadySocket, startDraftSocket, updateRoomSettingsSocket } from '../services/socket';
@@ -44,6 +45,8 @@ export default function LobbyRoomView({ lobbyData, onLeaveLobby }) {
       boardSize: newSize,
       turnTime: lobbyData.turnTime,
       goalPool: lobbyData.goalPool || 'queue',
+      enableBanPhase: lobbyData.enableBanPhase || false,
+      bansPerPlayer: lobbyData.bansPerPlayer || 2,
     });
   };
 
@@ -53,6 +56,8 @@ export default function LobbyRoomView({ lobbyData, onLeaveLobby }) {
       boardSize: lobbyData.boardSize,
       turnTime: newTime,
       goalPool: lobbyData.goalPool || 'queue',
+      enableBanPhase: lobbyData.enableBanPhase || false,
+      bansPerPlayer: lobbyData.bansPerPlayer || 2,
     });
   };
 
@@ -62,6 +67,19 @@ export default function LobbyRoomView({ lobbyData, onLeaveLobby }) {
       boardSize: lobbyData.boardSize,
       turnTime: lobbyData.turnTime,
       goalPool: newPool,
+      enableBanPhase: lobbyData.enableBanPhase || false,
+      bansPerPlayer: lobbyData.bansPerPlayer || 2,
+    });
+  };
+
+  const handleBanPhaseChange = (enabled) => {
+    if (!isHost) return;
+    updateRoomSettingsSocket(lobbyData.roomCode, {
+      boardSize: lobbyData.boardSize,
+      turnTime: lobbyData.turnTime,
+      goalPool: lobbyData.goalPool || 'queue',
+      enableBanPhase: enabled,
+      bansPerPlayer: 2,
     });
   };
 
@@ -281,6 +299,50 @@ export default function LobbyRoomView({ lobbyData, onLeaveLobby }) {
                     >
                       <span>{pool.label}</span>
                       {pool.isDefault && (
+                        <span className="text-[7px] font-pixel text-amber-300 leading-none">
+                          DEFAULT
+                        </span>
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Ban Phase Selector with DEFAULT badge */}
+            <div className="space-y-1.5">
+              <label className="block text-xs font-semibold text-white uppercase tracking-wider flex items-center justify-between">
+                <span className="flex items-center gap-1.5">
+                  <Ban className="w-3.5 h-3.5 text-cyan-400" />
+                  Ban Phase
+                </span>
+                <span className="font-mono text-cyan-300 font-bold uppercase">
+                  {lobbyData.enableBanPhase ? 'ENABLED (2 BANS)' : 'DISABLED'}
+                </span>
+              </label>
+
+              <div className="grid grid-cols-2 gap-1.5">
+                {[
+                  { id: false, label: 'DISABLED', isDefault: true },
+                  { id: true, label: 'ENABLED (2 BANS)', isDefault: false },
+                ].map((option) => {
+                  const isSelected = Boolean(lobbyData.enableBanPhase) === option.id;
+
+                  return (
+                    <button
+                      key={String(option.id)}
+                      type="button"
+                      disabled={!isHost}
+                      onClick={() => handleBanPhaseChange(option.id)}
+                      className={`py-1.5 px-1 text-xs font-bold transition-all border flex flex-col items-center justify-center gap-0.5 ${isSelected
+                        ? 'bg-cyan-400/20 border-cyan-400 text-cyan-200 shadow-[0_0_12px_rgba(34,211,238,0.4)]'
+                        : isHost
+                          ? 'bg-neutral-900 border-neutral-800 text-neutral-400 hover:border-cyan-500/50 hover:text-neutral-200 hover:shadow-[0_0_12px_rgba(34,211,238,0.3)] cursor-pointer'
+                          : 'bg-neutral-950 border-neutral-800 text-neutral-600 opacity-60 cursor-not-allowed'
+                        }`}
+                    >
+                      <span>{option.label}</span>
+                      {option.isDefault && (
                         <span className="text-[7px] font-pixel text-amber-300 leading-none">
                           DEFAULT
                         </span>
