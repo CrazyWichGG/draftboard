@@ -106,8 +106,15 @@ export default function BanPhaseView({ lobbyData, serverTimer, onResetLobby }) {
     }
   }, [isIntermission]);
 
+  // Auto-dismiss hovered category tooltip on intermission, completion, or turn change
+  useEffect(() => {
+    if (isIntermission || banState.isComplete) {
+      setHoveredCategory(null);
+    }
+  }, [isIntermission, banState.isComplete, banState.turnIndex]);
+
   const handleCategoryHover = (cat, e) => {
-    if (!cat) {
+    if (!cat || isIntermission || banState.isComplete) {
       setHoveredCategory(null);
       return;
     }
@@ -534,7 +541,7 @@ export default function BanPhaseView({ lobbyData, serverTimer, onResetLobby }) {
       </div>
 
       {/* 3. VIEWPORT FLOATING FIXED TOOLTIP (Escapes scroll containers) */}
-      {hoveredCategory && (
+      {!isIntermission && !banState.isComplete && hoveredCategory && (
         <div
           className="fixed z-[999999] pointer-events-none flex flex-col w-56 sm:w-64 p-3 bg-neutral-950/95 border border-rose-500/70 shadow-2xl backdrop-blur-md text-left transition-opacity duration-150 animate-fadeIn"
           style={{
