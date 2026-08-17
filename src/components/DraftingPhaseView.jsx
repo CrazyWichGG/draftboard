@@ -16,11 +16,22 @@ import {
   Layers,
   Sparkles,
   ArrowRight,
-  UserCheck
+  UserCheck,
+  Ban,
+  XCircle
 } from 'lucide-react';
 
 export default function DraftingPhaseView({ lobbyData, serverTimer, onResetLobby }) {
   const [showExportModal, setShowExportModal] = useState(false);
+
+  const banState = lobbyData.banState || null;
+  const bansPerPlayer = banState?.bansPerPlayer || lobbyData.bansPerPlayer || 2;
+  const hasBanPhase = Boolean(lobbyData.enableBanPhase || banState?.bannedGoals?.length > 0);
+
+  const getPlayerBans = (playerId) => {
+    if (!banState || !banState.bannedGoals) return [];
+    return banState.bannedGoals.filter(b => b.bannedBy?.id === playerId || b.bannedBy?.socketId === playerId);
+  };
 
   // Sync draftState from server lobbyData
   const draftState = lobbyData.draftState || {
@@ -265,6 +276,52 @@ export default function DraftingPhaseView({ lobbyData, serverTimer, onResetLobby
                 )}
               </div>
             </div>
+
+            {/* 2 Mini Ban Slots (when Ban Phase was enabled) */}
+            {hasBanPhase && (
+              <div className="space-y-1 pt-1.5 border-t border-neutral-800">
+                <span className="text-[9px] font-pixel text-neutral-400 block mb-1">BANNED GOALS</span>
+                <div className="flex items-center justify-start gap-1.5">
+                  {Array.from({ length: bansPerPlayer }).map((_, slotIdx) => {
+                    const banItem = getPlayerBans(clientPlayer?.id)[slotIdx];
+                    if (!banItem) {
+                      return (
+                        <div
+                          key={`client-draft-ban-empty-${slotIdx}`}
+                          className="w-10 h-10 sm:w-11 sm:h-11 aspect-square shrink-0 border border-dashed border-neutral-800 bg-neutral-950 flex flex-col items-center justify-center gap-0.5 text-neutral-600 font-mono text-[7px]"
+                        >
+                          <Ban className="w-3 h-3 opacity-30" />
+                          <span>#{slotIdx + 1}</span>
+                        </div>
+                      );
+                    }
+
+                    if (banItem.isSkipped) {
+                      return (
+                        <div
+                          key={`client-draft-ban-skip-${slotIdx}`}
+                          className="w-10 h-10 sm:w-11 sm:h-11 aspect-square shrink-0 mc-bevel-inset bg-neutral-950 p-0.5 flex items-center justify-center border border-rose-500/30"
+                          title="Ban Skipped (Timeout)"
+                        >
+                          <XCircle className="w-5 h-5 text-rose-400" />
+                        </div>
+                      );
+                    }
+
+                    return (
+                      <div
+                        key={`client-draft-ban-${slotIdx}`}
+                        className="w-10 h-10 sm:w-11 sm:h-11 aspect-square shrink-0 mc-bevel-inset bg-neutral-950 p-0.5 relative flex items-center justify-center border border-rose-500/40"
+                        title={banItem.goal?.text}
+                      >
+                        <GoalIcon goal={banItem.goal} className="w-full h-full object-contain text-neutral-400 grayscale opacity-60" />
+                        <Ban className="w-5 h-5 text-rose-500/70 stroke-[2.5] absolute inset-0 m-auto pointer-events-none" />
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
           </div>
         </div>
 
@@ -392,6 +449,8 @@ export default function DraftingPhaseView({ lobbyData, serverTimer, onResetLobby
             <div className="space-y-1.5">
               {opponentPlayers.map((player) => {
                 const isTurn = activePlayer?.id === player.id || activePlayer?.socketId === player.socketId;
+                const opponentBans = getPlayerBans(player.id || player.socketId);
+
                 return (
                   <div
                     key={player.id || player.socketId}
@@ -438,6 +497,49 @@ export default function DraftingPhaseView({ lobbyData, serverTimer, onResetLobby
                         </div>
                       </div>
                     </div>
+
+                    {/* Opponent Mini Ban Slots (when Ban Phase was enabled) */}
+                    {hasBanPhase && (
+                      <div className="flex items-center justify-start gap-1 pt-1 border-t border-neutral-850">
+                        {Array.from({ length: bansPerPlayer }).map((_, slotIdx) => {
+                          const banItem = opponentBans[slotIdx];
+                          if (!banItem) {
+                            return (
+                              <div
+                                key={`opp-${player.id}-draft-ban-empty-${slotIdx}`}
+                                className="w-8 h-8 sm:w-9 sm:h-9 aspect-square shrink-0 border border-dashed border-neutral-800 bg-neutral-900/50 flex flex-col items-center justify-center text-neutral-600 font-mono text-[6px]"
+                              >
+                                <Ban className="w-2.5 h-2.5 opacity-30" />
+                                <span>#{slotIdx + 1}</span>
+                              </div>
+                            );
+                          }
+
+                          if (banItem.isSkipped) {
+                            return (
+                              <div
+                                key={`opp-${player.id}-draft-ban-skip-${slotIdx}`}
+                                className="w-8 h-8 sm:w-9 sm:h-9 aspect-square shrink-0 mc-bevel-inset bg-neutral-950 p-0.5 flex items-center justify-center border border-rose-500/30"
+                                title="Ban Skipped (Timeout)"
+                              >
+                                <XCircle className="w-4 h-4 text-rose-400" />
+                              </div>
+                            );
+                          }
+
+                          return (
+                            <div
+                              key={`opp-${player.id}-draft-ban-${slotIdx}`}
+                              className="w-8 h-8 sm:w-9 sm:h-9 aspect-square shrink-0 mc-bevel-inset bg-neutral-950 p-0.5 relative flex items-center justify-center border border-rose-500/40"
+                              title={banItem.goal?.text}
+                            >
+                              <GoalIcon goal={banItem.goal} className="w-full h-full object-contain text-neutral-400 grayscale opacity-60" />
+                              <Ban className="w-4 h-4 text-rose-500/70 stroke-[2.5] absolute inset-0 m-auto pointer-events-none" />
+                            </div>
+                          );
+                        })}
+                      </div>
+                    )}
                   </div>
                 );
               })}
@@ -448,7 +550,7 @@ export default function DraftingPhaseView({ lobbyData, serverTimer, onResetLobby
 
       {/* Export Modal */}
       {showExportModal && (
-        <ExportModal draftState={draftState} onResetLobby={onResetLobby} />
+        <ExportModal draftState={draftState} lobbyData={lobbyData} onResetLobby={onResetLobby} />
       )}
     </div>
   );
