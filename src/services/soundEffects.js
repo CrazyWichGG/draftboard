@@ -51,6 +51,48 @@ export function playYourTurnSound() {
 }
 
 /**
+ * Distinct tactical alert sound when it becomes the local client's turn to ban a goal
+ * Uses a sharp two-tone staccato alert (D5 -> A5) with filtered harmonic attack
+ */
+export function playBanTurnSound() {
+  try {
+    const ctx = getAudioContext();
+    if (!ctx) return;
+
+    const now = ctx.currentTime;
+    const notes = [
+      { freq: 587.33, start: 0, duration: 0.10 },
+      { freq: 880.00, start: 0.09, duration: 0.14 }
+    ];
+
+    notes.forEach((note) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(note.freq, now + note.start);
+
+      const filter = ctx.createBiquadFilter();
+      filter.type = 'lowpass';
+      filter.frequency.setValueAtTime(1600, now + note.start);
+
+      gain.gain.setValueAtTime(0, now + note.start);
+      gain.gain.linearRampToValueAtTime(0.20, now + note.start + 0.01);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + note.start + note.duration);
+
+      osc.connect(filter);
+      filter.connect(gain);
+      gain.connect(ctx.destination);
+
+      osc.start(now + note.start);
+      osc.stop(now + note.start + note.duration + 0.01);
+    });
+  } catch (err) {
+    console.warn('[SoundEffects] playBanTurnSound error:', err);
+  }
+}
+
+/**
  * Wooden block click when an opponent's turn begins
  */
 export function playOpponentTurnSound() {

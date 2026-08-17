@@ -3,7 +3,7 @@ import { socket, makeBanSocket } from '../services/socket';
 import { getAvatarUrl } from '../services/mojangApi';
 import GoalIcon from './GoalIcon';
 import {
-  playYourTurnSound,
+  playBanTurnSound,
   playOpponentTurnSound,
   playTimerTickSound,
   playBanSound,
@@ -70,7 +70,7 @@ export default function BanPhaseView({ lobbyData, serverTimer, onResetLobby }) {
     if (currentActiveId && prevActivePlayerId.current !== currentActiveId) {
       if (prevActivePlayerId.current !== null) {
         if (isCurrentClientTurn) {
-          playYourTurnSound();
+          playBanTurnSound();
         } else {
           playOpponentTurnSound();
         }
