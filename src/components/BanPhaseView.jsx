@@ -188,7 +188,7 @@ export default function BanPhaseView({ lobbyData, serverTimer, onResetLobby }) {
               {isIntermission
                 ? `INTERMISSION - DRAFT STARTING SOON...`
                 : isCurrentClientTurn
-                  ? 'YOUR TURN - SELECT A GOAL CATEGORY TO BAN'
+                  ? 'YOUR TURN - SELECT A GOAL TO BAN'
                   : `${activePlayer?.username || 'Opponent'}'s TURN - BANNING...`}
             </h2>
           </div>
@@ -377,7 +377,7 @@ export default function BanPhaseView({ lobbyData, serverTimer, onResetLobby }) {
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2 shrink-0 px-1">
                 <div className="text-[10px] font-pixel text-cyan-300 flex items-center gap-1.5 shrink-0">
                   <Layers className="w-3.5 h-3.5 text-cyan-400" />
-                  <span>CATEGORIES POOL ({filteredCategories.length})</span>
+                  <span>GOALS POOL ({filteredCategories.length})</span>
                 </div>
 
                 {/* Search Input */}
@@ -387,7 +387,7 @@ export default function BanPhaseView({ lobbyData, serverTimer, onResetLobby }) {
                     type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="Search goal categories..."
+                    placeholder="Search goals..."
                     className="mc-bevel-inset w-full pl-8 pr-2.5 py-1 text-xs text-white placeholder-neutral-600 focus:border-rose-400 focus:outline-none font-sans"
                   />
                 </div>
@@ -551,7 +551,7 @@ export default function BanPhaseView({ lobbyData, serverTimer, onResetLobby }) {
           }}
         >
           <div className="flex items-center justify-between gap-1 mb-1">
-            <span className="text-[9px] font-mono text-cyan-300 uppercase">CATEGORY DETAILS</span>
+            <span className="text-[9px] font-mono text-cyan-300 uppercase">GOAL DETAILS</span>
             {banState.bannedGoalIds?.includes(hoveredCategory.id) ? (
               <span className="font-pixel text-[8px] text-rose-400 bg-rose-500/20 px-1 py-0.5 border border-rose-500/40">
                 BANNED
