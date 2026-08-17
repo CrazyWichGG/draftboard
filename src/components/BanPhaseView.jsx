@@ -395,7 +395,7 @@ export default function BanPhaseView({ lobbyData, serverTimer, onResetLobby }) {
 
               {/* Scrollable Square Category Cards Grid */}
               <div className="flex-1 min-h-0 overflow-y-auto p-1 border border-neutral-850 bg-neutral-950/60">
-                <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 gap-1.5">
+                <div className="grid grid-cols-5 sm:grid-cols-6 md:grid-cols-7 lg:grid-cols-8 gap-1.5">
                   {filteredCategories.map((category) => {
                     const isBanned = banState.bannedGoalIds?.includes(category.id);
 
@@ -425,7 +425,7 @@ export default function BanPhaseView({ lobbyData, serverTimer, onResetLobby }) {
 
                         {/* Red Forbidden Ban Overlay for Banned Categories */}
                         {isBanned && (
-                          <Ban className="w-7 h-7 sm:w-8 sm:h-8 text-rose-500 stroke-[2.5] absolute inset-0 m-auto pointer-events-none" />
+                          <Ban className="w-5 h-5 sm:w-6 sm:h-6 text-rose-500 stroke-[2.5] absolute inset-0 m-auto pointer-events-none" />
                         )}
 
                         {/* Variant Count Tag if multi-variant */}
