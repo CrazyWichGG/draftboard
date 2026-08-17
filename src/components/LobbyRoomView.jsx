@@ -102,15 +102,10 @@ export default function LobbyRoomView({ lobbyData, onLeaveLobby }) {
       {/* Room Code Header Bar with BORDERLESS Logo */}
       <div className="draftout-panel mc-bevel p-6 flex flex-col md:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <img
-            src="/logo.svg"
-            alt="Draftout Logo"
-            className="w-12 h-12 object-contain shrink-0 [image-rendering:pixelated]"
-          />
           <div>
             <div className="flex items-center gap-2 mb-1">
               <span className="inline-block w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse"></span>
-              <span className="text-sm font-title text-white tracking-wide uppercase">DRAFT LOBBY ACTIVE</span>
+              <span className="text-sm font-title text-white tracking-wide uppercase">DRAFTBOARD LOBBY</span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight flex items-center gap-3">
               ROOM CODE:
@@ -309,50 +304,6 @@ export default function LobbyRoomView({ lobbyData, onLeaveLobby }) {
               </div>
             </div>
 
-            {/* Ban Phase Selector with DEFAULT badge */}
-            <div className="space-y-1.5">
-              <label className="block text-xs font-semibold text-white uppercase tracking-wider flex items-center justify-between">
-                <span className="flex items-center gap-1.5">
-                  <Ban className="w-3.5 h-3.5 text-cyan-400" />
-                  Ban Phase
-                </span>
-                <span className="font-mono text-cyan-300 font-bold uppercase">
-                  {lobbyData.enableBanPhase ? 'ENABLED (2 BANS)' : 'DISABLED'}
-                </span>
-              </label>
-
-              <div className="grid grid-cols-2 gap-1.5">
-                {[
-                  { id: false, label: 'DISABLED', isDefault: true },
-                  { id: true, label: 'ENABLED (2 BANS)', isDefault: false },
-                ].map((option) => {
-                  const isSelected = Boolean(lobbyData.enableBanPhase) === option.id;
-
-                  return (
-                    <button
-                      key={String(option.id)}
-                      type="button"
-                      disabled={!isHost}
-                      onClick={() => handleBanPhaseChange(option.id)}
-                      className={`py-1.5 px-1 text-xs font-bold transition-all border flex flex-col items-center justify-center gap-0.5 ${isSelected
-                        ? 'bg-cyan-400/20 border-cyan-400 text-cyan-200 shadow-[0_0_12px_rgba(34,211,238,0.4)]'
-                        : isHost
-                          ? 'bg-neutral-900 border-neutral-800 text-neutral-400 hover:border-cyan-500/50 hover:text-neutral-200 hover:shadow-[0_0_12px_rgba(34,211,238,0.3)] cursor-pointer'
-                          : 'bg-neutral-950 border-neutral-800 text-neutral-600 opacity-60 cursor-not-allowed'
-                        }`}
-                    >
-                      <span>{option.label}</span>
-                      {option.isDefault && (
-                        <span className="text-[7px] font-pixel text-amber-300 leading-none">
-                          DEFAULT
-                        </span>
-                      )}
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-
             {/* Board Size Selector with DEFAULT badge */}
             <div className="space-y-1.5">
               <label className="block text-xs font-semibold text-white uppercase tracking-wider flex items-center justify-between">
@@ -433,43 +384,82 @@ export default function LobbyRoomView({ lobbyData, onLeaveLobby }) {
               </div>
             </div>
 
+            {/* Divider */}
+            <div className="border-t border-neutral-800" />
+
+            {/* Ban Phase Switch */}
+            <div
+              onClick={() => isHost && handleBanPhaseChange(!lobbyData.enableBanPhase)}
+              className={`py-2.5 px-3 border flex items-center justify-between transition-all ${
+                isHost
+                  ? 'cursor-pointer bg-neutral-900 border-neutral-800 hover:border-cyan-500/50 hover:bg-neutral-850'
+                  : 'cursor-not-allowed bg-neutral-950 border-neutral-800 opacity-60'
+              } ${lobbyData.enableBanPhase ? 'border-cyan-500/40 bg-cyan-950/20' : ''}`}
+            >
+              <span className="text-xs font-semibold text-white uppercase tracking-wider flex items-center gap-1.5">
+                <Ban className="w-3.5 h-3.5 text-cyan-400" />
+                Enable Ban Phase
+              </span>
+
+              {/* Minecraft-styled Square Switch */}
+              <div
+                className={`w-10 h-5 px-0.5 flex items-center relative transition-colors shrink-0 ${
+                  lobbyData.enableBanPhase ? 'bg-cyan-950' : 'bg-neutral-950'
+                }`}
+              >
+                <div
+                  className={`w-4 h-4 transition-transform duration-150 ${
+                    lobbyData.enableBanPhase
+                      ? 'translate-x-5 bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.6)]'
+                      : 'translate-x-0 bg-neutral-700'
+                  }`}
+                />
+              </div>
+            </div>
+
             {/* Total Goals Summary */}
-            <div className="p-3 bg-neutral-950 border border-cyan-500/20 flex items-center justify-between text-xs">
+            {/* <div className="p-3 bg-neutral-950 border border-cyan-500/20 flex items-center justify-between text-xs">
               <span className="text-neutral-400 font-medium">Total Goals:</span>
               <span className="font-mono font-bold text-amber-300 text-sm">
                 {parseInt(lobbyData.boardSize) * parseInt(lobbyData.boardSize)} Goals
               </span>
-            </div>
+            </div> */}
 
             {/* Actions */}
-            <div className="pt-3 border-t border-cyan-500/20 space-y-3">
-              <button
-                onClick={handleToggleReady}
-                className={`w-full py-2.5 px-4 font-bold text-xs transition-all border cursor-pointer ${isReady
-                  ? 'bg-emerald-500/20 border-emerald-400 text-emerald-300 shadow-[0_0_15px_rgba(16,185,129,0.4)] hover:shadow-[0_0_22px_rgba(16,185,129,0.65)] font-pixel'
-                  : 'bg-amber-500/20 border-amber-400 text-amber-300 hover:shadow-[0_0_15px_rgba(245,158,11,0.4)] font-pixel'
-                  }`}
-              >
-                {isReady ? 'READY FOR DRAFT' : 'MARK AS READY'}
-              </button>
-
-              {isHost ? (
+            <div className="pt-3 border-t border-cyan-500/20">
+              <div className="grid grid-cols-2 gap-2">
                 <button
-                  disabled={!canStartDraft}
-                  onClick={handleLaunchDraft}
-                  className={`w-full py-3.5 px-4 font-bold text-xs flex items-center justify-center gap-2 transition-all ${canStartDraft
-                    ? 'bg-cyan-400 hover:bg-cyan-300 text-neutral-950 font-pixel cursor-pointer shadow-[0_0_18px_rgba(34,211,238,0.5)] hover:shadow-[0_0_28px_rgba(34,211,238,0.8)]'
-                    : 'bg-neutral-800 text-neutral-500 border border-neutral-700 cursor-not-allowed'
+                  onClick={handleToggleReady}
+                  className={`w-full py-3 px-2 font-bold text-xs transition-all border cursor-pointer flex items-center justify-center text-center ${isReady
+                    ? 'bg-emerald-500/20 border-emerald-400 text-emerald-300 shadow-[0_0_15px_rgba(16,185,129,0.4)] hover:shadow-[0_0_22px_rgba(16,185,129,0.65)] font-pixel'
+                    : 'bg-amber-500/20 border-amber-400 text-amber-300 hover:shadow-[0_0_15px_rgba(245,158,11,0.4)] font-pixel'
                     }`}
                 >
-                  <Play className="w-4 h-4 fill-current" />
-                  <span className="font-pixel">{players.length < 2 ? 'NEED 2+ PLAYERS TO START' : 'START DRAFT PHASE'}</span>
+                  {isReady ? 'READY' : 'MARK READY'}
                 </button>
-              ) : (
-                <div className="p-3 text-center text-xs text-neutral-400 bg-neutral-900 border border-cyan-500/15 font-mono">
-                  Waiting for host to start the draft...
-                </div>
-              )}
+
+                {isHost ? (
+                  <button
+                    disabled={!canStartDraft}
+                    onClick={handleLaunchDraft}
+                    className={`w-full py-3 px-2 font-bold text-xs flex items-center justify-center gap-1.5 transition-all text-center ${canStartDraft
+                      ? 'bg-cyan-400 hover:bg-cyan-300 text-neutral-950 font-pixel cursor-pointer shadow-[0_0_18px_rgba(34,211,238,0.5)] hover:shadow-[0_0_28px_rgba(34,211,238,0.8)]'
+                      : 'bg-neutral-800 text-neutral-500 border border-neutral-700 cursor-not-allowed font-pixel'
+                      }`}
+                  >
+                    <Play className="w-3.5 h-3.5 fill-current shrink-0" />
+                    <span className="truncate">{players.length < 2 ? 'NEED 2+ PLAYERS' : 'START DRAFT'}</span>
+                  </button>
+                ) : (
+                  <button
+                    disabled
+                    className="w-full py-3 px-2 font-bold text-xs flex items-center justify-center gap-1.5 bg-neutral-800 text-neutral-500 border border-neutral-700 cursor-not-allowed font-pixel text-center"
+                  >
+                    <Clock3 className="w-3.5 h-3.5 shrink-0" />
+                    <span className="truncate">WAITING FOR HOST</span>
+                  </button>
+                )}
+              </div>
             </div>
           </div>
         </div>
