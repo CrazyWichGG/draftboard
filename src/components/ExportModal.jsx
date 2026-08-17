@@ -1,20 +1,12 @@
 import React, { useState } from 'react';
-import { Download, FileJson, CheckCircle2, RotateCcw, Copy, Check, Layers, Ban, XCircle } from 'lucide-react';
+import { Download, FileJson, CheckCircle2, RotateCcw, Copy, Check, Layers } from 'lucide-react';
 import { generateFinalJsonPayload } from '../services/draftEngine';
 import { getAvatarUrl } from '../services/mojangApi';
 import GoalIcon from './GoalIcon';
 
-export default function ExportModal({ draftState, lobbyData, onResetLobby }) {
+export default function ExportModal({ draftState, onResetLobby }) {
   const [showRaw, setShowRaw] = useState(false);
   const [copied, setCopied] = useState(false);
-
-  const banState = lobbyData?.banState || null;
-  const hasBanPhase = Boolean(lobbyData?.enableBanPhase || banState?.bannedGoals?.length > 0);
-
-  const getPlayerBans = (playerId) => {
-    if (!banState || !banState.bannedGoals) return [];
-    return banState.bannedGoals.filter(b => b.bannedBy?.id === playerId || b.bannedBy?.socketId === playerId);
-  };
 
   const finalPayload = generateFinalJsonPayload(draftState);
   const jsonString = JSON.stringify(finalPayload, null, 2);
@@ -70,49 +62,25 @@ export default function ExportModal({ draftState, lobbyData, onResetLobby }) {
         {/* Stats Breakdown */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 shrink-0">
           {(draftState.players || []).map((player) => {
-            const playerBans = getPlayerBans(player.id || player.socketId);
             return (
-              <div key={player.id} className="mc-bevel-inset p-2.5 flex flex-col justify-between gap-1.5 bg-neutral-950">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-7 h-7 sm:w-8 sm:h-8 shrink-0 overflow-hidden bg-neutral-900 border border-cyan-500/30">
-                    <img
-                      src={getPlayerAvatar(player)}
-                      alt={player.username}
-                      className="w-full h-full object-contain"
-                      onError={(e) => {
-                        e.target.onerror = null;
-                        e.target.src = `https://minotar.net/helm/${encodeURIComponent(player.username)}/64.png`;
-                      }}
-                    />
-                  </div>
-                  <div className="min-w-0">
-                    <p className="text-xs font-bold text-white truncate">{player.username}</p>
-                    <p className="text-[10px] sm:text-[11px] text-cyan-300 font-mono">
-                      {draftState.claimedCounts?.[player.id] || 0} Goals
-                    </p>
-                  </div>
+              <div key={player.id} className="mc-bevel-inset p-2.5 flex items-center gap-2.5 bg-neutral-950">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 shrink-0 overflow-hidden bg-neutral-900 border border-cyan-500/30">
+                  <img
+                    src={getPlayerAvatar(player)}
+                    alt={player.username}
+                    className="w-full h-full object-contain"
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = `https://minotar.net/helm/${encodeURIComponent(player.username)}/64.png`;
+                    }}
+                  />
                 </div>
-
-                {/* Banned Goals mini row if Ban Phase was on */}
-                {hasBanPhase && playerBans.length > 0 && (
-                  <div className="flex items-center gap-1.5 pt-1.5 border-t border-neutral-850">
-                    <span className="text-[8px] font-pixel text-neutral-500">BANS:</span>
-                    <div className="flex items-center gap-1">
-                      {playerBans.map((bItem, bIdx) => (
-                        bItem.isSkipped ? (
-                          <div key={`export-ban-skip-${bIdx}`} className="w-5 h-5 mc-bevel-inset bg-neutral-900 p-0.5 relative flex items-center justify-center border border-neutral-800" title="Ban Skipped (Timeout)">
-                            <XCircle className="w-3 h-3 text-neutral-500" />
-                          </div>
-                        ) : (
-                          <div key={`export-ban-${bIdx}`} className="w-5 h-5 mc-bevel-inset bg-neutral-900 p-0.5 relative flex items-center justify-center border border-rose-500/30" title={bItem.goal?.text}>
-                            <GoalIcon goal={bItem.goal} className="w-full h-full text-neutral-400 grayscale opacity-60" />
-                            <Ban className="w-3 h-3 text-rose-500 stroke-[2.5] absolute inset-0 m-auto pointer-events-none" />
-                          </div>
-                        )
-                      ))}
-                    </div>
-                  </div>
-                )}
+                <div className="min-w-0">
+                  <p className="text-xs font-bold text-white truncate">{player.username}</p>
+                  <p className="text-[10px] sm:text-[11px] text-cyan-300 font-mono">
+                    {draftState.claimedCounts?.[player.id] || 0} Goals
+                  </p>
+                </div>
               </div>
             );
           })}
