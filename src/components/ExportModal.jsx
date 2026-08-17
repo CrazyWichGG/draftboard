@@ -100,13 +100,13 @@ export default function ExportModal({ draftState, lobbyData, onResetLobby }) {
                     <div className="flex items-center gap-1">
                       {playerBans.map((bItem, bIdx) => (
                         bItem.isSkipped ? (
-                          <span key={`export-ban-skip-${bIdx}`} className="text-[7px] font-pixel text-rose-400 bg-rose-500/10 px-1 border border-rose-500/20">
-                            SKIP
-                          </span>
+                          <div key={`export-ban-skip-${bIdx}`} className="w-5 h-5 mc-bevel-inset bg-neutral-900 p-0.5 relative flex items-center justify-center border border-neutral-800" title="Ban Skipped (Timeout)">
+                            <XCircle className="w-3 h-3 text-neutral-500" />
+                          </div>
                         ) : (
                           <div key={`export-ban-${bIdx}`} className="w-5 h-5 mc-bevel-inset bg-neutral-900 p-0.5 relative flex items-center justify-center border border-rose-500/30" title={bItem.goal?.text}>
                             <GoalIcon goal={bItem.goal} className="w-full h-full text-neutral-400 grayscale opacity-60" />
-                            <Ban className="w-3 h-3 text-rose-500/70 stroke-[2.5] absolute inset-0 m-auto pointer-events-none" />
+                            <Ban className="w-3 h-3 text-rose-500 stroke-[2.5] absolute inset-0 m-auto pointer-events-none" />
                           </div>
                         )
                       ))}

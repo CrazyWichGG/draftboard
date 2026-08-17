@@ -290,7 +290,7 @@ export default function DraftingPhaseView({ lobbyData, serverTimer, onResetLobby
                           key={`client-draft-ban-empty-${slotIdx}`}
                           className="w-10 h-10 sm:w-11 sm:h-11 aspect-square shrink-0 border border-dashed border-neutral-800 bg-neutral-950 flex flex-col items-center justify-center gap-0.5 text-neutral-600 font-mono text-[7px]"
                         >
-                          <Ban className="w-3 h-3 opacity-30" />
+                          <Ban className="w-3 h-3 text-neutral-600" />
                           <span>#{slotIdx + 1}</span>
                         </div>
                       );
@@ -300,10 +300,10 @@ export default function DraftingPhaseView({ lobbyData, serverTimer, onResetLobby
                       return (
                         <div
                           key={`client-draft-ban-skip-${slotIdx}`}
-                          className="w-10 h-10 sm:w-11 sm:h-11 aspect-square shrink-0 mc-bevel-inset bg-neutral-950 p-0.5 flex items-center justify-center border border-rose-500/30"
+                          className="w-10 h-10 sm:w-11 sm:h-11 aspect-square shrink-0 mc-bevel-inset bg-neutral-950 p-0.5 flex items-center justify-center border border-neutral-800"
                           title="Ban Skipped (Timeout)"
                         >
-                          <XCircle className="w-5 h-5 text-rose-400" />
+                          <XCircle className="w-5 h-5 text-neutral-500" />
                         </div>
                       );
                     }
@@ -315,7 +315,7 @@ export default function DraftingPhaseView({ lobbyData, serverTimer, onResetLobby
                         title={banItem.goal?.text}
                       >
                         <GoalIcon goal={banItem.goal} className="w-full h-full object-contain text-neutral-400 grayscale opacity-60" />
-                        <Ban className="w-5 h-5 text-rose-500/70 stroke-[2.5] absolute inset-0 m-auto pointer-events-none" />
+                        <Ban className="w-5 h-5 text-rose-500 stroke-[2.5] absolute inset-0 m-auto pointer-events-none" />
                       </div>
                     );
                   })}
@@ -509,7 +509,7 @@ export default function DraftingPhaseView({ lobbyData, serverTimer, onResetLobby
                                 key={`opp-${player.id}-draft-ban-empty-${slotIdx}`}
                                 className="w-8 h-8 sm:w-9 sm:h-9 aspect-square shrink-0 border border-dashed border-neutral-800 bg-neutral-900/50 flex flex-col items-center justify-center text-neutral-600 font-mono text-[6px]"
                               >
-                                <Ban className="w-2.5 h-2.5 opacity-30" />
+                                <Ban className="w-2.5 h-2.5 text-neutral-600" />
                                 <span>#{slotIdx + 1}</span>
                               </div>
                             );
@@ -519,10 +519,10 @@ export default function DraftingPhaseView({ lobbyData, serverTimer, onResetLobby
                             return (
                               <div
                                 key={`opp-${player.id}-draft-ban-skip-${slotIdx}`}
-                                className="w-8 h-8 sm:w-9 sm:h-9 aspect-square shrink-0 mc-bevel-inset bg-neutral-950 p-0.5 flex items-center justify-center border border-rose-500/30"
+                                className="w-8 h-8 sm:w-9 sm:h-9 aspect-square shrink-0 mc-bevel-inset bg-neutral-950 p-0.5 flex items-center justify-center border border-neutral-800"
                                 title="Ban Skipped (Timeout)"
                               >
-                                <XCircle className="w-4 h-4 text-rose-400" />
+                                <XCircle className="w-4 h-4 text-neutral-500" />
                               </div>
                             );
                           }
@@ -534,7 +534,7 @@ export default function DraftingPhaseView({ lobbyData, serverTimer, onResetLobby
                               title={banItem.goal?.text}
                             >
                               <GoalIcon goal={banItem.goal} className="w-full h-full object-contain text-neutral-400 grayscale opacity-60" />
-                              <Ban className="w-4 h-4 text-rose-500/70 stroke-[2.5] absolute inset-0 m-auto pointer-events-none" />
+                              <Ban className="w-4 h-4 text-rose-500 stroke-[2.5] absolute inset-0 m-auto pointer-events-none" />
                             </div>
                           );
                         })}

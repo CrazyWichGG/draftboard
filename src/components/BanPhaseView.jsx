@@ -179,7 +179,7 @@ export default function BanPhaseView({ lobbyData, serverTimer, onResetLobby }) {
                   : 'text-rose-400'
             }`}>
               {isIntermission
-                ? `BAN PHASE INTERMISSION - DRAFT STARTS IN ${timeLeft}s`
+                ? `BAN PHASE INTERMISSION - DRAFTING SOON...`
                 : isCurrentClientTurn
                   ? 'YOUR TURN - SELECT A GOAL CATEGORY TO BAN'
                   : `${activePlayer?.username || 'Opponent'}'s TURN - BANNING...`}
@@ -244,7 +244,7 @@ export default function BanPhaseView({ lobbyData, serverTimer, onResetLobby }) {
               <div className="min-w-0 flex-1">
                 <h3 className="font-bold text-white text-xs sm:text-sm truncate">{clientPlayer?.username}</h3>
                 <p className="text-[11px] text-cyan-300 font-mono">
-                  {getPlayerBans(clientPlayer?.id).length} / {bansPerPlayer} Bans Used
+                  {getPlayerBans(clientPlayer?.id).length}/{bansPerPlayer} Bans Used
                 </p>
               </div>
             </div>
@@ -277,7 +277,7 @@ export default function BanPhaseView({ lobbyData, serverTimer, onResetLobby }) {
                         key={`client-slot-empty-${slotIdx}`}
                         className="w-10 h-10 sm:w-11 sm:h-11 aspect-square shrink-0 border border-dashed border-neutral-800 bg-neutral-950 flex flex-col items-center justify-center gap-0.5 text-neutral-600 font-mono text-[7px]"
                       >
-                        <Ban className="w-3 h-3 opacity-30" />
+                        <Ban className="w-3 h-3 text-neutral-600" />
                         <span>#{slotIdx + 1}</span>
                       </div>
                     );
@@ -287,10 +287,10 @@ export default function BanPhaseView({ lobbyData, serverTimer, onResetLobby }) {
                     return (
                       <div
                         key={`client-slot-skip-${slotIdx}`}
-                        className="w-10 h-10 sm:w-11 sm:h-11 aspect-square shrink-0 mc-bevel-inset bg-neutral-950 p-0.5 flex items-center justify-center border border-rose-500/30"
+                        className="w-10 h-10 sm:w-11 sm:h-11 aspect-square shrink-0 mc-bevel-inset bg-neutral-950 p-0.5 flex items-center justify-center border border-neutral-800"
                         title="Ban Skipped (Timeout)"
                       >
-                        <XCircle className="w-5 h-5 text-rose-400" />
+                        <XCircle className="w-5 h-5 text-neutral-500" />
                       </div>
                     );
                   }
@@ -302,7 +302,7 @@ export default function BanPhaseView({ lobbyData, serverTimer, onResetLobby }) {
                       title={banItem.goal?.text}
                     >
                       <GoalIcon goal={banItem.goal} className="w-full h-full object-contain text-neutral-400 grayscale opacity-60" />
-                      <Ban className="w-5 h-5 text-rose-500/70 stroke-[2.5] absolute inset-0 m-auto pointer-events-none" />
+                      <Ban className="w-5 h-5 text-rose-500 stroke-[2.5] absolute inset-0 m-auto pointer-events-none" />
                     </div>
                   );
                 })}
@@ -317,75 +317,50 @@ export default function BanPhaseView({ lobbyData, serverTimer, onResetLobby }) {
             /* CENTER INTERMISSION BOX: Natural content height without stretching to bottom */
             <div className="draftout-panel mc-bevel p-3 sm:p-4 border-amber-400/40 space-y-3 shadow-lg h-auto self-start w-full">
               {/* Intermission Header */}
-              <div className="text-center border-b border-amber-500/20 pb-2.5">
-                <div className="flex items-center justify-center gap-2 mb-0.5">
-                  <ShieldAlert className="w-4 h-4 text-amber-300" />
-                  <h3 className="text-xs sm:text-sm font-pixel text-amber-300 uppercase tracking-wider">
-                    BAN PHASE COMPLETE - INTERMISSION
-                  </h3>
-                </div>
-                <p className="text-[10px] text-neutral-400 font-mono">
-                  The following goal categories have been excluded from this match:
-                </p>
+              <div className="text-center pb-1">
+                <h3 className="text-xs sm:text-sm font-pixel text-neutral-200 tracking-wide">
+                  The following goals have been <span className="text-rose-500 font-bold">EXCLUDED</span> from this match
+                </h3>
               </div>
 
-              {/* 2-Column Summary Grid of Banned Categories */}
-              <div className="max-h-[calc(100vh-280px)] overflow-y-auto p-0.5">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  {(banState.bannedGoals || []).map((banItem, idx) => {
-                    if (banItem.isSkipped) {
-                      return (
-                        <div
-                          key={`skipped-${idx}`}
-                          className="mc-bevel p-2 border border-neutral-800 bg-neutral-950/80 flex items-center gap-2.5"
-                        >
-                          <div className="mc-bevel-inset w-9 h-9 flex items-center justify-center bg-neutral-900 shrink-0">
-                            <XCircle className="w-4 h-4 text-rose-400" />
-                          </div>
-                          <div className="min-w-0 flex-1">
-                            <span className="font-pixel text-[8px] text-neutral-500">BAN SLOT #{idx + 1}</span>
-                            <h4 className="font-bold text-neutral-400 text-[11px] truncate">SKIPPED BAN (TIMEOUT)</h4>
-                            <p className="text-[9px] text-neutral-500 font-mono truncate">
-                              Skipped by <strong className="text-neutral-300">{banItem.bannedBy?.username || 'Player'}</strong>
-                            </p>
-                          </div>
-                        </div>
-                      );
-                    }
-
-                    const cat = banItem.goal;
+              {/* 2-Column Summary Grid of Banned Categories (Only Banned Goals) */}
+              <div className="max-h-[calc(100vh-280px)] overflow-y-auto p-0.5 w-full">
+                {(() => {
+                  const actualBannedGoals = (banState.bannedGoals || []).filter(b => !b.isSkipped && b.goal);
+                  if (actualBannedGoals.length === 0) {
                     return (
-                      <div
-                        key={`ban-${cat?.id}-${idx}`}
-                        className="mc-bevel p-2 border border-rose-500/40 bg-neutral-950 flex items-center gap-2.5 relative overflow-hidden"
-                      >
-                        {/* Goal Texture with Forbidden Overlay */}
-                        <div className="mc-bevel-inset w-10 h-10 p-0.5 shrink-0 bg-neutral-900 relative flex items-center justify-center overflow-hidden">
-                          <GoalIcon goal={cat} className="w-full h-full text-neutral-400 grayscale opacity-60" />
-                          <Ban className="w-6 h-6 text-rose-500/60 stroke-[2.5] absolute inset-0 m-auto pointer-events-none" />
-                        </div>
-
-                        <div className="min-w-0 flex-1">
-                          <span className="font-pixel text-[7px] text-rose-400 bg-rose-500/10 px-1 py-0.5 border border-rose-500/20">
-                            BANNED CATEGORY
-                          </span>
-                          <h4 className="font-bold text-white text-[11px] truncate mt-0.5 leading-snug">{cat?.text}</h4>
-                          <p className="text-[9px] text-neutral-400 font-mono mt-0.5 truncate">
-                            Banned by <strong className="text-cyan-300">{banItem.bannedBy?.username || 'Player'}</strong>
-                          </p>
-                        </div>
+                      <div className="p-4 text-center text-neutral-500 font-mono text-xs">
+                        No goals were banned in this phase.
                       </div>
                     );
-                  })}
-                </div>
-              </div>
+                  }
 
-              {/* Animated Footer */}
-              <div className="text-center pt-2 border-t border-amber-500/20">
-                <span className="font-pixel text-[11px] text-amber-300 animate-pulse flex items-center justify-center gap-1.5">
-                  <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-                  Drafting will start shortly... ({timeLeft}s)
-                </span>
+                  return (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      {actualBannedGoals.map((banItem, idx) => {
+                        const cat = banItem.goal;
+                        return (
+                          <div
+                            key={`ban-${cat?.id}-${idx}`}
+                            className="mc-bevel p-2 border border-rose-500/40 bg-neutral-950 flex items-center gap-2.5 relative overflow-hidden"
+                          >
+                            {/* Goal Texture */}
+                            <div className="mc-bevel-inset w-12 h-12 shrink-0 bg-neutral-900 relative flex items-center justify-center overflow-hidden p-1">
+                              <GoalIcon goal={cat} className="w-full h-full object-contain text-cyan-300" />
+                            </div>
+
+                            <div className="min-w-0 flex-1">
+                              <h4 className="font-bold text-white text-xs truncate leading-snug">{cat?.text}</h4>
+                              <p className="text-[10px] text-neutral-400 font-mono mt-0.5 truncate">
+                                Banned by <strong className="text-cyan-300">{banItem.bannedBy?.username || 'Player'}</strong>
+                              </p>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  );
+                })()}
               </div>
             </div>
           ) : (
@@ -425,7 +400,7 @@ export default function BanPhaseView({ lobbyData, serverTimer, onResetLobby }) {
                         onMouseLeave={() => handleCategoryHover(null)}
                         className={`aspect-square p-1 relative group flex items-center justify-center transition-all ${
                           isBanned
-                            ? 'mc-bevel-inset bg-neutral-950 border border-neutral-850 opacity-40 cursor-not-allowed'
+                            ? 'mc-bevel-inset bg-neutral-950 border border-rose-500/40 cursor-not-allowed'
                             : isCurrentClientTurn
                               ? 'mc-bevel bg-neutral-900 border-rose-500/40 hover:border-rose-400 hover:bg-neutral-850 cursor-pointer shadow-[0_0_10px_rgba(244,63,94,0.25)] hover:shadow-[0_0_18px_rgba(244,63,94,0.65)] active:scale-95'
                               : 'mc-bevel bg-neutral-900 border-neutral-800 opacity-75 cursor-not-allowed'
@@ -436,14 +411,14 @@ export default function BanPhaseView({ lobbyData, serverTimer, onResetLobby }) {
                           <GoalIcon
                             goal={category}
                             className={`w-full h-full object-contain ${
-                              isBanned ? 'grayscale opacity-50' : 'text-cyan-300'
+                              isBanned ? 'grayscale opacity-60' : 'text-cyan-300'
                             }`}
                           />
                         </div>
 
                         {/* Red Forbidden Ban Overlay for Banned Categories */}
                         {isBanned && (
-                          <Ban className="w-7 h-7 sm:w-8 sm:h-8 text-rose-500/60 stroke-[2.5] absolute inset-0 m-auto pointer-events-none" />
+                          <Ban className="w-7 h-7 sm:w-8 sm:h-8 text-rose-500 stroke-[2.5] absolute inset-0 m-auto pointer-events-none" />
                         )}
 
                         {/* Variant Count Tag if multi-variant */}
@@ -520,7 +495,7 @@ export default function BanPhaseView({ lobbyData, serverTimer, onResetLobby }) {
                               key={`opp-${player.id}-slot-${slotIdx}`}
                               className="w-8 h-8 sm:w-9 sm:h-9 aspect-square shrink-0 border border-dashed border-neutral-800 bg-neutral-900/50 flex flex-col items-center justify-center text-neutral-600 font-mono text-[6px]"
                             >
-                              <Ban className="w-2.5 h-2.5 opacity-30" />
+                              <Ban className="w-2.5 h-2.5 text-neutral-600" />
                               <span>#{slotIdx + 1}</span>
                             </div>
                           );
@@ -530,10 +505,10 @@ export default function BanPhaseView({ lobbyData, serverTimer, onResetLobby }) {
                           return (
                             <div
                               key={`opp-${player.id}-skip-${slotIdx}`}
-                              className="w-8 h-8 sm:w-9 sm:h-9 aspect-square shrink-0 mc-bevel-inset bg-neutral-950 p-0.5 flex items-center justify-center border border-rose-500/30"
+                              className="w-8 h-8 sm:w-9 sm:h-9 aspect-square shrink-0 mc-bevel-inset bg-neutral-950 p-0.5 flex items-center justify-center border border-neutral-800"
                               title="Ban Skipped (Timeout)"
                             >
-                              <XCircle className="w-4 h-4 text-rose-400" />
+                              <XCircle className="w-4 h-4 text-neutral-500" />
                             </div>
                           );
                         }
@@ -545,7 +520,7 @@ export default function BanPhaseView({ lobbyData, serverTimer, onResetLobby }) {
                             title={banItem.goal?.text}
                           >
                             <GoalIcon goal={banItem.goal} className="w-full h-full object-contain text-neutral-400 grayscale opacity-60" />
-                            <Ban className="w-4 h-4 text-rose-500/70 stroke-[2.5] absolute inset-0 m-auto pointer-events-none" />
+                            <Ban className="w-4 h-4 text-rose-500 stroke-[2.5] absolute inset-0 m-auto pointer-events-none" />
                           </div>
                         );
                       })}
