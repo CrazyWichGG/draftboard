@@ -10,7 +10,7 @@ import {
 const rooms = new Map();
 
 const BAN_TURN_TIME = 60;
-const INTERMISSION_TIME = 30;
+const INTERMISSION_TIME = 15;
 
 // Helper to fetch Mojang UUID and avatar
 export async function resolvePlayerIdentity(username) {

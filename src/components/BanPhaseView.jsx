@@ -39,7 +39,7 @@ export default function BanPhaseView({ lobbyData, serverTimer, onResetLobby }) {
   };
 
   const isIntermission = banState.isIntermission || false;
-  const maxTimer = isIntermission ? 30 : 60;
+  const maxTimer = isIntermission ? 15 : 60;
   const timeLeft = serverTimer !== undefined ? serverTimer : (lobbyData.remainingTime || maxTimer);
   const currentSocketId = socket.id;
 
@@ -186,7 +186,7 @@ export default function BanPhaseView({ lobbyData, serverTimer, onResetLobby }) {
                   : 'text-rose-400'
             }`}>
               {isIntermission
-                ? `BAN PHASE INTERMISSION - DRAFTING SOON...`
+                ? `INTERMISSION - DRAFT STARTING SOON...`
                 : isCurrentClientTurn
                   ? 'YOUR TURN - SELECT A GOAL CATEGORY TO BAN'
                   : `${activePlayer?.username || 'Opponent'}'s TURN - BANNING...`}
