@@ -14,7 +14,8 @@ import {
   Settings,
   Eye,
   EyeOff,
-  Ban
+  Ban,
+  Info
 } from 'lucide-react';
 import { getAvatarUrl } from '../services/mojangApi';
 import { toggleReadySocket, startDraftSocket, updateRoomSettingsSocket } from '../services/socket';
@@ -393,19 +394,41 @@ export default function LobbyRoomView({ lobbyData, onLeaveLobby }) {
               className={`py-2.5 px-3 border flex items-center justify-between transition-all ${
                 isHost
                   ? 'cursor-pointer bg-neutral-900 border-neutral-800 hover:border-cyan-500/50 hover:bg-neutral-850'
-                  : 'cursor-not-allowed bg-neutral-950 border-neutral-800 opacity-60'
-              } ${lobbyData.enableBanPhase ? 'border-cyan-500/40 bg-cyan-950/20' : ''}`}
+                  : 'cursor-not-allowed bg-neutral-950 border-neutral-800/80'
+              } ${lobbyData.enableBanPhase ? (isHost ? 'border-cyan-500/40 bg-cyan-950/20' : 'border-cyan-500/20 bg-cyan-950/10') : ''}`}
             >
-              <span className="text-xs font-semibold text-white uppercase tracking-wider flex items-center gap-1.5">
-                <Ban className="w-3.5 h-3.5 text-cyan-400" />
-                Enable Ban Phase
-              </span>
+              <div className="flex items-center gap-1.5">
+                <span className={`text-xs font-semibold uppercase tracking-wider flex items-center gap-1.5 ${
+                  isHost ? 'text-white' : 'text-neutral-200'
+                }`}>
+                  <Ban className="w-3.5 h-3.5 text-cyan-400" />
+                  Enable Ban Phase
+                </span>
+
+                {/* Info Tooltip */}
+                <div
+                  className="relative group/info flex items-center cursor-help"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <Info className="w-3.5 h-3.5 text-neutral-400 hover:text-cyan-300 transition-colors" />
+
+                  {/* Tooltip Content (Always 100% Opaque) */}
+                  <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 hidden group-hover/info:block z-50 w-60 sm:w-64 p-2.5 bg-neutral-950/95 border border-cyan-500/40 shadow-2xl backdrop-blur-md text-left pointer-events-none">
+                    <div className="text-[10px] font-pixel text-cyan-300 uppercase mb-1">
+                      BAN PHASE
+                    </div>
+                    <p className="text-[11px] text-neutral-300 font-sans leading-snug">
+                      Adds a turn-based pre-draft phase where each player bans 2 goal categories (60s timer). Banned goals and all their variants are excluded from the match.
+                    </p>
+                  </div>
+                </div>
+              </div>
 
               {/* Minecraft-styled Square Switch */}
               <div
                 className={`w-10 h-5 px-0.5 flex items-center relative transition-colors shrink-0 ${
                   lobbyData.enableBanPhase ? 'bg-cyan-950' : 'bg-neutral-950'
-                }`}
+                } ${!isHost ? 'opacity-60' : ''}`}
               >
                 <div
                   className={`w-4 h-4 transition-transform duration-150 ${
