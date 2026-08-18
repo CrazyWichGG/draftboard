@@ -34,6 +34,7 @@ export default function GoalIcon({ goal, className = "w-5 h-5 text-cyan-300" }) 
         <img
           src={goal.texture}
           alt={goal.text}
+          draggable={false}
           className="w-full h-full object-contain [image-rendering:pixelated]"
           onError={() => setImgError(true)}
         />

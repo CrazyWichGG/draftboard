@@ -29,6 +29,14 @@
     background-size: cover;
     color: #f5f5f5;
   }
+
+  img, svg {
+    user-select: none;
+    -drag: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+  }
 }
 
 /* Flat Minecraft GUI Bevel Utilities (No Gradients or Neon Glows) */
