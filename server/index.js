@@ -17,7 +17,8 @@ import {
   handleExecuteReroll,
   resolvePlayerIdentity,
   sanitizeRoomState,
-  getRoom
+  getRoom,
+  getActiveRoomCount
 } from './roomManager.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -173,7 +174,7 @@ function handlePlayerDisconnect(socket) {
   if (result) {
     const { roomCode, destroyed, room } = result;
     if (destroyed) {
-      console.log(`[Server] Room '${roomCode}' destroyed after all players disconnected.`);
+      console.log(`[Server] Room '${roomCode}' destroyed after all players disconnected. Active rooms: ${getActiveRoomCount()}`);
     } else if (room) {
       socket.leave(roomCode);
       io.to(roomCode).emit('room_state_updated', sanitizeRoomState(room));

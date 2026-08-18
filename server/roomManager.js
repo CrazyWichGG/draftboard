@@ -93,6 +93,7 @@ export async function createRoom(socketId, hostData) {
   };
 
   rooms.set(roomCode, newRoom);
+  console.log(`[RoomManager] Room '${roomCode}' created. Active rooms: ${rooms.size}`);
   return newRoom;
 }
 
@@ -527,8 +528,12 @@ export function destroyRoom(roomCode) {
   if (room) {
     clearTurnTimer(room);
     rooms.delete(roomCode);
-    console.log(`[RoomManager] Room '${roomCode}' has no remaining players and was destroyed.`);
+    console.log(`[RoomManager] Room '${roomCode}' has no remaining players and was destroyed. Active rooms: ${rooms.size}`);
   }
+}
+
+export function getActiveRoomCount() {
+  return rooms.size;
 }
 
 export function getRoom(roomCode) {
