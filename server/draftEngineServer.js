@@ -92,6 +92,53 @@ export function drawRandomGoals(count = 2, usedGoalIds = new Set(), goalPool = '
   return chosenGoals;
 }
 
+export function getGoalCategories(goalPool = 'queue') {
+  let goalsList = getMasterGoals();
+  if (goalPool === 'queue') {
+    if (!queueGoalSet || queueGoalSet.size === 0) {
+      loadQueueGoalIds();
+    }
+    goalsList = goalsList.filter(g => queueGoalSet.has(getGoalKey(g)));
+  }
+
+  const categoryMap = new Map();
+  for (const g of goalsList) {
+    if (!categoryMap.has(g.id)) {
+      categoryMap.set(g.id, []);
+    }
+    categoryMap.get(g.id).push(g);
+  }
+
+  const categories = [];
+  for (const [id, variants] of categoryMap.entries()) {
+    let title = variants[0].text;
+    if (variants.length > 1) {
+      title = id
+        .split('_')
+        .map(w => {
+          if (w.toUpperCase() === 'ANY') return 'Any';
+          if (!isNaN(w)) return w;
+          return w.charAt(0).toUpperCase() + w.slice(1).toLowerCase();
+        })
+        .join(' ');
+    }
+
+    const variantLabels = variants.map(v => v.data || v.text).filter(Boolean);
+
+    categories.push({
+      id,
+      text: title,
+      texture: variants[0].texture,
+      variantCount: variants.length,
+      variantLabels,
+      variants,
+    });
+  }
+
+  categories.sort((a, b) => a.text.localeCompare(b.text));
+  return categories;
+}
+
 export function parseGridDimensions(gridSizeStr = '5x5') {
   const match = String(gridSizeStr).match(/(\d+)x?(\d+)?/i);
   if (match && match[1]) {
@@ -101,9 +148,9 @@ export function parseGridDimensions(gridSizeStr = '5x5') {
   return { rows: 5, cols: 5, total: 25 };
 }
 
-export function initDraftSession(gridSizeStr = '5x5', players = [], goalPool = 'queue') {
+export function initDraftSession(gridSizeStr = '5x5', players = [], goalPool = 'queue', initialBannedIds = []) {
   const { rows, cols, total } = parseGridDimensions(gridSizeStr);
-  const usedIds = new Set();
+  const usedIds = new Set(initialBannedIds || []);
   const initialOptions = drawRandomGoals(2, usedIds, goalPool);
   // Mark all initial options as seen in usedIds
   initialOptions.forEach(opt => {

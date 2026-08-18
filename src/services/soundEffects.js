@@ -51,6 +51,48 @@ export function playYourTurnSound() {
 }
 
 /**
+ * Distinct tactical alert sound when it becomes the local client's turn to ban a goal
+ * Uses a sharp two-tone staccato alert (D5 -> A5) with filtered harmonic attack
+ */
+export function playBanTurnSound() {
+  try {
+    const ctx = getAudioContext();
+    if (!ctx) return;
+
+    const now = ctx.currentTime;
+    const notes = [
+      { freq: 587.33, start: 0, duration: 0.10 },
+      { freq: 880.00, start: 0.09, duration: 0.14 }
+    ];
+
+    notes.forEach((note) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(note.freq, now + note.start);
+
+      const filter = ctx.createBiquadFilter();
+      filter.type = 'lowpass';
+      filter.frequency.setValueAtTime(1600, now + note.start);
+
+      gain.gain.setValueAtTime(0, now + note.start);
+      gain.gain.linearRampToValueAtTime(0.20, now + note.start + 0.01);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + note.start + note.duration);
+
+      osc.connect(filter);
+      filter.connect(gain);
+      gain.connect(ctx.destination);
+
+      osc.start(now + note.start);
+      osc.stop(now + note.start + note.duration + 0.01);
+    });
+  } catch (err) {
+    console.warn('[SoundEffects] playBanTurnSound error:', err);
+  }
+}
+
+/**
  * Wooden block click when an opponent's turn begins
  */
 export function playOpponentTurnSound() {
@@ -109,6 +151,67 @@ export function playTimerTickSound() {
 }
 
 /**
+ * Low-pitch punchy strike sound when a goal category is banned
+ */
+export function playBanSound() {
+  try {
+    const ctx = getAudioContext();
+    if (!ctx) return;
+
+    const now = ctx.currentTime;
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+
+    osc.type = 'sawtooth';
+    osc.frequency.setValueAtTime(320, now);
+    osc.frequency.exponentialRampToValueAtTime(75, now + 0.18);
+
+    gain.gain.setValueAtTime(0.22, now);
+    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
+
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+
+    osc.start(now);
+    osc.stop(now + 0.19);
+  } catch (err) {
+    console.warn('[SoundEffects] playBanSound error:', err);
+  }
+}
+
+/**
+ * Ascending transition chime when ban phase transitions to intermission
+ */
+export function playIntermissionSound() {
+  try {
+    const ctx = getAudioContext();
+    if (!ctx) return;
+
+    const now = ctx.currentTime;
+    const notes = [311.13, 392.00, 466.16, 622.25]; // Eb4, G4, Bb4, Eb5
+    notes.forEach((freq, idx) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(freq, now + idx * 0.08);
+
+      gain.gain.setValueAtTime(0, now + idx * 0.08);
+      gain.gain.linearRampToValueAtTime(0.18, now + idx * 0.08 + 0.01);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.08 + 0.22);
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+
+      osc.start(now + idx * 0.08);
+      osc.stop(now + idx * 0.08 + 0.23);
+    });
+  } catch (err) {
+    console.warn('[SoundEffects] playIntermissionSound error:', err);
+  }
+}
+
+/**
  * Level-up fanfare chime when the grid board drafting completes
  */
 export function playDraftCompleteSound() {
@@ -147,3 +250,4 @@ export function playDraftCompleteSound() {
     console.warn('[SoundEffects] playDraftCompleteSound error:', err);
   }
 }
+

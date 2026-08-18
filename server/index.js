@@ -12,6 +12,7 @@ import {
   toggleReady,
   updateRoomSettings,
   startDraft,
+  handleMakeBan,
   handleMakePick,
   handleExecuteReroll,
   resolvePlayerIdentity,
@@ -105,14 +106,14 @@ io.on('connection', (socket) => {
   });
 
   // Update Room Settings Event (Host Only)
-  socket.on('update_room_settings', ({ roomCode, boardSize, turnTime, goalPool }) => {
-    const room = updateRoomSettings(socket.id, roomCode, { boardSize, turnTime, goalPool });
+  socket.on('update_room_settings', ({ roomCode, boardSize, turnTime, goalPool, enableBanPhase, bansPerPlayer }) => {
+    const room = updateRoomSettings(socket.id, roomCode, { boardSize, turnTime, goalPool, enableBanPhase, bansPerPlayer });
     if (room) {
       io.to(roomCode).emit('room_state_updated', sanitizeRoomState(room));
     }
   });
 
-  // Start Draft Event
+  // Start Draft / Match Event
   socket.on('start_draft', ({ roomCode }, callback) => {
     try {
       const room = startDraft(socket.id, roomCode, io);
@@ -128,6 +129,14 @@ io.on('connection', (socket) => {
       if (typeof callback === 'function') {
         callback({ success: false, error: err.message });
       }
+    }
+  });
+
+  // Make Goal Ban Event
+  socket.on('make_ban', ({ roomCode, categoryId }) => {
+    const room = handleMakeBan(socket.id, roomCode, categoryId, io);
+    if (room) {
+      io.to(roomCode).emit('room_state_updated', sanitizeRoomState(room));
     }
   });
 

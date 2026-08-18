@@ -61,27 +61,29 @@ export default function ExportModal({ draftState, onResetLobby }) {
 
         {/* Stats Breakdown */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 shrink-0">
-          {(draftState.players || []).map((player) => (
-            <div key={player.id} className="mc-bevel-inset p-2.5 flex items-center gap-2.5 bg-neutral-950">
-              <div className="w-7 h-7 sm:w-8 sm:h-8 shrink-0 overflow-hidden bg-neutral-900 border border-cyan-500/30">
-                <img
-                  src={getPlayerAvatar(player)}
-                  alt={player.username}
-                  className="w-full h-full object-contain"
-                  onError={(e) => {
-                    e.target.onerror = null;
-                    e.target.src = `https://minotar.net/helm/${encodeURIComponent(player.username)}/64.png`;
-                  }}
-                />
+          {(draftState.players || []).map((player) => {
+            return (
+              <div key={player.id} className="mc-bevel-inset p-2.5 flex items-center gap-2.5 bg-neutral-950">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 shrink-0 overflow-hidden bg-neutral-900 border border-cyan-500/30">
+                  <img
+                    src={getPlayerAvatar(player)}
+                    alt={player.username}
+                    className="w-full h-full object-contain"
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = `https://minotar.net/helm/${encodeURIComponent(player.username)}/64.png`;
+                    }}
+                  />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-xs font-bold text-white truncate">{player.username}</p>
+                  <p className="text-[10px] sm:text-[11px] text-cyan-300 font-mono">
+                    {draftState.claimedCounts?.[player.id] || 0} Goals
+                  </p>
+                </div>
               </div>
-              <div className="min-w-0">
-                <p className="text-xs font-bold text-white truncate">{player.username}</p>
-                <p className="text-[10px] sm:text-[11px] text-cyan-300 font-mono">
-                  {draftState.claimedCounts?.[player.id] || 0} Goals
-                </p>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Visual Final Board Grid Section */}

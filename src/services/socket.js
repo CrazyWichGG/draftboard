@@ -38,8 +38,8 @@ export function toggleReadySocket(roomCode) {
   socket.emit('toggle_ready', { roomCode });
 }
 
-export function updateRoomSettingsSocket(roomCode, { boardSize, turnTime, goalPool }) {
-  socket.emit('update_room_settings', { roomCode, boardSize, turnTime, goalPool });
+export function updateRoomSettingsSocket(roomCode, { boardSize, turnTime, goalPool, enableBanPhase, bansPerPlayer }) {
+  socket.emit('update_room_settings', { roomCode, boardSize, turnTime, goalPool, enableBanPhase, bansPerPlayer });
 }
 
 export function startDraftSocket(roomCode) {
@@ -48,10 +48,14 @@ export function startDraftSocket(roomCode) {
       if (response && response.success) {
         resolve();
       } else {
-        reject(new Error(response?.error || 'Failed to start draft'));
+        reject(new Error(response?.error || 'Failed to start match'));
       }
     });
   });
+}
+
+export function makeBanSocket(roomCode, categoryId) {
+  socket.emit('make_ban', { roomCode, categoryId });
 }
 
 export function makePickSocket(roomCode, selectedGoal) {
@@ -65,3 +69,4 @@ export function executeRerollSocket(roomCode) {
 export function leaveRoomSocket() {
   socket.emit('leave_room');
 }
+
