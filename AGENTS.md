@@ -44,12 +44,14 @@ Build a real-time, web-based alternative to the in-game drafting system for the 
 * **Default Theme:** The web interface must replicate the color palette and styling of the official Draftout website (e.g., `https://draftoutmc.com/wiki`) by default.
 * **Color Palette:** Utilize deep dark backgrounds (like Tailwind's `bg-neutral-950`) heavily accented with bright cyan (e.g., `text-cyan-300`, `border-cyan-300/25`, `bg-cyan-300/10`).
 * **Semi-Transparent Panels:** Panels and bevels utilize semi-transparent dark backgrounds (`rgba(18, 18, 21, 0.65)`) with `backdrop-filter: blur(4px)`.
-* **Sharp Corners (No Rounded Corners):** Cards, panels, inputs, tooltips, slots, and modals must use sharp, square corners (`rounded-none`). **EXCEPTION:** Pulsing status indicator dots (e.g., before **DRAFT LOBBY ACTIVE** and turn indicator dots) must strictly remain circles (`rounded-full`).
+* **Sharp Corners (No Rounded Corners):** Cards, panels, inputs, tooltips, slots, switches, and modals must use sharp, square corners (`rounded-none`). **EXCEPTION:** Pulsing status indicator dots (e.g., before **DRAFTBOARD LOBBY** and turn indicator dots) must strictly remain circles (`rounded-full`).
 * **No Crown Overlays on Avatars:** Player head avatars must render cleanly without crown icons overlaid on top.
 * **No Glows or Gradients:** Do not use CSS gradients or glowing effects by default unless explicitly instructed.
-* **Minecraft GUI:** Replicate the exact aesthetic of the in-game Minecraft GUI for the drafting board components, including CSS-generated bevels, custom slots, and pixelated fonts (`font-pixel`).
-* **Progress Bar:** Smooth continuous 1s linear transition. Colored **Green** (`bg-emerald-400`) during client turn and **Red** (`bg-rose-500`) during opponent turns.
-* **Footer Disclaimer:** Completely hidden during active drafting sessions (`inDraftPhase`), rendered on home/lobby views with clean spacing.
+* **Minecraft GUI:** Replicate the exact aesthetic of the in-game Minecraft GUI for drafting board and lobby components, including CSS-generated bevels, custom slots, and pixelated fonts (`font-pixel`).
+* **Forbidden Ban Icons:** Forbidden signs (`<Ban />`) must render 100% solid and opaque (`text-rose-500 stroke-[2.5]`) with no transparency or container-level opacity attenuation.
+* **Skipped Ban Slots:** Skipped slots render with a muted gray `XCircle` icon (`text-neutral-500`) and neutral border (`border-neutral-800`).
+* **Progress Bar:** Smooth continuous 1s linear transition. Colored **Green** (`bg-emerald-400`) during client turn, **Amber** (`bg-amber-400`) during intermission, and **Red** (`bg-rose-500`) during opponent turns.
+* **Footer Disclaimer:** Completely hidden during active match sessions (`inBanPhase` and `inDraftPhase`), rendered on home and lobby views with clean spacing.
 
 ---
 
@@ -72,21 +74,33 @@ Build a real-time, web-based alternative to the in-game drafting system for the 
 
 ### 1. Lobby Creation & Joining
 
-* **Room Configuration:** Host creates a room with configurable **Goal Pool** (**Queue Pool** [DEFAULT, 379 goals], **All Goals** [407 goals]), **Board Size** (3x3, 4x4, 5x5 [DEFAULT], 6x6, 7x7), and **Picking Time Limit** (10s [DEFAULT], 15s, 30s, 45s, 60s). Goal Pool is positioned as the first configuration option.
+* **Room Configuration:** Host configures **Goal Pool** (**Queue Pool** [DEFAULT, 379 goals], **All Goals** [407 goals]), **Board Size** (3x3, 4x4, 5x5 [DEFAULT], 6x6, 7x7), **Picking Time Limit** (10s [DEFAULT], 15s, 30s, 45s, 60s), and optional **Ban Phase** toggle switch (`ENABLE BAN PHASE` [DEFAULT: Disabled]).
+* **Lobby Actions:** Grouped into a side-by-side row: `READY` / `MARK READY` toggle button and `START DRAFT` button (for Host) or disabled `WAITING FOR HOST` button (for Non-Host).
 * **Room Code:** Generates a 6-character uppercase alphanumeric code (e.g. `X7K9P2`). Codes are masked by default (`••••••`) with an eye toggle button. Lowercase input is normalized to uppercase automatically.
 * **Join Errors:** Error messages display inline directly beneath the Room Code input field (`text-rose-400 font-pixel mt-2`).
 * **Players:** Up to 4 players join per room.
 
-### 2. Drafting Phase
+### 2. Ban Phase (Optional)
+
+* **Trigger Condition:** When `enableBanPhase` is active, the lobby transitions into the Ban Phase prior to board drafting.
+* **Turn Order & Allocation:** Players take turns in sequence. Each player receives two (2) ban picks (`bansPerPlayer = 2`).
+* **Goal Pool & Deduplication:** Displays base goal categories in a searchable, compact grid (`GOALS POOL`). Banning a goal eliminates all of its color/variant sub-goals from the pool for the remainder of the match.
+* **Turn Timer:** 60 seconds per ban turn. If time expires, the turn is skipped without a ban (`SKIPPED`).
+* **Persistent Player Card Ban Slots:** Left-aligned square slots under client (`YOU`) and opponent cards display chosen bans (goal icon with solid red forbidden overlay) or skipped indicators (muted gray X). These slots persist across both the Ban Phase and Drafting Phase.
+* **Intermission:** A 15-second intermission follows the completion of all ban turns. The center column presents a summary box of all excluded goals with goal icons, titles, and player attributions before transitioning directly to drafting.
+* **Audio Feedback:** Distinct tactical 2-tone alert (`playBanTurnSound()`) on client ban turn, strike sound (`playBanSound()`) on goal ban, transition chime (`playIntermissionSound()`), and countdown warning ticks (`playTimerTickSound()`) when timer is under 5 seconds.
+
+### 3. Drafting Phase
 
 * **Turn Order:** System randomly determines picking order among connected players.
 * **UI Layout:** Anchored client player is on the left (`YOU`). Opponents are listed vertically on the right.
-* **Selection & Goal Pool Tracking:** On a player's turn, 2 goals are presented based on the room's selected Goal Pool filter (Queue Pool or All Goals). All presented goals are tracked in `usedGoalIds` to ensure goals never repeat during a drafting session unless the goal pool runs out.
+* **Selection & Pool Filtering:** On a player's turn, 2 goals are presented based on the room's Goal Pool filter, excluding any goals banned during the Ban Phase. All presented goals are tracked in `usedGoalIds` to prevent duplicate offerings.
 * **Reroll System:** Each player has one (1) single-use boolean reroll (`REROLL (1 LEFT)` / `REROLL USED`).
-* **Timer:** Default 10 seconds picking time limit. Timer auto-picks option #1 if time expires.
+* **Timer:** Configured picking time limit (default 10s). Auto-picks option #1 if time expires.
 * **Real-time Sync:** All UI updates, board states, turn indicators, and timers sync instantly via Socket.io.
+* **Audio Feedback:** 4-note ascending chime (`playYourTurnSound()`) on client turn, wooden block click (`playOpponentTurnSound()`), warning ticks (`playTimerTickSound()`), and draft complete fanfare (`playDraftCompleteSound()`).
 
-### 3. Export
+### 4. Export
 
 * Once the grid is fully populated, the draft ends.
 * Players are prompted to download `BOARD.json` formatted specifically for the Draftout Minecraft mod:
