@@ -2,2159 +2,2161 @@
   {
     "id": "BREAK_ANY_ARMOR",
     "text": "Break any Armor Piece",
-    "texture": "/assets/goals/break_any_armor_piece.png"
+    "texture": "/assets/goals/break_any_armor_piece.webp"
   },
   {
     "id": "BREAK_ANY_TOOL",
     "text": "Break any Tool",
-    "texture": "/assets/goals/break_any_tool.png"
+    "texture": "/assets/goals/break_any_tool.webp"
   },
   {
     "id": "BREED_4_UNIQUE_ANIMALS",
     "text": "Breed 4 Unique Animals",
-    "texture": "/assets/goals/breed_4_unique_animals.png"
+    "texture": "/assets/goals/breed_4_unique_animals.webp"
   },
   {
     "id": "BREED_6_UNIQUE_ANIMALS",
     "text": "Breed 6 Unique Animals",
-    "texture": "/assets/goals/breed_6_unique_animals.png"
+    "texture": "/assets/goals/breed_6_unique_animals.webp"
   },
   {
     "id": "BREED_8_UNIQUE_ANIMALS",
     "text": "Breed 8 Unique Animals",
-    "texture": "/assets/goals/breed_8_unique_animals.png"
+    "texture": "/assets/goals/breed_8_unique_animals.webp"
   },
   {
     "id": "BREED_ARMADILLO",
     "text": "Breed Armadillos",
-    "texture": "/assets/goals/breed_armadillos.png"
+    "texture": "/assets/goals/breed_armadillos.webp"
   },
   {
     "id": "BREED_CAMEL",
     "text": "Breed Camels",
-    "texture": "/assets/goals/breed_camels.png"
+    "texture": "/assets/goals/breed_camels.webp"
   },
   {
     "id": "BREED_CHICKEN",
     "text": "Breed Chickens",
-    "texture": "/assets/goals/breed_chickens.png"
+    "texture": "/assets/goals/breed_chickens.webp"
   },
   {
     "id": "BREED_COW",
     "text": "Breed Cows",
-    "texture": "/assets/goals/breed_cows.png"
+    "texture": "/assets/goals/breed_cows.webp"
   },
   {
     "id": "BREED_FOX",
     "text": "Breed Foxes",
-    "texture": "/assets/goals/breed_foxes.png"
+    "texture": "/assets/goals/breed_foxes.webp"
   },
   {
     "id": "BREED_FROGS",
     "text": "Breed Frogs",
-    "texture": "/assets/goals/breed_frogs.png"
+    "texture": "/assets/goals/breed_frogs.webp"
   },
   {
     "id": "BREED_GOAT",
     "text": "Breed Goats",
-    "texture": "/assets/goals/breed_goats.png"
+    "texture": "/assets/goals/breed_goats.webp"
   },
   {
     "id": "BREED_HOGLIN",
     "text": "Breed Hoglins",
-    "texture": "/assets/goals/breed_hoglins.png"
+    "texture": "/assets/goals/breed_hoglins.webp"
   },
   {
     "id": "BREED_PIG",
     "text": "Breed Pigs",
-    "texture": "/assets/goals/breed_pigs.png"
+    "texture": "/assets/goals/breed_pigs.webp"
   },
   {
     "id": "BREED_RABBIT",
     "text": "Breed Rabbits",
-    "texture": "/assets/goals/breed_rabbits.png"
+    "texture": "/assets/goals/breed_rabbits.webp"
   },
   {
     "id": "BREED_SHEEP",
     "text": "Breed Sheep",
-    "texture": "/assets/goals/breed_sheep.png"
+    "texture": "/assets/goals/breed_sheep.webp"
   },
   {
     "id": "BREED_STRIDER",
     "text": "Breed Striders",
-    "texture": "/assets/goals/breed_striders.png"
+    "texture": "/assets/goals/breed_striders.webp"
   },
   {
     "id": "BREW_LINGERING_POTION",
     "text": "Brew a Lingering Potion",
-    "texture": "/assets/goals/brew_a_lingering_potion.png"
+    "texture": "/assets/goals/brew_a_lingering_potion.webp"
   },
   {
     "id": "BREW_HEALING_POTION",
     "text": "Brew a Potion of Healing",
-    "texture": "/assets/goals/brew_a_potion_of_healing.png"
+    "texture": "/assets/goals/brew_a_potion_of_healing.webp"
   },
   {
     "id": "BREW_INVISIBILITY_POTION",
     "text": "Brew a Potion of Invisibility",
-    "texture": "/assets/goals/brew_a_potion_of_invisibility.png"
+    "texture": "/assets/goals/brew_a_potion_of_invisibility.webp"
   },
   {
     "id": "BREW_POISON_POTION",
     "text": "Brew a Potion of Poison",
-    "texture": "/assets/goals/brew_a_potion_of_poison.png"
+    "texture": "/assets/goals/brew_a_potion_of_poison.webp"
   },
   {
     "id": "BREW_SWIFTNESS_POTION",
     "text": "Brew a Potion of Swiftness",
-    "texture": "/assets/goals/brew_a_potion_of_swiftness.png"
+    "texture": "/assets/goals/brew_a_potion_of_swiftness.webp"
   },
   {
     "id": "BREW_WATER_BREATHING_POTION",
     "text": "Brew a Potion of Water Breathing",
-    "texture": "/assets/goals/brew_a_potion_of_water_breathing.png"
+    "texture": "/assets/goals/brew_a_potion_of_water_breathing.webp"
   },
   {
     "id": "BREW_WEAKNESS_POTION",
     "text": "Brew a Potion of Weakness",
-    "texture": "/assets/goals/brew_a_potion_of_weakness.png"
+    "texture": "/assets/goals/brew_a_potion_of_weakness.webp"
   },
   {
     "id": "COMPOST_3_UNIQUE_FOODS",
     "text": "Compost 3 Unique Foods",
-    "texture": "/assets/goals/compost_3_unique_foods.png"
+    "texture": "/assets/goals/compost_3_unique_foods.webp"
   },
   {
     "id": "COMPOST_5_UNIQUE_FOODS",
     "text": "Compost 5 Unique Foods",
-    "texture": "/assets/goals/compost_5_unique_foods.png"
+    "texture": "/assets/goals/compost_5_unique_foods.webp"
   },
   {
     "id": "COMPOST_7_UNIQUE_FOODS",
     "text": "Compost 7 Unique Foods",
-    "texture": "/assets/goals/compost_7_unique_foods.png"
+    "texture": "/assets/goals/compost_7_unique_foods.webp"
   },
   {
     "id": "CONSTRUCT_COPPER_GOLEM",
     "text": "Construct a Copper Golem",
-    "texture": "/assets/goals/construct_a_copper_golem.png"
+    "texture": "/assets/goals/construct_a_copper_golem.webp"
   },
   {
     "id": "CRAFT_20_UNIQUE_ITEMS",
     "text": "Craft 20 Unique Items",
-    "texture": "/assets/goals/craft_20_unique_items.png"
+    "texture": "/assets/goals/craft_20_unique_items.webp"
   },
   {
     "id": "CRAFT_50_UNIQUE_ITEMS",
     "text": "Craft 50 Unique Items",
-    "texture": "/assets/goals/craft_50_unique_items.png"
+    "texture": "/assets/goals/craft_50_unique_items.webp"
   },
   {
     "id": "CRAFT_100_UNIQUE_ITEMS",
     "text": "Craft 100 Unique Items",
-    "texture": "/assets/goals/craft_100_unique_items.png"
+    "texture": "/assets/goals/craft_100_unique_items.webp"
   },
   {
     "id": "CRAFT_ARMOR_TRIM",
     "text": "Duplicate any Armor Trim",
-    "texture": "/assets/goals/craft_armor_trim.png"
+    "texture": "/assets/goals/craft_armor_trim.webp"
   },
   {
     "id": "DEAL_400_DAMAGE",
     "text": "Deal 400 damage",
-    "texture": "/assets/goals/deal_400_damage.png"
+    "texture": "/assets/goals/deal_400_damage.webp"
   },
   {
     "id": "PUT_BANNER_ON_SHIELD",
     "text": "Decorate Shield with Banner",
-    "texture": "/assets/goals/decorate_shield_with_banner.png"
+    "texture": "/assets/goals/decorate_shield_with_banner.webp"
   },
   {
     "id": "DIE_BY_DROWNING",
     "text": "Die by Drowning",
-    "texture": "/assets/goals/die_by_drowning.png"
+    "texture": "/assets/goals/die_by_drowning.webp"
   },
   {
     "id": "DIE_TO_VOID",
     "text": "Die by falling in Void",
-    "texture": "/assets/goals/die_by_falling_in_void.png"
+    "texture": "/assets/goals/die_by_falling_in_void.webp"
   },
   {
     "id": "DIE_BY_FALLING_OFF_VINE",
     "text": "Die by falling off Vines",
-    "texture": "/assets/goals/die_by_falling_off_vines.png"
+    "texture": "/assets/goals/die_by_falling_off_vines.webp"
   },
   {
     "id": "FREEZE_TO_DEATH",
     "text": "Die by Freezing",
-    "texture": "/assets/goals/die_by_freezing.png"
+    "texture": "/assets/goals/die_by_freezing.webp"
   },
   {
     "id": "DIE_BY_MAGIC",
     "text": "Die by Magic",
-    "texture": "/assets/goals/die_by_magic.png"
+    "texture": "/assets/goals/die_by_magic.webp"
   },
   {
     "id": "DIE_BY_INTENTIONAL_GAME_DESIGN",
     "text": "Die to [Intentional Game Design]",
-    "texture": "/assets/goals/die_to_intentional_game_design.png"
+    "texture": "/assets/goals/die_to_intentional_game_design.webp"
   },
   {
     "id": "DIE_BY_BEE_STING",
     "text": "Die to Bee Sting",
-    "texture": "/assets/goals/die_to_bee_sting.png"
+    "texture": "/assets/goals/die_to_bee_sting.webp"
   },
   {
     "id": "DIE_BY_BERRY_BUSH",
     "text": "Die to Berry Bush",
-    "texture": "/assets/goals/die_to_berry_bush.png"
+    "texture": "/assets/goals/die_to_berry_bush.webp"
   },
   {
     "id": "DIE_BY_CACTUS",
     "text": "Die to Cactus",
-    "texture": "/assets/goals/die_to_cactus.png"
+    "texture": "/assets/goals/die_to_cactus.webp"
   },
   {
     "id": "DIE_BY_ANVIL",
     "text": "Die to falling Anvil",
-    "texture": "/assets/goals/die_to_falling_anvil.png"
+    "texture": "/assets/goals/die_to_falling_anvil.webp"
   },
   {
     "id": "DIE_BY_FALLING_STALACTITE",
     "text": "Die to Falling Stalactite",
-    "texture": "/assets/goals/die_to_falling_stalactite.png"
+    "texture": "/assets/goals/die_to_falling_stalactite.webp"
   },
   {
     "id": "DIE_BY_FIREWORK",
     "text": "Die to Firework Rocket",
-    "texture": "/assets/goals/die_to_firework_rocket.png"
+    "texture": "/assets/goals/die_to_firework_rocket.webp"
   },
   {
     "id": "DIE_BY_IRON_GOLEM",
     "text": "Die to Iron Golem",
-    "texture": "/assets/goals/die_to_iron_golem.png"
+    "texture": "/assets/goals/die_to_iron_golem.webp"
   },
   {
     "id": "DIE_TO_POLAR_BEAR",
     "text": "Die to Polar Bear",
-    "texture": "/assets/goals/die_to_polar_bear.png"
+    "texture": "/assets/goals/die_to_polar_bear.webp"
   },
   {
     "id": "DIE_TO_PUFFERFISH",
     "text": "Die to Pufferfish",
-    "texture": "/assets/goals/die_to_pufferfish.png"
+    "texture": "/assets/goals/die_to_pufferfish.webp"
   },
   {
     "id": "DIE_BY_TNT_MINECART",
     "text": "Die to TNT Minecart",
-    "texture": "/assets/goals/die_to_tnt_minecart.png"
+    "texture": "/assets/goals/die_to_tnt_minecart.webp"
   },
   {
     "id": "DIE_TO_WARDEN",
     "text": "Die to Warden",
-    "texture": "/assets/goals/die_to_warden.png"
+    "texture": "/assets/goals/die_to_warden.webp"
   },
   {
     "id": "DRINK_HONEY_BOTTLE",
     "text": "Drink Honey Bottle",
-    "texture": "/assets/goals/drink_honey_bottle.png"
+    "texture": "/assets/goals/drink_honey_bottle.webp"
   },
   {
     "id": "DRINK_WATER_BOTTLE",
     "text": "Drink Water Bottle",
-    "texture": "/assets/goals/drink_water_bottle.png"
+    "texture": "/assets/goals/drink_water_bottle.webp"
   },
   {
     "id": "DUPLICATE_ALLAY",
     "text": "Duplicate Allay",
-    "texture": "/assets/goals/duplicate_allay.png"
+    "texture": "/assets/goals/duplicate_allay.webp"
   },
   {
     "id": "EAT_5_UNIQUE_FOOD",
     "text": "Eat 5 Unique Food",
-    "texture": "/assets/goals/eat_5_unique_food.png"
+    "texture": "/assets/goals/eat_5_unique_food.webp"
   },
   {
     "id": "EAT_10_UNIQUE_FOOD",
     "text": "Eat 10 Unique Food",
-    "texture": "/assets/goals/eat_10_unique_food.png"
+    "texture": "/assets/goals/eat_10_unique_food.webp"
   },
   {
     "id": "EAT_15_UNIQUE_FOOD",
     "text": "Eat 15 Unique Food",
-    "texture": "/assets/goals/eat_15_unique_food.png"
+    "texture": "/assets/goals/eat_15_unique_food.webp"
   },
   {
     "id": "EAT_20_UNIQUE_FOOD",
     "text": "Eat 20 Unique Food",
-    "texture": "/assets/goals/eat_20_unique_food.png"
+    "texture": "/assets/goals/eat_20_unique_food.webp"
   },
   {
     "id": "EAT_25_UNIQUE_FOOD",
     "text": "Eat 25 Unique Food",
-    "texture": "/assets/goals/eat_25_unique_food.png"
+    "texture": "/assets/goals/eat_25_unique_food.webp"
   },
   {
     "id": "EAT_GLOW_BERRY",
     "text": "Eat a Glow Berry",
-    "texture": "/assets/goals/eat_a_glow_berry.png"
+    "texture": "/assets/goals/eat_a_glow_berry.webp"
   },
   {
     "id": "EAT_POISONOUS_POTATO",
     "text": "Eat a Poisonous Potato",
-    "texture": "/assets/goals/eat_a_poisonous_potato.png"
+    "texture": "/assets/goals/eat_a_poisonous_potato.webp"
   },
   {
     "id": "EAT_CAKE",
     "text": "Eat a slice of Cake",
-    "texture": "/assets/goals/eat_a_slice_of_cake.png"
+    "texture": "/assets/goals/eat_a_slice_of_cake.webp"
   },
   {
     "id": "EAT_BEETROOT_SOUP",
     "text": "Eat Beetroot Soup",
-    "texture": "/assets/goals/eat_beetroot_soup.png"
+    "texture": "/assets/goals/eat_beetroot_soup.webp"
   },
   {
     "id": "EAT_COOKIE",
     "text": "Eat Cookie",
-    "texture": "/assets/goals/eat_cookie.png"
+    "texture": "/assets/goals/eat_cookie.webp"
   },
   {
     "id": "EAT_ALL_SOUPS",
     "text": "Eat every type of Soup",
-    "texture": "/assets/goals/eat_every_type_of_soup.png"
+    "texture": "/assets/goals/eat_every_type_of_soup.webp"
   },
   {
     "id": "EAT_PUMPKIN_PIE",
     "text": "Eat Pumpkin Pie",
-    "texture": "/assets/goals/eat_pumpkin_pie.png"
+    "texture": "/assets/goals/eat_pumpkin_pie.webp"
   },
   {
     "id": "EAT_RABBIT_STEW",
     "text": "Eat Rabbit Stew",
-    "texture": "/assets/goals/eat_rabbit_stew.png"
+    "texture": "/assets/goals/eat_rabbit_stew.webp"
   },
   {
     "id": "EAT_SUSPICIOUS_STEW",
     "text": "Eat Suspicious Stew",
-    "texture": "/assets/goals/eat_suspicious_stew.png"
+    "texture": "/assets/goals/eat_suspicious_stew.webp"
   },
   {
     "id": "EMPTY_HUNGER_BAR",
     "text": "Empty Hunger Bar",
-    "texture": "/assets/goals/empty_hunger_bar.png"
+    "texture": "/assets/goals/empty_hunger_bar.webp"
   },
   {
     "id": "ENRAGE_ZOMBIFIED_PIGLIN",
     "text": "Enrage Zombified Piglin",
-    "texture": "/assets/goals/enrage_zombified_piglin.png"
+    "texture": "/assets/goals/enrage_zombified_piglin.webp"
   },
   {
     "id": "ENTER_NETHER",
     "text": "Enter Nether",
-    "texture": "/assets/goals/enter_nether.png"
+    "texture": "/assets/goals/enter_nether.webp"
   },
   {
     "id": "ENTER_END",
     "text": "Enter The End",
-    "texture": "/assets/goals/enter_the_end.png"
+    "texture": "/assets/goals/enter_the_end.webp"
   },
   {
     "id": "EXPLODE_END_CRYSTAL",
     "text": "Explode End Crystal",
-    "texture": "/assets/goals/explode_end_crystal.png"
+    "texture": "/assets/goals/explode_end_crystal.webp"
   },
   {
     "id": "USE_GOLDEN_DANDELION",
     "text": "Feed Golden Dandelion to any Baby Mob",
-    "texture": "/assets/goals/feed_golden_dandelion_to_any_baby_mob.png"
+    "texture": "/assets/goals/feed_golden_dandelion_to_any_baby_mob.webp"
   },
   {
     "id": "FILL_DECORATED_POT",
     "text": "Fill a Decorated Pot",
-    "texture": "/assets/goals/fill_a_decorated_pot.png"
+    "texture": "/assets/goals/fill_a_decorated_pot.webp"
   },
   {
     "id": "FILL_ARMOR_STAND",
     "text": "Fill an Armor Stand",
-    "texture": "/assets/goals/fill_an_armor_stand.png"
+    "texture": "/assets/goals/fill_an_armor_stand.webp"
   },
   {
     "id": "FILL_CAMPFIRE",
     "text": "Fill Campfire with 4 Food Items",
-    "texture": "/assets/goals/fill_campfire_with_4_food_items.png"
+    "texture": "/assets/goals/fill_campfire_with_4_food_items.webp"
   },
   {
     "id": "FILL_CHISELED_BOOKSHELF",
     "text": "Fill Chiseled Bookshelf",
-    "texture": "/assets/goals/fill_chiseled_bookshelf.png"
+    "texture": "/assets/goals/fill_chiseled_bookshelf.webp"
   },
   {
     "id": "USE_COMPOSTER",
     "text": "Fill Composter and get Bone Meal",
-    "texture": "/assets/goals/fill_composter_and_get_bone_meal.png"
+    "texture": "/assets/goals/fill_composter_and_get_bone_meal.webp"
   },
   {
     "id": "FILL_INVENTORY_UNIQUE_ITEMS",
     "text": "Fill Inventory with unique items",
-    "texture": "/assets/goals/fill_inventory_with_unique_items.png"
+    "texture": "/assets/goals/fill_inventory_with_unique_items.webp"
   },
   {
     "id": "GET_EYE_SPY_ADVANCEMENT",
     "text": "Find a Stronghold",
-    "texture": "/assets/goals/find_a_stronghold.png"
+    "texture": "/assets/goals/find_a_stronghold.webp"
   },
   {
     "id": "GET_NOT_QUITE_NINE_LIVES_ADVANCEMENT",
     "text": "Fully charge a Respawn Anchor",
-    "texture": "/assets/goals/fully_charge_a_respawn_anchor.png"
+    "texture": "/assets/goals/fully_charge_a_respawn_anchor.webp"
   },
   {
     "id": "GET_3_STATUS_EFFECTS_AT_ONCE",
     "text": "Get 3 Status Effects at once",
-    "texture": "/assets/goals/get_3_status_effects_at_once.png"
+    "texture": "/assets/goals/get_3_status_effects_at_once.webp"
   },
   {
     "id": "GET_4_STATUS_EFFECTS_AT_ONCE",
     "text": "Get 4 Status Effects at once",
-    "texture": "/assets/goals/get_4_status_effects_at_once.png"
+    "texture": "/assets/goals/get_4_status_effects_at_once.webp"
   },
   {
     "id": "GET_6_STATUS_EFFECTS_AT_ONCE",
     "text": "Get 6 Status Effects at once",
-    "texture": "/assets/goals/get_6_status_effects_at_once.png"
+    "texture": "/assets/goals/get_6_status_effects_at_once.webp"
   },
   {
     "id": "GET_ABSORPTION_STATUS_EFFECT",
     "text": "Get Absorption",
-    "texture": "/assets/goals/get_absorption.png"
+    "texture": "/assets/goals/get_absorption.webp"
   },
   {
     "id": "GET_BAD_OMEN_STATUS_EFFECT",
     "text": "Get Bad Omen",
-    "texture": "/assets/goals/get_bad_omen.png"
+    "texture": "/assets/goals/get_bad_omen.webp"
   },
   {
     "id": "GET_GLOWING_STATUS_EFFECT",
     "text": "Get Glowing",
-    "texture": "/assets/goals/get_glowing.png"
+    "texture": "/assets/goals/get_glowing.webp"
   },
   {
     "id": "GET_JUMP_BOOST_STATUS_EFFECT",
     "text": "Get Jump Boost",
-    "texture": "/assets/goals/get_jump_boost.png"
+    "texture": "/assets/goals/get_jump_boost.webp"
   },
   {
     "id": "GET_MINING_FATIGUE_STATUS_EFFECT",
     "text": "Get Mining Fatigue",
-    "texture": "/assets/goals/get_mining_fatigue.png"
+    "texture": "/assets/goals/get_mining_fatigue.webp"
   },
   {
     "id": "GET_NAUSEA_STATUS_EFFECT",
     "text": "Get Nausea",
-    "texture": "/assets/goals/get_nausea.png"
+    "texture": "/assets/goals/get_nausea.webp"
   },
   {
     "id": "REACH_NETHER_ROOF",
     "text": "Get on Nether Roof",
-    "texture": "/assets/goals/get_on_nether_roof.png"
+    "texture": "/assets/goals/get_on_nether_roof.webp"
   },
   {
     "id": "GET_POISON_STATUS_EFFECT",
     "text": "Get Poison",
-    "texture": "/assets/goals/get_poison.png"
+    "texture": "/assets/goals/get_poison.webp"
   },
   {
     "id": "GET_WEAKNESS_STATUS_EFFECT",
     "text": "Get Weakness",
-    "texture": "/assets/goals/get_weakness.png"
+    "texture": "/assets/goals/get_weakness.webp"
   },
   {
     "id": "HAVE_YOUR_SHIELD_DISABLED",
     "text": "Have your Shield disabled",
-    "texture": "/assets/goals/have_your_shield_disabled.png"
+    "texture": "/assets/goals/have_your_shield_disabled.webp"
   },
   {
     "id": "KILL_7_UNIQUE_HOSTILE_MOBS",
     "text": "Kill 7 Unique Hostile Mobs",
-    "texture": "/assets/goals/kill_7_unique_hostile_mobs.png"
+    "texture": "/assets/goals/kill_7_unique_hostile_mobs.webp"
   },
   {
     "id": "KILL_10_UNIQUE_HOSTILE_MOBS",
     "text": "Kill 10 Unique Hostile Mobs",
-    "texture": "/assets/goals/kill_10_unique_hostile_mobs.png"
+    "texture": "/assets/goals/kill_10_unique_hostile_mobs.webp"
   },
   {
     "id": "KILL_13_UNIQUE_HOSTILE_MOBS",
     "text": "Kill 13 Unique Hostile Mobs",
-    "texture": "/assets/goals/kill_13_unique_hostile_mobs.png"
+    "texture": "/assets/goals/kill_13_unique_hostile_mobs.webp"
   },
   {
     "id": "KILL_15_UNIQUE_HOSTILE_MOBS",
     "text": "Kill 15 Unique Hostile Mobs",
-    "texture": "/assets/goals/kill_15_unique_hostile_mobs.png"
+    "texture": "/assets/goals/kill_15_unique_hostile_mobs.webp"
   },
   {
     "id": "KILL_20_ARTHROPOD_MOBS",
     "text": "Kill 20 Arthropods",
-    "texture": "/assets/goals/kill_20_arthropods.png"
+    "texture": "/assets/goals/kill_20_arthropods.webp"
   },
   {
     "id": "KILL_30_UNDEAD_MOBS",
     "text": "Kill 30 Undead Mobs",
-    "texture": "/assets/goals/kill_30_undead_mobs.png"
+    "texture": "/assets/goals/kill_30_undead_mobs.webp"
   },
   {
     "id": "KILL_100_MOBS",
     "text": "Kill 100 mobs",
-    "texture": "/assets/goals/kill_100_mobs.png"
+    "texture": "/assets/goals/kill_100_mobs.webp"
   },
   {
     "id": "KILL_ALL_RAID_MOBS",
     "text": "Kill all Raid Mobs",
-    "texture": "/assets/goals/kill_all_raid_mobs.png"
+    "texture": "/assets/goals/kill_all_raid_mobs.webp"
   },
   {
     "id": "KILL_BAT",
     "text": "Kill Bat",
-    "texture": "/assets/goals/kill_bat.png"
+    "texture": "/assets/goals/kill_bat.webp"
   },
   {
     "id": "KILL_COLORED_SHEEP",
     "text": "Kill Blue Sheep",
-    "texture": "/assets/goals/kill_blue_sheep.png",
+    "texture": "/assets/goals/kill_blue_sheep.webp",
     "data": "blue"
   },
   {
     "id": "KILL_COLORED_SHEEP",
     "text": "Kill Cyan Sheep",
-    "texture": "/assets/goals/kill_cyan_sheep.png",
+    "texture": "/assets/goals/kill_cyan_sheep.webp",
     "data": "cyan"
   },
   {
     "id": "KILL_COLORED_SHEEP",
     "text": "Kill Green Sheep",
-    "texture": "/assets/goals/kill_green_sheep.png",
+    "texture": "/assets/goals/kill_green_sheep.webp",
     "data": "green"
   },
   {
     "id": "KILL_COLORED_SHEEP",
     "text": "Kill Light Blue Sheep",
-    "texture": "/assets/goals/kill_light_blue_sheep.png",
+    "texture": "/assets/goals/kill_light_blue_sheep.webp",
     "data": "light_blue"
   },
   {
     "id": "KILL_COLORED_SHEEP",
     "text": "Kill Lime Sheep",
-    "texture": "/assets/goals/kill_lime_sheep.png",
+    "texture": "/assets/goals/kill_lime_sheep.webp",
     "data": "lime"
   },
   {
     "id": "KILL_COLORED_SHEEP",
     "text": "Kill Magenta Sheep",
-    "texture": "/assets/goals/kill_magenta_sheep.png",
+    "texture": "/assets/goals/kill_magenta_sheep.webp",
     "data": "magenta"
   },
   {
     "id": "KILL_COLORED_SHEEP",
     "text": "Kill Orange Sheep",
-    "texture": "/assets/goals/kill_orange_sheep.png",
+    "texture": "/assets/goals/kill_orange_sheep.webp",
     "data": "orange"
   },
   {
     "id": "KILL_COLORED_SHEEP",
     "text": "Kill Pink Sheep",
-    "texture": "/assets/goals/kill_pink_sheep.png",
+    "texture": "/assets/goals/kill_pink_sheep.webp",
     "data": "pink"
   },
   {
     "id": "KILL_COLORED_SHEEP",
     "text": "Kill Purple Sheep",
-    "texture": "/assets/goals/kill_purple_sheep.png",
+    "texture": "/assets/goals/kill_purple_sheep.webp",
     "data": "purple"
   },
   {
     "id": "KILL_COLORED_SHEEP",
     "text": "Kill Red Sheep",
-    "texture": "/assets/goals/kill_red_sheep.png",
+    "texture": "/assets/goals/kill_red_sheep.webp",
     "data": "red"
   },
   {
     "id": "KILL_COLORED_SHEEP",
     "text": "Kill Yellow Sheep",
-    "texture": "/assets/goals/kill_yellow_sheep.png",
+    "texture": "/assets/goals/kill_yellow_sheep.webp",
     "data": "yellow"
   },
   {
     "id": "KILL_BOGGED",
     "text": "Kill Bogged",
-    "texture": "/assets/goals/kill_bogged.png"
+    "texture": "/assets/goals/kill_bogged.webp"
   },
   {
     "id": "KILL_BREEZE_USING_WIND_CHARGE",
     "text": "Kill Breeze using Wind Charge",
-    "texture": "/assets/goals/kill_breeze_using_wind_charge.png"
+    "texture": "/assets/goals/kill_breeze_using_wind_charge.webp"
   },
   {
     "id": "KILL_ELDER_GUARDIAN",
     "text": "Kill Elder Guardian",
-    "texture": "/assets/goals/kill_elder_guardian.png"
+    "texture": "/assets/goals/kill_elder_guardian.webp"
   },
   {
     "id": "KILL_GUARDIAN",
     "text": "Kill Guardian",
-    "texture": "/assets/goals/kill_guardian.png"
+    "texture": "/assets/goals/kill_guardian.webp"
   },
   {
     "id": "KILL_PARCHED",
     "text": "Kill Parched",
-    "texture": "/assets/goals/kill_parched.png"
+    "texture": "/assets/goals/kill_parched.webp"
   },
   {
     "id": "KILL_PILLAGER_USING_CROSSBOW",
     "text": "Kill Pillager using Crossbow",
-    "texture": "/assets/goals/kill_pillager_using_crossbow.png"
+    "texture": "/assets/goals/kill_pillager_using_crossbow.webp"
   },
   {
     "id": "KILL_SILVERFISH",
     "text": "Kill Silverfish",
-    "texture": "/assets/goals/kill_silverfish.png"
+    "texture": "/assets/goals/kill_silverfish.webp"
   },
   {
     "id": "KILL_SNOW_GOLEM",
     "text": "Kill Snow Golem",
-    "texture": "/assets/goals/kill_snow_golem.png"
+    "texture": "/assets/goals/kill_snow_golem.webp"
   },
   {
     "id": "KILL_SNOW_GOLEM_IN_NETHER",
     "text": "Kill Snow Golem in The Nether",
-    "texture": "/assets/goals/kill_snow_golem_in_the_nether.png"
+    "texture": "/assets/goals/kill_snow_golem_in_the_nether.webp"
   },
   {
     "id": "KILL_STRAY",
     "text": "Kill Stray",
-    "texture": "/assets/goals/kill_stray.png"
+    "texture": "/assets/goals/kill_stray.webp"
   },
   {
     "id": "KILL_WARDEN",
     "text": "Kill Warden",
-    "texture": "/assets/goals/kill_warden.png"
+    "texture": "/assets/goals/kill_warden.webp"
   },
   {
     "id": "KILL_WITCH",
     "text": "Kill Witch",
-    "texture": "/assets/goals/kill_witch.png"
+    "texture": "/assets/goals/kill_witch.webp"
   },
   {
     "id": "KILL_ZOGLIN",
     "text": "Kill Zoglin",
-    "texture": "/assets/goals/kill_zoglin.png"
+    "texture": "/assets/goals/kill_zoglin.webp"
   },
   {
     "id": "KILL_ZOMBIE_VILLAGER",
     "text": "Kill Zombie Villager",
-    "texture": "/assets/goals/kill_zombie_villager.png"
+    "texture": "/assets/goals/kill_zombie_villager.webp"
   },
   {
     "id": "LEASH_4_UNIQUE_MOBS",
     "text": "Leash 4 unique Mobs at once",
-    "texture": "/assets/goals/leash_4_unique_mobs_at_once.png"
+    "texture": "/assets/goals/leash_4_unique_mobs_at_once.webp"
   },
   {
     "id": "LEASH_6_UNIQUE_MOBS",
     "text": "Leash 6 unique Mobs at once",
-    "texture": "/assets/goals/leash_6_unique_mobs_at_once.png"
+    "texture": "/assets/goals/leash_6_unique_mobs_at_once.webp"
   },
   {
     "id": "LEASH_8_UNIQUE_MOBS",
     "text": "Leash 8 unique Mobs at once",
-    "texture": "/assets/goals/leash_8_unique_mobs_at_once.png"
+    "texture": "/assets/goals/leash_8_unique_mobs_at_once.webp"
   },
   {
     "id": "LEASH_IRON_GOLEM",
     "text": "Leash an Iron Golem",
-    "texture": "/assets/goals/leash_an_iron_golem.png"
+    "texture": "/assets/goals/leash_an_iron_golem.webp"
   },
   {
     "id": "LIGHT_CANDLE",
     "text": "Light a Candle",
-    "texture": "/assets/goals/light_a_candle.png"
+    "texture": "/assets/goals/light_a_candle.webp"
   },
   {
     "id": "MINE_MOB_SPAWNER",
     "text": "Mine a Spawner",
-    "texture": "/assets/goals/mine_a_spawner.png"
+    "texture": "/assets/goals/mine_a_spawner.webp"
   },
   {
     "id": "MINE_3_TYPES_OF_ICE",
     "text": "Mine 3 types of Ice",
-    "texture": "/assets/goals/mine_3_types_of_ice.png"
+    "texture": "/assets/goals/mine_3_types_of_ice.webp"
   },
   {
     "id": "MINE_CRAFTER",
     "text": "Mine Crafter",
-    "texture": "/assets/goals/mine_crafter.png"
+    "texture": "/assets/goals/mine_crafter.webp"
   },
   {
     "id": "MINE_DIAMOND_ORE",
     "text": "Mine Diamond Ore",
-    "texture": "/assets/goals/mine_diamond_ore.png"
+    "texture": "/assets/goals/mine_diamond_ore.webp"
   },
   {
     "id": "MINE_EMERALD_ORE",
     "text": "Mine Emerald Ore",
-    "texture": "/assets/goals/mine_emerald_ore.png"
+    "texture": "/assets/goals/mine_emerald_ore.webp"
   },
   {
     "id": "MINE_TURTLE_EGG",
     "text": "Mine Turtle Egg",
-    "texture": "/assets/goals/mine_turtle_egg.png"
+    "texture": "/assets/goals/mine_turtle_egg.webp"
   },
   {
     "id": "TURN_GHAST_UPSIDE_DOWN",
     "text": "Name a Ghast 'Dinnerbone'",
-    "texture": "/assets/goals/name_a_ghast_dinnerbone.png"
+    "texture": "/assets/goals/name_a_ghast_dinnerbone.webp"
   },
   {
     "id": "NAME_SHEEP_JEB",
     "text": "Name a Sheep 'jeb_'",
-    "texture": "/assets/goals/name_a_sheep_jeb.png"
+    "texture": "/assets/goals/name_a_sheep_jeb.webp"
   },
   {
     "id": "GET_BULLSEYE_ADVANCEMENT",
     "text": "Obtain \"Bullseye\" Advancement",
-    "texture": "/assets/goals/obtain_bullseye_advancement.png"
+    "texture": "/assets/goals/obtain_bullseye_advancement.webp"
   },
   {
     "id": "GET_MOB_KABOB_ADVANCEMENT",
     "text": "Obtain \"Mob Kabob\" Advancement",
-    "texture": "/assets/goals/obtain_mob_kabob_advancement.png"
+    "texture": "/assets/goals/obtain_mob_kabob_advancement.webp"
   },
   {
     "id": "GET_OH_SHINY_ADVANCEMENT",
     "text": "Obtain \"Oh Shiny\" Advancement",
-    "texture": "/assets/goals/obtain_oh_shiny_advancement.png"
+    "texture": "/assets/goals/obtain_oh_shiny_advancement.webp"
   },
   {
     "id": "GET_SNIPER_DUEL_ADVANCEMENT",
     "text": "Obtain \"Sniper Duel\" Advancement",
-    "texture": "/assets/goals/obtain_sniper_duel_advancement.png"
+    "texture": "/assets/goals/obtain_sniper_duel_advancement.webp"
   },
   {
     "id": "GET_STAY_HYDRATED_ADVANCEMENT",
     "text": "Obtain \"Stay Hydrated!\" Advancement",
-    "texture": "/assets/goals/obtain_stay_hydrated_advancement.png"
+    "texture": "/assets/goals/obtain_stay_hydrated_advancement.webp"
   },
   {
     "id": "GET_THIS_BOAT_HAS_LEGS_ADVANCEMENT",
     "text": "Obtain \"This boat has legs\" Advancement",
-    "texture": "/assets/goals/obtain_this_boat_has_legs_advancement.png"
+    "texture": "/assets/goals/obtain_this_boat_has_legs_advancement.webp"
   },
   {
     "id": "GET_WAX_OFF_ADVANCEMENT",
     "text": "Obtain \"Wax Off\" Advancement",
-    "texture": "/assets/goals/obtain_wax_off_advancement.png"
+    "texture": "/assets/goals/obtain_wax_off_advancement.webp"
   },
   {
     "id": "GET_WAX_ON_ADVANCEMENT",
     "text": "Obtain \"Wax On\" Advancement",
-    "texture": "/assets/goals/obtain_wax_on_advancement.png"
+    "texture": "/assets/goals/obtain_wax_on_advancement.webp"
   },
   {
     "id": "OBTAIN_2_ARMOR_TRIMS",
     "text": "Obtain 2 Unique Armor Trims",
-    "texture": "/assets/goals/obtain_2_armor_trims.png"
+    "texture": "/assets/goals/obtain_2_armor_trims.webp"
   },
   {
     "id": "OBTAIN_3_HORSE_ARMORS",
     "text": "Obtain 3 types of Horse Armor",
-    "texture": "/assets/goals/obtain_3_types_of_horse_armor.png"
+    "texture": "/assets/goals/obtain_3_types_of_horse_armor.webp"
   },
   {
     "id": "OBTAIN_3_BANNER_PATTERNS",
     "text": "Obtain 3 Unique Banner Patterns",
-    "texture": "/assets/goals/obtain_3_unique_banner_patterns.png"
+    "texture": "/assets/goals/obtain_3_unique_banner_patterns.webp"
   },
   {
     "id": "OBTAIN_4_UNIQUE_SAPLINGS",
     "text": "Obtain 4 Unique Saplings",
-    "texture": "/assets/goals/obtain_4_unique_saplings.png"
+    "texture": "/assets/goals/obtain_4_unique_saplings.webp"
   },
   {
     "id": "OBTAIN_6_UNIQUE_BUCKETS",
     "text": "Obtain 6 Unique Buckets",
-    "texture": "/assets/goals/obtain_6_unique_buckets.png"
+    "texture": "/assets/goals/obtain_6_unique_buckets.webp"
   },
   {
     "id": "OBTAIN_6_UNIQUE_FLOWERS",
     "text": "Obtain 6 Unique Flowers",
-    "texture": "/assets/goals/obtain_6_unique_flowers.png"
+    "texture": "/assets/goals/obtain_6_unique_flowers.webp"
   },
   {
     "id": "OBTAIN_7_UNIQUE_WORKSTATIONS",
     "text": "Obtain 7 Unique Workstations",
-    "texture": "/assets/goals/obtain_7_unique_workstations.png"
+    "texture": "/assets/goals/obtain_7_unique_workstations.webp"
   },
   {
     "id": "GET_10_ADVANCEMENTS",
     "text": "Obtain 10 Advancements",
-    "texture": "/assets/goals/obtain_10_advancements.png"
+    "texture": "/assets/goals/obtain_10_advancements.webp"
   },
   {
     "id": "GET_20_ADVANCEMENTS",
     "text": "Obtain 20 Advancements",
-    "texture": "/assets/goals/obtain_20_advancements.png"
+    "texture": "/assets/goals/obtain_20_advancements.webp"
   },
   {
     "id": "GET_30_ADVANCEMENTS",
     "text": "Obtain 30 Advancements",
-    "texture": "/assets/goals/obtain_30_advancements.png"
+    "texture": "/assets/goals/obtain_30_advancements.webp"
   },
   {
     "id": "OBTAIN_32_ARROWS",
     "text": "Obtain 32 Arrows",
-    "texture": "/assets/goals/obtain_32_arrows.png"
+    "texture": "/assets/goals/obtain_32_arrows.webp"
   },
   {
     "id": "OBTAIN_64_COLORED_CONCRETE",
     "text": "Obtain 64 Black Concrete",
-    "texture": "/assets/goals/obtain_64_black_concrete.png",
+    "texture": "/assets/goals/obtain_64_black_concrete.webp",
     "data": "black"
   },
   {
     "id": "OBTAIN_64_COLORED_CONCRETE",
     "text": "Obtain 64 Blue Concrete",
-    "texture": "/assets/goals/obtain_64_blue_concrete.png",
+    "texture": "/assets/goals/obtain_64_blue_concrete.webp",
     "data": "blue"
   },
   {
     "id": "OBTAIN_64_COLORED_CONCRETE",
     "text": "Obtain 64 Brown Concrete",
-    "texture": "/assets/goals/obtain_64_brown_concrete.png",
+    "texture": "/assets/goals/obtain_64_brown_concrete.webp",
     "data": "brown"
   },
   {
     "id": "OBTAIN_64_COLORED_CONCRETE",
     "text": "Obtain 64 Cyan Concrete",
-    "texture": "/assets/goals/obtain_64_cyan_concrete.png",
+    "texture": "/assets/goals/obtain_64_cyan_concrete.webp",
     "data": "cyan"
   },
   {
     "id": "OBTAIN_64_COLORED_CONCRETE",
     "text": "Obtain 64 Gray Concrete",
-    "texture": "/assets/goals/obtain_64_gray_concrete.png",
+    "texture": "/assets/goals/obtain_64_gray_concrete.webp",
     "data": "gray"
   },
   {
     "id": "OBTAIN_64_COLORED_CONCRETE",
     "text": "Obtain 64 Green Concrete",
-    "texture": "/assets/goals/obtain_64_green_concrete.png",
+    "texture": "/assets/goals/obtain_64_green_concrete.webp",
     "data": "green"
   },
   {
     "id": "OBTAIN_64_COLORED_CONCRETE",
     "text": "Obtain 64 Light Blue Concrete",
-    "texture": "/assets/goals/obtain_64_light_blue_concrete.png",
+    "texture": "/assets/goals/obtain_64_light_blue_concrete.webp",
     "data": "light_blue"
   },
   {
     "id": "OBTAIN_64_COLORED_CONCRETE",
     "text": "Obtain 64 Light Gray Concrete",
-    "texture": "/assets/goals/obtain_64_light_gray_concrete.png",
+    "texture": "/assets/goals/obtain_64_light_gray_concrete.webp",
     "data": "light_gray"
   },
   {
     "id": "OBTAIN_64_COLORED_CONCRETE",
     "text": "Obtain 64 Lime Concrete",
-    "texture": "/assets/goals/obtain_64_lime_concrete.png",
+    "texture": "/assets/goals/obtain_64_lime_concrete.webp",
     "data": "lime"
   },
   {
     "id": "OBTAIN_64_COLORED_CONCRETE",
     "text": "Obtain 64 Magenta Concrete",
-    "texture": "/assets/goals/obtain_64_magenta_concrete.png",
+    "texture": "/assets/goals/obtain_64_magenta_concrete.webp",
     "data": "magenta"
   },
   {
     "id": "OBTAIN_64_COLORED_CONCRETE",
     "text": "Obtain 64 Orange Concrete",
-    "texture": "/assets/goals/obtain_64_orange_concrete.png",
+    "texture": "/assets/goals/obtain_64_orange_concrete.webp",
     "data": "orange"
   },
   {
     "id": "OBTAIN_64_COLORED_CONCRETE",
     "text": "Obtain 64 Pink Concrete",
-    "texture": "/assets/goals/obtain_64_pink_concrete.png",
+    "texture": "/assets/goals/obtain_64_pink_concrete.webp",
     "data": "pink"
   },
   {
     "id": "OBTAIN_64_COLORED_CONCRETE",
     "text": "Obtain 64 Purple Concrete",
-    "texture": "/assets/goals/obtain_64_purple_concrete.png",
+    "texture": "/assets/goals/obtain_64_purple_concrete.webp",
     "data": "purple"
   },
   {
     "id": "OBTAIN_64_COLORED_CONCRETE",
     "text": "Obtain 64 Red Concrete",
-    "texture": "/assets/goals/obtain_64_red_concrete.png",
+    "texture": "/assets/goals/obtain_64_red_concrete.webp",
     "data": "red"
   },
   {
     "id": "OBTAIN_64_COLORED_CONCRETE",
     "text": "Obtain 64 White Concrete",
-    "texture": "/assets/goals/obtain_64_white_concrete.png",
+    "texture": "/assets/goals/obtain_64_white_concrete.webp",
     "data": "white"
   },
   {
     "id": "OBTAIN_64_COLORED_CONCRETE",
     "text": "Obtain 64 Yellow Concrete",
-    "texture": "/assets/goals/obtain_64_yellow_concrete.png",
+    "texture": "/assets/goals/obtain_64_yellow_concrete.webp",
     "data": "yellow"
   },
   {
     "id": "OBTAIN_64_COLORED_WOOL",
     "text": "Obtain 64 Black Wool",
-    "texture": "/assets/goals/obtain_64_black_wool.png",
+    "texture": "/assets/goals/obtain_64_black_wool.webp",
     "data": "black"
   },
   {
     "id": "OBTAIN_64_COLORED_WOOL",
     "text": "Obtain 64 Blue Wool",
-    "texture": "/assets/goals/obtain_64_blue_wool.png",
+    "texture": "/assets/goals/obtain_64_blue_wool.webp",
     "data": "blue"
   },
   {
     "id": "OBTAIN_64_COLORED_WOOL",
     "text": "Obtain 64 Brown Wool",
-    "texture": "/assets/goals/obtain_64_brown_wool.png",
+    "texture": "/assets/goals/obtain_64_brown_wool.webp",
     "data": "brown"
   },
   {
     "id": "OBTAIN_64_COLORED_WOOL",
     "text": "Obtain 64 Cyan Wool",
-    "texture": "/assets/goals/obtain_64_cyan_wool.png",
+    "texture": "/assets/goals/obtain_64_cyan_wool.webp",
     "data": "cyan"
   },
   {
     "id": "OBTAIN_64_COLORED_WOOL",
     "text": "Obtain 64 Gray Wool",
-    "texture": "/assets/goals/obtain_64_gray_wool.png",
+    "texture": "/assets/goals/obtain_64_gray_wool.webp",
     "data": "gray"
   },
   {
     "id": "OBTAIN_64_COLORED_WOOL",
     "text": "Obtain 64 Green Wool",
-    "texture": "/assets/goals/obtain_64_green_wool.png",
+    "texture": "/assets/goals/obtain_64_green_wool.webp",
     "data": "green"
   },
   {
     "id": "OBTAIN_64_COLORED_WOOL",
     "text": "Obtain 64 Light Blue Wool",
-    "texture": "/assets/goals/obtain_64_light_blue_wool.png",
+    "texture": "/assets/goals/obtain_64_light_blue_wool.webp",
     "data": "light_blue"
   },
   {
     "id": "OBTAIN_64_COLORED_WOOL",
     "text": "Obtain 64 Light Gray Wool",
-    "texture": "/assets/goals/obtain_64_light_gray_wool.png",
+    "texture": "/assets/goals/obtain_64_light_gray_wool.webp",
     "data": "light_gray"
   },
   {
     "id": "OBTAIN_64_COLORED_WOOL",
     "text": "Obtain 64 Lime Wool",
-    "texture": "/assets/goals/obtain_64_lime_wool.png",
+    "texture": "/assets/goals/obtain_64_lime_wool.webp",
     "data": "lime"
   },
   {
     "id": "OBTAIN_64_COLORED_WOOL",
     "text": "Obtain 64 Magenta Wool",
-    "texture": "/assets/goals/obtain_64_magenta_wool.png",
+    "texture": "/assets/goals/obtain_64_magenta_wool.webp",
     "data": "magenta"
   },
   {
     "id": "OBTAIN_64_COLORED_WOOL",
     "text": "Obtain 64 Orange Wool",
-    "texture": "/assets/goals/obtain_64_orange_wool.png",
+    "texture": "/assets/goals/obtain_64_orange_wool.webp",
     "data": "orange"
   },
   {
     "id": "OBTAIN_64_COLORED_WOOL",
     "text": "Obtain 64 Pink Wool",
-    "texture": "/assets/goals/obtain_64_pink_wool.png",
+    "texture": "/assets/goals/obtain_64_pink_wool.webp",
     "data": "pink"
   },
   {
     "id": "OBTAIN_64_COLORED_WOOL",
     "text": "Obtain 64 Purple Wool",
-    "texture": "/assets/goals/obtain_64_purple_wool.png",
+    "texture": "/assets/goals/obtain_64_purple_wool.webp",
     "data": "purple"
   },
   {
     "id": "OBTAIN_64_COLORED_WOOL",
     "text": "Obtain 64 Red Wool",
-    "texture": "/assets/goals/obtain_64_red_wool.png",
+    "texture": "/assets/goals/obtain_64_red_wool.webp",
     "data": "red"
   },
   {
     "id": "OBTAIN_64_COLORED_WOOL",
     "text": "Obtain 64 White Wool",
-    "texture": "/assets/goals/obtain_64_white_wool.png",
+    "texture": "/assets/goals/obtain_64_white_wool.webp",
     "data": "white"
   },
   {
     "id": "OBTAIN_64_COLORED_WOOL",
     "text": "Obtain 64 Yellow Wool",
-    "texture": "/assets/goals/obtain_64_yellow_wool.png",
+    "texture": "/assets/goals/obtain_64_yellow_wool.webp",
     "data": "yellow"
   },
   {
     "id": "OBTAIN_64_COARSE_DIRT",
     "text": "Obtain 64 Coarse Dirt",
-    "texture": "/assets/goals/obtain_64_coarse_dirt.png"
+    "texture": "/assets/goals/obtain_64_coarse_dirt.webp"
   },
   {
     "id": "OBTAIN_STACK_OF_64",
     "text": "Obtain a stack of any Item",
-    "texture": "/assets/goals/obtain_a_stack_of_any_item.png"
+    "texture": "/assets/goals/obtain_a_stack_of_any_item.webp"
   },
   {
     "id": "OBTAIN_ACTIVATOR_RAIL",
     "text": "Obtain Activator Rail",
-    "texture": "/assets/goals/obtain_activator_rail.png"
+    "texture": "/assets/goals/obtain_activator_rail.webp"
   },
   {
     "id": "OBTAIN_COPPER_TOOLS",
     "text": "Obtain all Copper Tools",
-    "texture": "/assets/goals/obtain_all_copper_tools.png"
+    "texture": "/assets/goals/obtain_all_copper_tools.webp"
   },
   {
     "id": "OBTAIN_DIAMOND_TOOLS",
     "text": "Obtain all Diamond Tools",
-    "texture": "/assets/goals/obtain_all_diamond_tools.png"
+    "texture": "/assets/goals/obtain_all_diamond_tools.webp"
   },
   {
     "id": "OBTAIN_GOLDEN_TOOLS",
     "text": "Obtain all Golden Tools",
-    "texture": "/assets/goals/obtain_all_golden_tools.png"
+    "texture": "/assets/goals/obtain_all_golden_tools.webp"
   },
   {
     "id": "OBTAIN_IRON_TOOLS",
     "text": "Obtain all Iron Tools",
-    "texture": "/assets/goals/obtain_all_iron_tools.png"
+    "texture": "/assets/goals/obtain_all_iron_tools.webp"
   },
   {
     "id": "OBTAIN_STONE_TOOLS",
     "text": "Obtain all Stone Tools",
-    "texture": "/assets/goals/obtain_all_stone_tools.png"
+    "texture": "/assets/goals/obtain_all_stone_tools.webp"
   },
   {
     "id": "OBTAIN_WOODEN_TOOLS",
     "text": "Obtain all Wooden Tools",
-    "texture": "/assets/goals/obtain_all_wooden_tools.png"
+    "texture": "/assets/goals/obtain_all_wooden_tools.webp"
   },
   {
     "id": "GET_ANY_SPYGLASS_ADVANCEMENT",
     "text": "Obtain any Spyglass Advancement",
-    "texture": "/assets/goals/obtain_any_spyglass_advancement.png"
+    "texture": "/assets/goals/obtain_any_spyglass_advancement.webp"
   },
   {
     "id": "OBTAIN_BELL",
     "text": "Obtain Bell",
-    "texture": "/assets/goals/obtain_bell.png"
+    "texture": "/assets/goals/obtain_bell.webp"
   },
   {
     "id": "OBTAIN_COLORED_GLAZED_TERRACOTTA",
     "text": "Obtain Black Glazed Terracotta",
-    "texture": "/assets/goals/obtain_black_glazed_terracotta.png",
+    "texture": "/assets/goals/obtain_black_glazed_terracotta.webp",
     "data": "black"
   },
   {
     "id": "OBTAIN_COLORED_GLAZED_TERRACOTTA",
     "text": "Obtain Blue Glazed Terracotta",
-    "texture": "/assets/goals/obtain_blue_glazed_terracotta.png",
+    "texture": "/assets/goals/obtain_blue_glazed_terracotta.webp",
     "data": "blue"
   },
   {
     "id": "OBTAIN_COLORED_GLAZED_TERRACOTTA",
     "text": "Obtain Brown Glazed Terracotta",
-    "texture": "/assets/goals/obtain_brown_glazed_terracotta.png",
+    "texture": "/assets/goals/obtain_brown_glazed_terracotta.webp",
     "data": "brown"
   },
   {
     "id": "OBTAIN_COLORED_GLAZED_TERRACOTTA",
     "text": "Obtain Cyan Glazed Terracotta",
-    "texture": "/assets/goals/obtain_cyan_glazed_terracotta.png",
+    "texture": "/assets/goals/obtain_cyan_glazed_terracotta.webp",
     "data": "cyan"
   },
   {
     "id": "OBTAIN_COLORED_GLAZED_TERRACOTTA",
     "text": "Obtain Gray Glazed Terracotta",
-    "texture": "/assets/goals/obtain_gray_glazed_terracotta.png",
+    "texture": "/assets/goals/obtain_gray_glazed_terracotta.webp",
     "data": "gray"
   },
   {
     "id": "OBTAIN_COLORED_GLAZED_TERRACOTTA",
     "text": "Obtain Green Glazed Terracotta",
-    "texture": "/assets/goals/obtain_green_glazed_terracotta.png",
+    "texture": "/assets/goals/obtain_green_glazed_terracotta.webp",
     "data": "green"
   },
   {
     "id": "OBTAIN_COLORED_GLAZED_TERRACOTTA",
     "text": "Obtain Light Blue Glazed Terracotta",
-    "texture": "/assets/goals/obtain_light_blue_glazed_terracotta.png",
+    "texture": "/assets/goals/obtain_light_blue_glazed_terracotta.webp",
     "data": "light_blue"
   },
   {
     "id": "OBTAIN_COLORED_GLAZED_TERRACOTTA",
     "text": "Obtain Light Gray Glazed Terracotta",
-    "texture": "/assets/goals/obtain_light_gray_glazed_terracotta.png",
+    "texture": "/assets/goals/obtain_light_gray_glazed_terracotta.webp",
     "data": "light_gray"
   },
   {
     "id": "OBTAIN_COLORED_GLAZED_TERRACOTTA",
     "text": "Obtain Lime Glazed Terracotta",
-    "texture": "/assets/goals/obtain_lime_glazed_terracotta.png",
+    "texture": "/assets/goals/obtain_lime_glazed_terracotta.webp",
     "data": "lime"
   },
   {
     "id": "OBTAIN_COLORED_GLAZED_TERRACOTTA",
     "text": "Obtain Magenta Glazed Terracotta",
-    "texture": "/assets/goals/obtain_magenta_glazed_terracotta.png",
+    "texture": "/assets/goals/obtain_magenta_glazed_terracotta.webp",
     "data": "magenta"
   },
   {
     "id": "OBTAIN_COLORED_GLAZED_TERRACOTTA",
     "text": "Obtain Orange Glazed Terracotta",
-    "texture": "/assets/goals/obtain_orange_glazed_terracotta.png",
+    "texture": "/assets/goals/obtain_orange_glazed_terracotta.webp",
     "data": "orange"
   },
   {
     "id": "OBTAIN_COLORED_GLAZED_TERRACOTTA",
     "text": "Obtain Pink Glazed Terracotta",
-    "texture": "/assets/goals/obtain_pink_glazed_terracotta.png",
+    "texture": "/assets/goals/obtain_pink_glazed_terracotta.webp",
     "data": "pink"
   },
   {
     "id": "OBTAIN_COLORED_GLAZED_TERRACOTTA",
     "text": "Obtain Purple Glazed Terracotta",
-    "texture": "/assets/goals/obtain_purple_glazed_terracotta.png",
+    "texture": "/assets/goals/obtain_purple_glazed_terracotta.webp",
     "data": "purple"
   },
   {
     "id": "OBTAIN_COLORED_GLAZED_TERRACOTTA",
     "text": "Obtain Red Glazed Terracotta",
-    "texture": "/assets/goals/obtain_red_glazed_terracotta.png",
+    "texture": "/assets/goals/obtain_red_glazed_terracotta.webp",
     "data": "red"
   },
   {
     "id": "OBTAIN_COLORED_GLAZED_TERRACOTTA",
     "text": "Obtain White Glazed Terracotta",
-    "texture": "/assets/goals/obtain_white_glazed_terracotta.png",
+    "texture": "/assets/goals/obtain_white_glazed_terracotta.webp",
     "data": "white"
   },
   {
     "id": "OBTAIN_COLORED_GLAZED_TERRACOTTA",
     "text": "Obtain Yellow Glazed Terracotta",
-    "texture": "/assets/goals/obtain_yellow_glazed_terracotta.png",
+    "texture": "/assets/goals/obtain_yellow_glazed_terracotta.webp",
     "data": "yellow"
   },
   {
     "id": "OBTAIN_RESIN_BLOCK",
     "text": "Obtain Block of Resin",
-    "texture": "/assets/goals/obtain_block_of_resin.png"
+    "texture": "/assets/goals/obtain_block_of_resin.webp"
   },
   {
     "id": "OBTAIN_BONE_BLOCK",
     "text": "Obtain Bone Block",
-    "texture": "/assets/goals/obtain_bone_block.png"
+    "texture": "/assets/goals/obtain_bone_block.webp"
   },
   {
     "id": "OBTAIN_BOOKSHELF",
     "text": "Obtain Bookshelf",
-    "texture": "/assets/goals/obtain_bookshelf.png"
+    "texture": "/assets/goals/obtain_bookshelf.webp"
   },
   {
     "id": "OBTAIN_BRICK_WALL",
     "text": "Obtain Brick Wall",
-    "texture": "/assets/goals/obtain_brick_wall.png"
+    "texture": "/assets/goals/obtain_brick_wall.webp"
   },
   {
     "id": "OBTAIN_TROPICAL_FISH_BUCKET",
     "text": "Obtain Bucket of Tropical Fish",
-    "texture": "/assets/goals/obtain_bucket_of_tropical_fish.png"
+    "texture": "/assets/goals/obtain_bucket_of_tropical_fish.webp"
   },
   {
     "id": "OBTAIN_CLOCK",
     "text": "Obtain Clock",
-    "texture": "/assets/goals/obtain_clock.png"
+    "texture": "/assets/goals/obtain_clock.webp"
   },
   {
     "id": "OBTAIN_COBWEB",
     "text": "Obtain Cobweb",
-    "texture": "/assets/goals/obtain_cobweb.png"
+    "texture": "/assets/goals/obtain_cobweb.webp"
   },
   {
     "id": "OBTAIN_COPPER_CHEST",
     "text": "Obtain Copper Chest",
-    "texture": "/assets/goals/obtain_copper_chest.png"
+    "texture": "/assets/goals/obtain_copper_chest.webp"
   },
   {
     "id": "OBTAIN_DAYLIGHT_DETECTOR",
     "text": "Obtain Daylight Detector",
-    "texture": "/assets/goals/obtain_daylight_detector.png"
+    "texture": "/assets/goals/obtain_daylight_detector.webp"
   },
   {
     "id": "OBTAIN_DEAD_BUSH",
     "text": "Obtain Dead Bush",
-    "texture": "/assets/goals/obtain_dead_bush.png"
+    "texture": "/assets/goals/obtain_dead_bush.webp"
   },
   {
     "id": "OBTAIN_DETECTOR_RAIL",
     "text": "Obtain Detector Rail",
-    "texture": "/assets/goals/obtain_detector_rail.png"
+    "texture": "/assets/goals/obtain_detector_rail.webp"
   },
   {
     "id": "OBTAIN_DISPENSER",
     "text": "Obtain Dispenser",
-    "texture": "/assets/goals/obtain_dispenser.png"
+    "texture": "/assets/goals/obtain_dispenser.webp"
   },
   {
     "id": "OBTAIN_DRIED_KELP_BLOCK",
     "text": "Obtain Dried Kelp Block",
-    "texture": "/assets/goals/obtain_dried_kelp_block.png"
+    "texture": "/assets/goals/obtain_dried_kelp_block.webp"
   },
   {
     "id": "OBTAIN_EMERALD_BLOCK",
     "text": "Obtain Emerald Block",
-    "texture": "/assets/goals/obtain_emerald_block.png"
+    "texture": "/assets/goals/obtain_emerald_block.webp"
   },
   {
     "id": "OBTAIN_ENDER_CHEST",
     "text": "Obtain Ender Chest",
-    "texture": "/assets/goals/obtain_ender_chest.png"
+    "texture": "/assets/goals/obtain_ender_chest.webp"
   },
   {
     "id": "OBTAIN_ALL_FURNACES",
     "text": "Obtain every type of Furnace",
-    "texture": "/assets/goals/obtain_every_type_of_furnace.png"
+    "texture": "/assets/goals/obtain_every_type_of_furnace.webp"
   },
   {
     "id": "OBTAIN_ALL_MINECARTS",
     "text": "Obtain every type of Minecart",
-    "texture": "/assets/goals/obtain_every_type_of_minecart.png"
+    "texture": "/assets/goals/obtain_every_type_of_minecart.webp"
   },
   {
     "id": "OBTAIN_ALL_MUSHROOMS",
     "text": "Obtain every type of Mushroom",
-    "texture": "/assets/goals/obtain_every_type_of_mushroom.png"
+    "texture": "/assets/goals/obtain_every_type_of_mushroom.webp"
   },
   {
     "id": "OBTAIN_ALL_PUMPKINS",
     "text": "Obtain every type of Pumpkin",
-    "texture": "/assets/goals/obtain_every_type_of_pumpkin.png"
+    "texture": "/assets/goals/obtain_every_type_of_pumpkin.webp"
   },
   {
     "id": "OBTAIN_ALL_RAW_ORE_BLOCKS",
     "text": "Obtain every type of Raw Ore Block",
-    "texture": "/assets/goals/obtain_every_type_of_raw_ore_block.png"
+    "texture": "/assets/goals/obtain_every_type_of_raw_ore_block.webp"
   },
   {
     "id": "OBTAIN_ALL_TORCHES",
     "text": "Obtain every type of Torch",
-    "texture": "/assets/goals/obtain_every_type_of_torch.png"
+    "texture": "/assets/goals/obtain_every_type_of_torch.webp"
   },
   {
     "id": "OBTAIN_ENCHANT_BOTTLE",
     "text": "Obtain Bottle o' Enchanting",
-    "texture": "/assets/goals/obtain_experience_bottle.png"
+    "texture": "/assets/goals/obtain_experience_bottle.webp"
   },
   {
     "id": "OBTAIN_FLOWERING_AZALEA",
     "text": "Obtain Flowering Azalea",
-    "texture": "/assets/goals/obtain_flowering_azalea.png"
+    "texture": "/assets/goals/obtain_flowering_azalea.webp"
   },
   {
     "id": "OBTAIN_GILDED_BLACKSTONE",
     "text": "Obtain Gilded Blackstone",
-    "texture": "/assets/goals/obtain_gilded_blackstone.png"
+    "texture": "/assets/goals/obtain_gilded_blackstone.webp"
   },
   {
     "id": "OBTAIN_HEART_OF_THE_SEA",
     "text": "Obtain Heart Of The Sea",
-    "texture": "/assets/goals/obtain_heart_of_the_sea.png"
+    "texture": "/assets/goals/obtain_heart_of_the_sea.webp"
   },
   {
     "id": "OBTAIN_LODESTONE",
     "text": "Obtain Lodestone",
-    "texture": "/assets/goals/obtain_lodestone.png"
+    "texture": "/assets/goals/obtain_lodestone.webp"
   },
   {
     "id": "OBTAIN_MOSSY_STONE_BRICK_WALL",
     "text": "Obtain Mossy Stone Brick Wall",
-    "texture": "/assets/goals/obtain_mossy_stone_brick_wall.png"
+    "texture": "/assets/goals/obtain_mossy_stone_brick_wall.webp"
   },
   {
     "id": "OBTAIN_MUD_BRICK_WALL",
     "text": "Obtain Mud Brick Wall",
-    "texture": "/assets/goals/obtain_mud_brick_wall.png"
+    "texture": "/assets/goals/obtain_mud_brick_wall.webp"
   },
   {
     "id": "OBTAIN_NETHERITE_SCRAP",
     "text": "Obtain Netherite Scrap",
-    "texture": "/assets/goals/obtain_netherite_scrap.png"
+    "texture": "/assets/goals/obtain_netherite_scrap.webp"
   },
   {
     "id": "OBTAIN_PISTON",
     "text": "Obtain Piston",
-    "texture": "/assets/goals/obtain_piston.png"
+    "texture": "/assets/goals/obtain_piston.webp"
   },
   {
     "id": "OBTAIN_POTTERY_SHERD",
     "text": "Obtain Pottery Sherd",
-    "texture": "/assets/goals/obtain_pottery_sherd.png"
+    "texture": "/assets/goals/obtain_pottery_sherd.webp"
   },
   {
     "id": "OBTAIN_POWDER_SNOW_BUCKET",
     "text": "Obtain Powder Snow Bucket",
-    "texture": "/assets/goals/obtain_powder_snow_bucket.png"
+    "texture": "/assets/goals/obtain_powder_snow_bucket.webp"
   },
   {
     "id": "OBTAIN_POWERED_RAIL",
     "text": "Obtain Powered Rail",
-    "texture": "/assets/goals/obtain_powered_rail.png"
+    "texture": "/assets/goals/obtain_powered_rail.webp"
   },
   {
     "id": "OBTAIN_RED_NETHER_BRICK_STAIRS",
     "text": "Obtain Red Nether Brick Stairs",
-    "texture": "/assets/goals/obtain_red_nether_brick_stairs.png"
+    "texture": "/assets/goals/obtain_red_nether_brick_stairs.webp"
   },
   {
     "id": "OBTAIN_REDSTONE_COMPARATOR",
     "text": "Obtain Redstone Comparator",
-    "texture": "/assets/goals/obtain_redstone_comparator.png"
+    "texture": "/assets/goals/obtain_redstone_comparator.webp"
   },
   {
     "id": "OBTAIN_REDSTONE_LAMP",
     "text": "Obtain Redstone Lamp",
-    "texture": "/assets/goals/obtain_redstone_lamp.png"
+    "texture": "/assets/goals/obtain_redstone_lamp.webp"
   },
   {
     "id": "OBTAIN_REDSTONE_REPEATER",
     "text": "Obtain Redstone Repeater",
-    "texture": "/assets/goals/obtain_redstone_repeater.png"
+    "texture": "/assets/goals/obtain_redstone_repeater.webp"
   },
   {
     "id": "OBTAIN_RESIN_BRICK_WALL",
     "text": "Obtain Resin Brick Wall",
-    "texture": "/assets/goals/obtain_resin_brick_wall.png"
+    "texture": "/assets/goals/obtain_resin_brick_wall.webp"
   },
   {
     "id": "OBTAIN_SCAFFOLDING",
     "text": "Obtain Scaffolding",
-    "texture": "/assets/goals/obtain_scaffolding.png"
+    "texture": "/assets/goals/obtain_scaffolding.webp"
   },
   {
     "id": "OBTAIN_SMOOTH_BASALT",
     "text": "Obtain Smooth Basalt",
-    "texture": "/assets/goals/obtain_smooth_basalt.png"
+    "texture": "/assets/goals/obtain_smooth_basalt.webp"
   },
   {
     "id": "OBTAIN_SMOOTH_QUARTZ_STAIRS",
     "text": "Obtain Smooth Quartz Stairs",
-    "texture": "/assets/goals/obtain_smooth_quartz_stairs.png"
+    "texture": "/assets/goals/obtain_smooth_quartz_stairs.webp"
   },
   {
     "id": "OBTAIN_SOUL_LANTERN",
     "text": "Obtain Soul Lantern",
-    "texture": "/assets/goals/obtain_soul_lantern.png"
+    "texture": "/assets/goals/obtain_soul_lantern.webp"
   },
   {
     "id": "OBTAIN_SPONGE",
     "text": "Obtain Sponge",
-    "texture": "/assets/goals/obtain_sponge.png"
+    "texture": "/assets/goals/obtain_sponge.webp"
   },
   {
     "id": "OBTAIN_SUSPICIOUS_BLOCK",
     "text": "Obtain Suspicious Sand/Gravel",
-    "texture": "/assets/goals/obtain_suspicious_sand_gravel.png"
+    "texture": "/assets/goals/obtain_suspicious_sand_gravel.webp"
   },
   {
     "id": "OBTAIN_TNT",
     "text": "Obtain TNT",
-    "texture": "/assets/goals/obtain_tnt.png"
+    "texture": "/assets/goals/obtain_tnt.webp"
   },
   {
     "id": "PLACE_PAINTING",
     "text": "Place Painting",
-    "texture": "/assets/goals/place_painting.png"
+    "texture": "/assets/goals/place_painting.webp"
   },
   {
     "id": "USE_JUKEBOX",
     "text": "Play a Music Disc in Jukebox",
-    "texture": "/assets/goals/play_a_music_disc_in_jukebox.png"
+    "texture": "/assets/goals/play_a_music_disc_in_jukebox.webp"
   },
   {
     "id": "PUT_FLOWER_IN_POT",
     "text": "Pot any plant in Flower Pot",
-    "texture": "/assets/goals/pot_any_plant_in_flower_pot.png"
+    "texture": "/assets/goals/pot_any_plant_in_flower_pot.webp"
   },
   {
     "id": "ITEM_FRAME_IN_ITEM_FRAME",
     "text": "Put Item Frame in an Item Frame",
-    "texture": "/assets/goals/put_item_frame_in_an_item_frame.png"
+    "texture": "/assets/goals/put_item_frame_in_an_item_frame.webp"
   },
   {
     "id": "PUT_WOLF_ARMOR_ON_WOLF",
     "text": "Put Wolf Armor on Wolf",
-    "texture": "/assets/goals/put_wolf_armor_on_wolf.png"
+    "texture": "/assets/goals/put_wolf_armor_on_wolf.webp"
   },
   {
     "id": "REACH_BEDROCK",
     "text": "Reach Bedrock",
-    "texture": "/assets/goals/reach_bedrock.png"
+    "texture": "/assets/goals/reach_bedrock.webp"
   },
   {
     "id": "REACH_HEIGHT_LIMIT",
     "text": "Reach height limit",
-    "texture": "/assets/goals/reach_height_limit.png"
+    "texture": "/assets/goals/reach_height_limit.webp"
   },
   {
     "id": "REACH_EXP_LEVEL_10",
     "text": "Reach XP level 10",
-    "texture": "/assets/goals/reach_xp_level_10.png"
+    "texture": "/assets/goals/reach_xp_level_10.webp"
   },
   {
     "id": "REACH_EXP_LEVEL_20",
     "text": "Reach XP level 20",
-    "texture": "/assets/goals/reach_xp_level_20.png"
+    "texture": "/assets/goals/reach_xp_level_20.webp"
   },
   {
     "id": "REMOVE_STATUS_EFFECT_USING_MILK",
     "text": "Remove Effect using Milk Bucket",
-    "texture": "/assets/goals/remove_effect_using_milk_bucket.png"
+    "texture": "/assets/goals/remove_effect_using_milk_bucket.webp"
   },
   {
     "id": "RIDE_MINECART",
     "text": "Ride a Minecart",
-    "texture": "/assets/goals/ride_a_minecart.png"
+    "texture": "/assets/goals/ride_a_minecart.webp"
   },
   {
     "id": "SHOOT_FIREWORK_FROM_CROSSBOW",
     "text": "Shoot Firework from Crossbow",
-    "texture": "/assets/goals/shoot_firework_from_crossbow.png"
+    "texture": "/assets/goals/shoot_firework_from_crossbow.webp"
   },
   {
     "id": "SPRINT_1_KM",
     "text": "Sprint 1km",
-    "texture": "/assets/goals/sprint_1km.png"
+    "texture": "/assets/goals/sprint_1km.webp"
   },
   {
     "id": "SPY_10_UNIQUE_MOBS",
     "text": "Spy on 10 Unique Mobs",
-    "texture": "/assets/goals/spy_on_10_unique_mobs.png"
+    "texture": "/assets/goals/spy_on_10_unique_mobs.webp"
   },
   {
     "id": "SPY_20_UNIQUE_MOBS",
     "text": "Spy on 20 Unique Mobs",
-    "texture": "/assets/goals/spy_on_20_unique_mobs.png"
+    "texture": "/assets/goals/spy_on_20_unique_mobs.webp"
   },
   {
     "id": "SPY_ENDERMAN",
     "text": "Spy on Enderman",
-    "texture": "/assets/goals/spy_on_enderman.png"
+    "texture": "/assets/goals/spy_on_enderman.webp"
   },
   {
     "id": "SPY_IRON_GOLEM",
     "text": "Spy on Iron Golem",
-    "texture": "/assets/goals/spy_on_iron_golem.png"
+    "texture": "/assets/goals/spy_on_iron_golem.webp"
   },
   {
     "id": "SPY_PIGLIN_BRUTE",
     "text": "Spy on Piglin Brute",
-    "texture": "/assets/goals/spy_on_piglin_brute.png"
+    "texture": "/assets/goals/spy_on_piglin_brute.webp"
   },
   {
     "id": "TAKE_200_DAMAGE",
     "text": "Take 200 damage",
-    "texture": "/assets/goals/take_200_damage.png"
+    "texture": "/assets/goals/take_200_damage.webp"
   },
   {
     "id": "TAME_CAT",
     "text": "Tame a Cat",
-    "texture": "/assets/goals/tame_a_cat.png"
+    "texture": "/assets/goals/tame_a_cat.webp"
   },
   {
     "id": "TAME_HORSE",
     "text": "Tame a Horse",
-    "texture": "/assets/goals/tame_a_horse.png"
+    "texture": "/assets/goals/tame_a_horse.webp"
   },
   {
     "id": "TAME_NAUTILUS",
     "text": "Tame a Nautilus",
-    "texture": "/assets/goals/tame_a_nautilus.png"
+    "texture": "/assets/goals/tame_a_nautilus.webp"
   },
   {
     "id": "TAME_PARROT",
     "text": "Tame a Parrot",
-    "texture": "/assets/goals/tame_a_parrot.png"
+    "texture": "/assets/goals/tame_a_parrot.webp"
   },
   {
     "id": "TAME_WOLF",
     "text": "Tame a Wolf",
-    "texture": "/assets/goals/tame_a_wolf.png"
+    "texture": "/assets/goals/tame_a_wolf.webp"
   },
   {
     "id": "TOOT_GOAT_HORN",
     "text": "Toot a Goat Horn",
-    "texture": "/assets/goals/toot_a_goat_horn.png"
+    "texture": "/assets/goals/toot_a_goat_horn.webp"
   },
   {
     "id": "TUNE_NOTEBLOCK",
     "text": "Tune a Note Block",
-    "texture": "/assets/goals/tune_a_note_block.png"
+    "texture": "/assets/goals/tune_a_note_block.webp"
   },
   {
     "id": "USE_ANVIL",
     "text": "Use Anvil",
-    "texture": "/assets/goals/use_anvil.png"
+    "texture": "/assets/goals/use_anvil.webp"
   },
   {
     "id": "USE_BREWING_STAND",
     "text": "Use Brewing Stand",
-    "texture": "/assets/goals/use_brewing_stand.png"
+    "texture": "/assets/goals/use_brewing_stand.webp"
   },
   {
     "id": "USE_BRUSH_ON_SUSPICIOUS_BLOCK",
     "text": "Use Brush on Suspicious Sand/Gravel",
-    "texture": "/assets/goals/use_brush_on_suspicious_sand_gravel.png"
+    "texture": "/assets/goals/use_brush_on_suspicious_sand_gravel.webp"
   },
   {
     "id": "RIDE_PIG",
     "text": "Use Carrot on a Stick to boost a Pig",
-    "texture": "/assets/goals/use_carrot_on_a_stick_to_boost_a_pig.png"
+    "texture": "/assets/goals/use_carrot_on_a_stick_to_boost_a_pig.webp"
   },
   {
     "id": "USE_CAULDRON",
     "text": "Use Cauldron to wash something",
-    "texture": "/assets/goals/use_cauldron_to_wash_something.png"
+    "texture": "/assets/goals/use_cauldron_to_wash_something.webp"
   },
   {
     "id": "USE_ENCHANTING_TABLE",
     "text": "Use Enchanting Table",
-    "texture": "/assets/goals/use_enchanting_table.png"
+    "texture": "/assets/goals/use_enchanting_table.webp"
   },
   {
     "id": "USE_GLOW_INK_CRIMSON",
     "text": "Use Glow Ink on Crimson Sign",
-    "texture": "/assets/goals/use_glow_ink_crimson.png"
+    "texture": "/assets/goals/use_glow_ink_crimson.webp"
   },
   {
     "id": "USE_GRINDSTONE",
     "text": "Use Grindstone",
-    "texture": "/assets/goals/use_grindstone.png"
+    "texture": "/assets/goals/use_grindstone.webp"
   },
   {
     "id": "USE_LOOM",
     "text": "Use Loom to design a Banner",
-    "texture": "/assets/goals/use_loom_to_design_a_banner.png"
+    "texture": "/assets/goals/use_loom_to_design_a_banner.webp"
   },
   {
     "id": "USE_SMITHING_TABLE",
     "text": "Use Smithing Table",
-    "texture": "/assets/goals/use_smithing_table.png"
+    "texture": "/assets/goals/use_smithing_table.webp"
   },
   {
     "id": "USE_STONECUTTER",
     "text": "Use Stonecutter",
-    "texture": "/assets/goals/use_stonecutter.png"
+    "texture": "/assets/goals/use_stonecutter.webp"
   },
   {
     "id": "VISIT_ALL_NETHER_BIOMES",
     "text": "Visit All Nether Biomes",
-    "texture": "/assets/goals/visit_all_nether_biomes.png"
+    "texture": "/assets/goals/visit_all_nether_biomes.webp"
   },
   {
     "id": "WEAR_CARVED_PUMPKIN_FOR_5_MINUTES",
     "text": "Wear a Carved Pumpkin for 5 minutes",
-    "texture": "/assets/goals/wear_a_carved_pumpkin_for_5_minutes.png"
+    "texture": "/assets/goals/wear_a_carved_pumpkin_for_5_minutes.webp"
   },
   {
     "id": "WEAR_CHAIN_ARMOR_PIECE",
     "text": "Wear a Chain Armor Piece",
-    "texture": "/assets/goals/wear_a_chain_armor_piece.png"
+    "texture": "/assets/goals/wear_a_chain_armor_piece.webp"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Black Leather Boots",
-    "texture": "/assets/goals/wear_black_leather_boots.png",
+    "texture": "/assets/goals/wear_black_leather_boots.webp",
     "data": "leather_boots&black"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Black Leather Chestplate",
-    "texture": "/assets/goals/wear_black_leather_chestplate.png",
+    "texture": "/assets/goals/wear_black_leather_chestplate.webp",
     "data": "leather_chestplate&black"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Black Leather Helmet",
-    "texture": "/assets/goals/wear_black_leather_helmet.png",
+    "texture": "/assets/goals/wear_black_leather_helmet.webp",
     "data": "leather_helmet&black"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Black Leather Leggings",
-    "texture": "/assets/goals/wear_black_leather_leggings.png",
+    "texture": "/assets/goals/wear_black_leather_leggings.webp",
     "data": "leather_leggings&black"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Blue Leather Boots",
-    "texture": "/assets/goals/wear_blue_leather_boots.png",
+    "texture": "/assets/goals/wear_blue_leather_boots.webp",
     "data": "leather_boots&blue"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Blue Leather Chestplate",
-    "texture": "/assets/goals/wear_blue_leather_chestplate.png",
+    "texture": "/assets/goals/wear_blue_leather_chestplate.webp",
     "data": "leather_chestplate&blue"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Blue Leather Helmet",
-    "texture": "/assets/goals/wear_blue_leather_helmet.png",
+    "texture": "/assets/goals/wear_blue_leather_helmet.webp",
     "data": "leather_helmet&blue"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Blue Leather Leggings",
-    "texture": "/assets/goals/wear_blue_leather_leggings.png",
+    "texture": "/assets/goals/wear_blue_leather_leggings.webp",
     "data": "leather_leggings&blue"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Brown Leather Boots",
-    "texture": "/assets/goals/wear_brown_leather_boots.png",
+    "texture": "/assets/goals/wear_brown_leather_boots.webp",
     "data": "leather_boots&brown"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Brown Leather Chestplate",
-    "texture": "/assets/goals/wear_brown_leather_chestplate.png",
+    "texture": "/assets/goals/wear_brown_leather_chestplate.webp",
     "data": "leather_chestplate&brown"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Brown Leather Helmet",
-    "texture": "/assets/goals/wear_brown_leather_helmet.png",
+    "texture": "/assets/goals/wear_brown_leather_helmet.webp",
     "data": "leather_helmet&brown"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Brown Leather Leggings",
-    "texture": "/assets/goals/wear_brown_leather_leggings.png",
+    "texture": "/assets/goals/wear_brown_leather_leggings.webp",
     "data": "leather_leggings&brown"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Cyan Leather Boots",
-    "texture": "/assets/goals/wear_cyan_leather_boots.png",
+    "texture": "/assets/goals/wear_cyan_leather_boots.webp",
     "data": "leather_boots&cyan"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Cyan Leather Chestplate",
-    "texture": "/assets/goals/wear_cyan_leather_chestplate.png",
+    "texture": "/assets/goals/wear_cyan_leather_chestplate.webp",
     "data": "leather_chestplate&cyan"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Cyan Leather Helmet",
-    "texture": "/assets/goals/wear_cyan_leather_helmet.png",
+    "texture": "/assets/goals/wear_cyan_leather_helmet.webp",
     "data": "leather_helmet&cyan"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Cyan Leather Leggings",
-    "texture": "/assets/goals/wear_cyan_leather_leggings.png",
+    "texture": "/assets/goals/wear_cyan_leather_leggings.webp",
     "data": "leather_leggings&cyan"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Gray Leather Boots",
-    "texture": "/assets/goals/wear_gray_leather_boots.png",
+    "texture": "/assets/goals/wear_gray_leather_boots.webp",
     "data": "leather_boots&gray"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Gray Leather Chestplate",
-    "texture": "/assets/goals/wear_gray_leather_chestplate.png",
+    "texture": "/assets/goals/wear_gray_leather_chestplate.webp",
     "data": "leather_chestplate&gray"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Gray Leather Helmet",
-    "texture": "/assets/goals/wear_gray_leather_helmet.png",
+    "texture": "/assets/goals/wear_gray_leather_helmet.webp",
     "data": "leather_helmet&gray"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Gray Leather Leggings",
-    "texture": "/assets/goals/wear_gray_leather_leggings.png",
+    "texture": "/assets/goals/wear_gray_leather_leggings.webp",
     "data": "leather_leggings&gray"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Green Leather Boots",
-    "texture": "/assets/goals/wear_green_leather_boots.png",
+    "texture": "/assets/goals/wear_green_leather_boots.webp",
     "data": "leather_boots&green"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Green Leather Chestplate",
-    "texture": "/assets/goals/wear_green_leather_chestplate.png",
+    "texture": "/assets/goals/wear_green_leather_chestplate.webp",
     "data": "leather_chestplate&green"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Green Leather Helmet",
-    "texture": "/assets/goals/wear_green_leather_helmet.png",
+    "texture": "/assets/goals/wear_green_leather_helmet.webp",
     "data": "leather_helmet&green"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Green Leather Leggings",
-    "texture": "/assets/goals/wear_green_leather_leggings.png",
+    "texture": "/assets/goals/wear_green_leather_leggings.webp",
     "data": "leather_leggings&green"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Light Blue Leather Boots",
-    "texture": "/assets/goals/wear_light_blue_leather_boots.png",
+    "texture": "/assets/goals/wear_light_blue_leather_boots.webp",
     "data": "leather_boots&light_blue"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Light Blue Leather Chestplate",
-    "texture": "/assets/goals/wear_light_blue_leather_chestplate.png",
+    "texture": "/assets/goals/wear_light_blue_leather_chestplate.webp",
     "data": "leather_chestplate&light_blue"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Light Blue Leather Helmet",
-    "texture": "/assets/goals/wear_light_blue_leather_helmet.png",
+    "texture": "/assets/goals/wear_light_blue_leather_helmet.webp",
     "data": "leather_helmet&light_blue"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Light Blue Leather Leggings",
-    "texture": "/assets/goals/wear_light_blue_leather_leggings.png",
+    "texture": "/assets/goals/wear_light_blue_leather_leggings.webp",
     "data": "leather_leggings&light_blue"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Light Gray Leather Boots",
-    "texture": "/assets/goals/wear_light_gray_leather_boots.png",
+    "texture": "/assets/goals/wear_light_gray_leather_boots.webp",
     "data": "leather_boots&light_gray"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Light Gray Leather Chestplate",
-    "texture": "/assets/goals/wear_light_gray_leather_chestplate.png",
+    "texture": "/assets/goals/wear_light_gray_leather_chestplate.webp",
     "data": "leather_chestplate&light_gray"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Light Gray Leather Helmet",
-    "texture": "/assets/goals/wear_light_gray_leather_helmet.png",
+    "texture": "/assets/goals/wear_light_gray_leather_helmet.webp",
     "data": "leather_helmet&light_gray"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Light Gray Leather Leggings",
-    "texture": "/assets/goals/wear_light_gray_leather_leggings.png",
+    "texture": "/assets/goals/wear_light_gray_leather_leggings.webp",
     "data": "leather_leggings&light_gray"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Lime Leather Boots",
-    "texture": "/assets/goals/wear_lime_leather_boots.png",
+    "texture": "/assets/goals/wear_lime_leather_boots.webp",
     "data": "leather_boots&lime"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Lime Leather Chestplate",
-    "texture": "/assets/goals/wear_lime_leather_chestplate.png",
+    "texture": "/assets/goals/wear_lime_leather_chestplate.webp",
     "data": "leather_chestplate&lime"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Lime Leather Helmet",
-    "texture": "/assets/goals/wear_lime_leather_helmet.png",
+    "texture": "/assets/goals/wear_lime_leather_helmet.webp",
     "data": "leather_helmet&lime"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Lime Leather Leggings",
-    "texture": "/assets/goals/wear_lime_leather_leggings.png",
+    "texture": "/assets/goals/wear_lime_leather_leggings.webp",
     "data": "leather_leggings&lime"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Magenta Leather Boots",
-    "texture": "/assets/goals/wear_magenta_leather_boots.png",
+    "texture": "/assets/goals/wear_magenta_leather_boots.webp",
     "data": "leather_boots&magenta"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Magenta Leather Chestplate",
-    "texture": "/assets/goals/wear_magenta_leather_chestplate.png",
+    "texture": "/assets/goals/wear_magenta_leather_chestplate.webp",
     "data": "leather_chestplate&magenta"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Magenta Leather Helmet",
-    "texture": "/assets/goals/wear_magenta_leather_helmet.png",
+    "texture": "/assets/goals/wear_magenta_leather_helmet.webp",
     "data": "leather_helmet&magenta"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Magenta Leather Leggings",
-    "texture": "/assets/goals/wear_magenta_leather_leggings.png",
+    "texture": "/assets/goals/wear_magenta_leather_leggings.webp",
     "data": "leather_leggings&magenta"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Orange Leather Boots",
-    "texture": "/assets/goals/wear_orange_leather_boots.png",
+    "texture": "/assets/goals/wear_orange_leather_boots.webp",
     "data": "leather_boots&orange"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Orange Leather Chestplate",
-    "texture": "/assets/goals/wear_orange_leather_chestplate.png",
+    "texture": "/assets/goals/wear_orange_leather_chestplate.webp",
     "data": "leather_chestplate&orange"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Orange Leather Helmet",
-    "texture": "/assets/goals/wear_orange_leather_helmet.png",
+    "texture": "/assets/goals/wear_orange_leather_helmet.webp",
     "data": "leather_helmet&orange"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Orange Leather Leggings",
-    "texture": "/assets/goals/wear_orange_leather_leggings.png",
+    "texture": "/assets/goals/wear_orange_leather_leggings.webp",
     "data": "leather_leggings&orange"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Pink Leather Boots",
-    "texture": "/assets/goals/wear_pink_leather_boots.png",
+    "texture": "/assets/goals/wear_pink_leather_boots.webp",
     "data": "leather_boots&pink"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Pink Leather Chestplate",
-    "texture": "/assets/goals/wear_pink_leather_chestplate.png",
+    "texture": "/assets/goals/wear_pink_leather_chestplate.webp",
     "data": "leather_chestplate&pink"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Pink Leather Helmet",
-    "texture": "/assets/goals/wear_pink_leather_helmet.png",
+    "texture": "/assets/goals/wear_pink_leather_helmet.webp",
     "data": "leather_helmet&pink"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Pink Leather Leggings",
-    "texture": "/assets/goals/wear_pink_leather_leggings.png",
+    "texture": "/assets/goals/wear_pink_leather_leggings.webp",
     "data": "leather_leggings&pink"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Purple Leather Boots",
-    "texture": "/assets/goals/wear_purple_leather_boots.png",
+    "texture": "/assets/goals/wear_purple_leather_boots.webp",
     "data": "leather_boots&purple"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Purple Leather Chestplate",
-    "texture": "/assets/goals/wear_purple_leather_chestplate.png",
+    "texture": "/assets/goals/wear_purple_leather_chestplate.webp",
     "data": "leather_chestplate&purple"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Purple Leather Helmet",
-    "texture": "/assets/goals/wear_purple_leather_helmet.png",
+    "texture": "/assets/goals/wear_purple_leather_helmet.webp",
     "data": "leather_helmet&purple"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Purple Leather Leggings",
-    "texture": "/assets/goals/wear_purple_leather_leggings.png",
+    "texture": "/assets/goals/wear_purple_leather_leggings.webp",
     "data": "leather_leggings&purple"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Red Leather Boots",
-    "texture": "/assets/goals/wear_red_leather_boots.png",
+    "texture": "/assets/goals/wear_red_leather_boots.webp",
     "data": "leather_boots&red"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Red Leather Chestplate",
-    "texture": "/assets/goals/wear_red_leather_chestplate.png",
+    "texture": "/assets/goals/wear_red_leather_chestplate.webp",
     "data": "leather_chestplate&red"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Red Leather Helmet",
-    "texture": "/assets/goals/wear_red_leather_helmet.png",
+    "texture": "/assets/goals/wear_red_leather_helmet.webp",
     "data": "leather_helmet&red"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Red Leather Leggings",
-    "texture": "/assets/goals/wear_red_leather_leggings.png",
+    "texture": "/assets/goals/wear_red_leather_leggings.webp",
     "data": "leather_leggings&red"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear White Leather Boots",
-    "texture": "/assets/goals/wear_white_leather_boots.png",
+    "texture": "/assets/goals/wear_white_leather_boots.webp",
     "data": "leather_boots&white"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear White Leather Chestplate",
-    "texture": "/assets/goals/wear_white_leather_chestplate.png",
+    "texture": "/assets/goals/wear_white_leather_chestplate.webp",
     "data": "leather_chestplate&white"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear White Leather Helmet",
-    "texture": "/assets/goals/wear_white_leather_helmet.png",
+    "texture": "/assets/goals/wear_white_leather_helmet.webp",
     "data": "leather_helmet&white"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear White Leather Leggings",
-    "texture": "/assets/goals/wear_white_leather_leggings.png",
+    "texture": "/assets/goals/wear_white_leather_leggings.webp",
     "data": "leather_leggings&white"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Yellow Leather Boots",
-    "texture": "/assets/goals/wear_yellow_leather_boots.png",
+    "texture": "/assets/goals/wear_yellow_leather_boots.webp",
     "data": "leather_boots&yellow"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Yellow Leather Chestplate",
-    "texture": "/assets/goals/wear_yellow_leather_chestplate.png",
+    "texture": "/assets/goals/wear_yellow_leather_chestplate.webp",
     "data": "leather_chestplate&yellow"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Yellow Leather Helmet",
-    "texture": "/assets/goals/wear_yellow_leather_helmet.png",
+    "texture": "/assets/goals/wear_yellow_leather_helmet.webp",
     "data": "leather_helmet&yellow"
   },
   {
     "id": "WEAR_COLORED_LEATHER_ARMOR_PIECE",
     "text": "Wear Yellow Leather Leggings",
-    "texture": "/assets/goals/wear_yellow_leather_leggings.png",
+    "texture": "/assets/goals/wear_yellow_leather_leggings.webp",
     "data": "leather_leggings&yellow"
   },
   {
     "id": "WEAR_COPPER_ARMOR",
     "text": "Wear Full Copper Armor",
-    "texture": "/assets/goals/wear_full_copper_armor.png"
+    "texture": "/assets/goals/wear_full_copper_armor.webp"
   },
   {
     "id": "WEAR_DIAMOND_ARMOR",
     "text": "Wear Full Diamond Armor",
-    "texture": "/assets/goals/wear_full_diamond_armor.png"
+    "texture": "/assets/goals/wear_full_diamond_armor.webp"
   },
   {
     "id": "WEAR_FULL_ENCHANTED_ARMOR",
     "text": "Wear Full Enchanted Armor",
-    "texture": "/assets/goals/wear_full_enchanted_armor.png"
+    "texture": "/assets/goals/wear_full_enchanted_armor.webp",
+    "enchanted": true
   },
   {
     "id": "WEAR_GOLDEN_ARMOR",
     "text": "Wear Full Golden Armor",
-    "texture": "/assets/goals/wear_full_golden_armor.png"
+    "texture": "/assets/goals/wear_full_golden_armor.webp"
   },
   {
     "id": "WEAR_IRON_ARMOR",
     "text": "Wear Full Iron Armor",
-    "texture": "/assets/goals/wear_full_iron_armor.png"
+    "texture": "/assets/goals/wear_full_iron_armor.webp"
   },
   {
     "id": "WEAR_LEATHER_ARMOR",
     "text": "Wear Full Leather Armor",
-    "texture": "/assets/goals/wear_full_leather_armor.png"
+    "texture": "/assets/goals/wear_full_leather_armor.webp"
   },
   {
     "id": "WEAR_UNIQUE_COLORED_LEATHER_ARMOR",
     "text": "Wear Full Leather Armor, in different colors",
-    "texture": "/assets/goals/wear_full_leather_armor_in_different_colors.png"
+    "texture": "/assets/goals/wear_full_leather_armor_in_different_colors.webp"
   },
   {
     "id": "WEAR_UNIQUE_ARMOR",
     "text": "Wear Full Armor with different materials",
-    "texture": "/assets/goals/wear_unique_armor.png"
+    "texture": "/assets/goals/wear_unique_armor.webp"
   },
   {
     "id": "OBTAIN_WRITTEN_BOOK",
     "text": "Write a Book",
-    "texture": "/assets/goals/write_a_book.png"
+    "texture": "/assets/goals/write_a_book.webp",
+    "enchanted": true
   },
   {
     "id": "KILL_HUSK",
     "text": "Kill Husk",
-    "texture": "/assets/goals/kill_husk.png"
+    "texture": "/assets/goals/kill_husk.webp"
   },
   {
     "id": "KILL_GHAST",
     "text": "Kill Ghast",
-    "texture": "/assets/goals/kill_ghast.png"
+    "texture": "/assets/goals/kill_ghast.webp"
   },
   {
     "id": "OBTAIN_ANCIENT_DEBRIS",
     "text": "Obtain Ancient Debris",
-    "texture": "/assets/goals/obtain_ancient_debris.png"
+    "texture": "/assets/goals/obtain_ancient_debris.webp"
   },
   {
     "id": "OBTAIN_AMETHYST_BLOCK",
     "text": "Obtain Amethyst Block",
-    "texture": "/assets/goals/obtain_amethyst_block.png"
+    "texture": "/assets/goals/obtain_amethyst_block.webp"
   },
   {
     "id": "OBTAIN_WITHER_SKELETON_SKULL",
     "text": "Obtain Wither Skeleton Skull",
-    "texture": "/assets/goals/obtain_wither_skeleton_skull.png"
+    "texture": "/assets/goals/obtain_wither_skeleton_skull.webp"
   },
   {
     "id": "OBTAIN_END_ROD",
     "text": "Obtain End Rod",
-    "texture": "/assets/goals/obtain_end_rod.png"
+    "texture": "/assets/goals/obtain_end_rod.webp"
   },
   {
     "id": "OBTAIN_DRAGON_EGG",
     "text": "Obtain Dragon Egg",
-    "texture": "/assets/goals/obtain_dragon_egg.png"
+    "texture": "/assets/goals/obtain_dragon_egg.webp"
   },
   {
     "id": "OBTAIN_OBSERVER",
     "text": "Obtain Observer",
-    "texture": "/assets/goals/obtain_observer.png"
+    "texture": "/assets/goals/obtain_observer.webp"
   },
   {
     "id": "OBTAIN_4_UNIQUE_SEEDS",
     "text": "Obtain 4 Unique Seeds",
-    "texture": "/assets/goals/obtain_4_unique_seeds.png"
+    "texture": "/assets/goals/obtain_4_unique_seeds.webp"
   },
   {
     "id": "OBTAIN_TINTED_GLASS",
     "text": "Obtain Tinted Glass",
-    "texture": "/assets/goals/obtain_tinted_glass.png"
+    "texture": "/assets/goals/obtain_tinted_glass.webp"
   },
   {
     "id": "EAT_CHORUS_FRUIT",
     "text": "Eat Chorus Fruit",
-    "texture": "/assets/goals/eat_chorus_fruit.png"
+    "texture": "/assets/goals/eat_chorus_fruit.webp"
   },
   {
     "id": "GET_WHAT_A_DEAL_ADVANCEMENT",
     "text": "Trade with a Villager",
-    "texture": "/assets/goals/trade_with_a_villager.png"
+    "texture": "/assets/goals/trade_with_a_villager.webp"
   },
   {
     "id": "GET_HIRED_HELP_ADVANCEMENT",
     "text": "Construct an Iron Golem",
-    "texture": "/assets/goals/construct_an_iron_golem.png"
+    "texture": "/assets/goals/construct_an_iron_golem.webp"
   },
   {
     "id": "GET_LEVITATION_STATUS_EFFECT",
     "text": "Get Levitation",
-    "texture": "/assets/goals/get_levitation.png"
+    "texture": "/assets/goals/get_levitation.webp"
   },
   {
     "id": "GET_A_TERRIBLE_FORTRESS_ADVANCEMENT",
     "text": "Find a Fortress",
-    "texture": "/assets/goals/find_a_fortress.png"
+    "texture": "/assets/goals/find_a_fortress.webp"
   },
   {
     "id": "GET_THE_CITY_AT_THE_END_OF_THE_GAME_ADVANCEMENT",
     "text": "Find an End City",
-    "texture": "/assets/goals/find_an_end_city.png"
+    "texture": "/assets/goals/find_an_end_city.webp"
   },
   {
     "id": "GET_THOSE_WERE_THE_DAYS_ADVANCEMENT",
     "text": "Find a Bastion",
-    "texture": "/assets/goals/find_a_bastion.png"
+    "texture": "/assets/goals/find_a_bastion.webp"
   },
   {
     "id": "RIDE_HORSE",
     "text": "Ride a Horse",
-    "texture": "/assets/goals/ride_a_horse.png"
+    "texture": "/assets/goals/ride_a_horse.webp"
   },
   {
     "id": "USE_GLOW_INK_WARPED",
     "text": "Use Glow Ink on Warped Sign",
-    "texture": "/assets/goals/use_glow_ink_on_warped_sign.png"
+    "texture": "/assets/goals/use_glow_ink_on_warped_sign.webp"
   },
   {
     "id": "USE_GLOW_INK_NETHER",
     "text": "Use Glow Ink on Crimson or Warped Sign",
-    "texture": "/assets/goals/use_glow_ink_on_crimson_or_warped_sign.png"
+    "texture": "/assets/goals/use_glow_ink_on_crimson_or_warped_sign.webp"
   },
   {
     "id": "OBTAIN_SOUL_CAMPFIRE",
     "text": "Obtain Soul Campfire",
-    "texture": "/assets/goals/obtain_soul_campfire.png"
+    "texture": "/assets/goals/obtain_soul_campfire.webp"
   },
   {
     "id": "ENRAGE_ENDERMAN",
     "text": "Enrage Enderman",
-    "texture": "/assets/goals/enrage_enderman.png"
+    "texture": "/assets/goals/enrage_enderman.webp"
   },
   {
     "id": "PLACE_HANGING_SIGN",
     "text": "Place a Hanging Sign",
-    "texture": "/assets/goals/place_a_hanging_sign.png"
+    "texture": "/assets/goals/place_a_hanging_sign.webp"
   },
   {
     "id": "OBTAIN_64_ARROWS",
     "text": "Obtain 64 Arrows",
-    "texture": "/assets/goals/obtain_64_arrows.png"
+    "texture": "/assets/goals/obtain_64_arrows.webp"
   },
   {
     "id": "VISIT_ALL_CAVE_BIOMES",
     "text": "Visit all Cave Biomes",
-    "texture": "/assets/goals/visit_all_cave_biomes.png"
+    "texture": "/assets/goals/visit_all_cave_biomes.webp"
   },
   {
     "id": "SPY_15_UNIQUE_MOBS",
     "text": "Spy on 15 Unique Mobs",
-    "texture": "/assets/goals/spy_on_15_unique_mobs.png"
+    "texture": "/assets/goals/spy_on_15_unique_mobs.webp"
   },
   {
     "id": "SPY_25_UNIQUE_MOBS",
     "text": "Spy on 25 Unique Mobs",
-    "texture": "/assets/goals/spy_on_25_unique_mobs.png"
+    "texture": "/assets/goals/spy_on_25_unique_mobs.webp"
   },
   {
     "id": "DIE_TO_TRIDENT",
     "text": "Die to Trident",
-    "texture": "/assets/goals/die_to_trident.png"
+    "texture": "/assets/goals/die_to_trident.webp"
   },
   {
     "id": "TURN_IRON_GOLEM_UPSIDE_DOWN",
     "text": "Name an Iron Golem 'Dinnerbone'",
-    "texture": "/assets/goals/name_an_iron_golem_dinnerbone.png"
+    "texture": "/assets/goals/name_an_iron_golem_dinnerbone.webp"
   }
 ]

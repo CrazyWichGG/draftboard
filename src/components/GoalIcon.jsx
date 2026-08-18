@@ -28,13 +28,31 @@ export default function GoalIcon({ goal, className = "w-5 h-5 text-cyan-300" }) 
 
   // 1. Try rendering exact texture URL from GOALS.json first
   if (goal.texture && !imgError) {
+    const isEnchanted = goal.enchanted === true;
     return (
-      <img
-        src={goal.texture}
-        alt={goal.text}
-        className="w-full h-full object-contain [image-rendering:pixelated]"
-        onError={() => setImgError(true)}
-      />
+      <div className="relative w-full h-full inline-block">
+        <img
+          src={goal.texture}
+          alt={goal.text}
+          className="w-full h-full object-contain [image-rendering:pixelated]"
+          onError={() => setImgError(true)}
+        />
+        {isEnchanted && (
+          <div
+            className="mc-glint-overlay"
+            style={{
+              WebkitMaskImage: `url(${goal.texture})`,
+              maskImage: `url(${goal.texture})`,
+              WebkitMaskSize: 'contain',
+              maskSize: 'contain',
+              WebkitMaskRepeat: 'no-repeat',
+              maskRepeat: 'no-repeat',
+              WebkitMaskPosition: 'center',
+              maskPosition: 'center'
+            }}
+          />
+        )}
+      </div>
     );
   }
 
