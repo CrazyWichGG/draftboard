@@ -18,7 +18,7 @@ export async function resolvePlayerIdentity(username) {
   if (!username || !username.trim()) {
     return {
       uuid: DEFAULT_STEVE_UUID,
-      avatarUrl: `https://crafatar.com/avatars/${DEFAULT_STEVE_UUID}?size=64&overlay`,
+      avatarUrl: `https://minotar.net/helm/Steve/64.png`,
     };
   }
 
@@ -30,7 +30,7 @@ export async function resolvePlayerIdentity(username) {
       if (data && data.id) {
         return {
           uuid: data.id,
-          avatarUrl: `https://crafatar.com/avatars/${data.id}?size=64&overlay`,
+          avatarUrl: `https://minotar.net/helm/${encodeURIComponent(cleanName)}/64.png`,
         };
       }
     }

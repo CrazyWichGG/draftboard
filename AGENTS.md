@@ -56,7 +56,7 @@ Build a real-time, web-based alternative to the in-game drafting system for the 
 ---
 
 ## Data Sources
-* **Crafatar API (Skin Fetching):** The application will use the [Crafatar API](https://crafatar.com/) (e.g., `https://crafatar.com/avatars/{uuid}?size=64&overlay`) to fetch pre-cropped 2D player head avatars, with Minotar fallback.
+* **Minotar API (Skin Fetching):** The application uses the [Minotar API](https://minotar.net/) (e.g., `https://minotar.net/helm/{username}/64.png`) to fetch 2D player head avatars.
 * **Master Goals List:** The application reads available goals from a static, local `GOALS.json` file. Do **not** write scripts to scrape or modify this file. Format:
 ```json
   {

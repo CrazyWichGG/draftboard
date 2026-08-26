@@ -1,6 +1,6 @@
 /**
  * Minecraft Avatar & UUID Resolution Service
- * Uses Mojang API, Server Proxy & Minotar/Crafatar 2D Avatars with automatic fallback handling.
+ * Uses Mojang API, Server Proxy & Minotar 2D Helm Avatars.
  */
 
 // Known Steve UUID as default fallback
@@ -15,7 +15,7 @@ export async function getMinecraftUuid(username) {
   if (!username || !username.trim()) {
     return {
       uuid: DEFAULT_STEVE_UUID,
-      avatarUrl: `https://crafatar.com/avatars/${DEFAULT_STEVE_UUID}?size=64&overlay`,
+      avatarUrl: `https://minotar.net/helm/Steve/64.png`,
       isReal: false
     };
   }
@@ -34,7 +34,7 @@ export async function getMinecraftUuid(username) {
       if (data && data.uuid) {
         return {
           uuid: data.uuid,
-          avatarUrl: data.avatarUrl || getAvatarUrl(data.uuid),
+          avatarUrl: data.avatarUrl || getAvatarUrl(cleanName),
           isReal: true
         };
       }
@@ -43,7 +43,7 @@ export async function getMinecraftUuid(username) {
     console.warn(`[Mojang API] Proxy lookup failed for '${cleanName}', using direct avatar renderer:`, err.message);
   }
 
-  // 2. Fallback: Return username avatar URL via Minotar (always works by username)
+  // 2. Direct avatar URL via Minotar
   const mockUuid = generateMockUuid(cleanName);
   return {
     uuid: mockUuid,
@@ -53,23 +53,14 @@ export async function getMinecraftUuid(username) {
 }
 
 /**
- * Get 2D player head avatar URL
+ * Get 2D player head avatar URL via Minotar
  * @param {string} uuidOrUsername 
  * @param {number} size 
  * @returns {string}
  */
 export function getAvatarUrl(uuidOrUsername, size = 64) {
-  if (!uuidOrUsername) {
-    return `https://crafatar.com/avatars/${DEFAULT_STEVE_UUID}?size=${size}&overlay`;
-  }
-
-  // If valid UUID format (8-4-4-4-12 or 32 hex chars)
-  if (isUuid(uuidOrUsername)) {
-    return `https://crafatar.com/avatars/${uuidOrUsername}?size=${size}&overlay`;
-  }
-
-  // Fallback to Minotar helm URL by username
-  return `https://minotar.net/helm/${encodeURIComponent(uuidOrUsername)}/${size}.png`;
+  const target = uuidOrUsername ? encodeURIComponent(uuidOrUsername) : 'Steve';
+  return `https://minotar.net/helm/${target}/${size}.png`;
 }
 
 function isUuid(str) {
