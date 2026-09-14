@@ -2152,5 +2152,141 @@
     "id": "TURN_IRON_GOLEM_UPSIDE_DOWN",
     "text": "Name an Iron Golem 'Dinnerbone'",
     "texture": "/assets/goals/name_an_iron_golem_dinnerbone.webp"
+  },
+  {
+    "id": "MINE_OBSIDIAN",
+    "text": "Mine Obsidian",
+    "texture": "/assets/goals/mine_obsidian.webp"
+  },
+  {
+    "id": "OBTAIN_COLORED_HARNESS",
+    "text": "Obtain Black Harness",
+    "texture": "/assets/goals/obtain_black_harness.webp",
+    "data": "black"
+  },
+  {
+    "id": "OBTAIN_COLORED_HARNESS",
+    "text": "Obtain White Harness",
+    "texture": "/assets/goals/obtain_white_harness.webp",
+    "data": "white"
+  },
+  {
+    "id": "OBTAIN_COLORED_HARNESS",
+    "text": "Obtain Gray Harness",
+    "texture": "/assets/goals/obtain_gray_harness.webp",
+    "data": "gray"
+  },
+  {
+    "id": "OBTAIN_COLORED_HARNESS",
+    "text": "Obtain Light Gray Harness",
+    "texture": "/assets/goals/obtain_light_gray_harness.webp",
+    "data": "light_gray"
+  },
+  {
+    "id": "OBTAIN_COLORED_HARNESS",
+    "text": "Obtain Blue Harness",
+    "texture": "/assets/goals/obtain_blue_harness.webp",
+    "data": "blue"
+  },
+  {
+    "id": "OBTAIN_COLORED_HARNESS",
+    "text": "Obtain Light Blue Harness",
+    "texture": "/assets/goals/obtain_light_blue_harness.webp",
+    "data": "light_blue"
+  },
+  {
+    "id": "OBTAIN_COLORED_HARNESS",
+    "text": "Obtain Orange Harness",
+    "texture": "/assets/goals/obtain_orange_harness.webp",
+    "data": "orange"
+  },
+  {
+    "id": "OBTAIN_COLORED_HARNESS",
+    "text": "Obtain Red Harness",
+    "texture": "/assets/goals/obtain_red_harness.webp",
+    "data": "red"
+  },
+  {
+    "id": "OBTAIN_COLORED_HARNESS",
+    "text": "Obtain Yellow Harness",
+    "texture": "/assets/goals/obtain_yellow_harness.webp",
+    "data": "yellow"
+  },
+  {
+    "id": "OBTAIN_COLORED_HARNESS",
+    "text": "Obtain Magenta Harness",
+    "texture": "/assets/goals/obtain_magenta_harness.webp",
+    "data": "magenta"
+  },
+  {
+    "id": "OBTAIN_COLORED_HARNESS",
+    "text": "Obtain Pink Harness",
+    "texture": "/assets/goals/obtain_pink_harness.webp",
+    "data": "pink"
+  },
+  {
+    "id": "OBTAIN_COLORED_HARNESS",
+    "text": "Obtain Purple Harness",
+    "texture": "/assets/goals/obtain_purple_harness.webp",
+    "data": "purple"
+  },
+  {
+    "id": "OBTAIN_COLORED_HARNESS",
+    "text": "Obtain Green Harness",
+    "texture": "/assets/goals/obtain_green_harness.webp",
+    "data": "green"
+  },
+  {
+    "id": "OBTAIN_COLORED_HARNESS",
+    "text": "Obtain Lime Harness",
+    "texture": "/assets/goals/obtain_lime_harness.webp",
+    "data": "lime"
+  },
+  {
+    "id": "OBTAIN_COLORED_HARNESS",
+    "text": "Obtain Cyan Harness",
+    "texture": "/assets/goals/obtain_cyan_harness.webp",
+    "data": "cyan"
+  },
+  {
+    "id": "OBTAIN_COLORED_HARNESS",
+    "text": "Obtain Brown Harness",
+    "texture": "/assets/goals/obtain_brown_harness.webp",
+    "data": "brown"
+  },
+  {
+    "id": "GET_POWER_OF_BOOKS_ADVANCEMENT",
+    "text": "Obtain \"The Power of Books\" Advancement",
+    "texture": "/assets/goals/get_power_of_books_advancement.webp"
+  },
+  {
+    "id": "USE_CARTOGRAPHY_TABLE",
+    "text": "Use Cartography Table",
+    "texture": "/assets/goals/use_cartography_table.webp"
+  },
+  {
+    "id": "PEARL_THROUGH_NETHER_PORTAL",
+    "text": "Teleport through Nether Portal using Ender Pearl",
+    "texture": "/assets/goals/pearl_through_nether_portal.webp"
+  },
+  {
+    "id": "OBTAIN_16_GLOW_LICHEN",
+    "text": "Obtain 16 Glow Lichen",
+    "texture": "/assets/goals/obtain_16_glow_lichen.webp"
+  },
+  {
+    "id": "BREAK_FISHING_ROD",
+    "text": "Break Fishing Rod",
+    "texture": "/assets/goals/break_fishing_rod.webp"
+  },
+  {
+    "id": "BREAK_SHIELD",
+    "text": "Break Shield",
+    "texture": "/assets/goals/break_shield.webp"
+  },
+  {
+    "id": "LOCK_MAP",
+    "text": "Lock a Map using Cartography Table",
+    "texture": "/assets/goals/lock_map.webp"
   }
 ]
