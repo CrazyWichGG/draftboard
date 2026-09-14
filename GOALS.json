@@ -563,12 +563,6 @@
   },
   {
     "id": "KILL_COLORED_SHEEP",
-    "text": "Kill Pink Sheep",
-    "texture": "/assets/goals/kill_pink_sheep.webp",
-    "data": "pink"
-  },
-  {
-    "id": "KILL_COLORED_SHEEP",
     "text": "Kill Purple Sheep",
     "texture": "/assets/goals/kill_purple_sheep.webp",
     "data": "purple"
