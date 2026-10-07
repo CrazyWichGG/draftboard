@@ -41,7 +41,7 @@ Build a real-time, web-based alternative to the in-game drafting system for the 
 ---
 
 ## Frontend Styling & Aesthetics
-* **Default Theme:** The web interface must replicate the color palette and styling of the official Draftout website (e.g., `https://draftoutmc.com/wiki`) by default.
+* **Default Theme:** The web interface must replicate the color palette and styling of the official Draftout website (e.g., `https://draftoutmc.com/wiki/goals`) by default.
 * **Color Palette:** Utilize deep dark backgrounds (like Tailwind's `bg-neutral-950`) heavily accented with bright cyan (e.g., `text-cyan-300`, `border-cyan-300/25`, `bg-cyan-300/10`).
 * **Semi-Transparent Panels:** Panels and bevels utilize semi-transparent dark backgrounds (`rgba(18, 18, 21, 0.65)`) with `backdrop-filter: blur(4px)`.
 * **Sharp Corners (No Rounded Corners):** Cards, panels, inputs, tooltips, slots, switches, and modals must use sharp, square corners (`rounded-none`). **EXCEPTION:** Pulsing status indicator dots (e.g., before **DRAFTBOARD LOBBY** and turn indicator dots) must strictly remain circles (`rounded-full`).
@@ -66,7 +66,7 @@ Build a real-time, web-based alternative to the in-game drafting system for the 
     "data": "optional format for some goals only"
   }
 ```
-* **Queue Goal List:** The application filters goals for the Queue Pool using a static, local `server/queueGoalIds.json` file. Format: `["ID"]` or `["ID::data"]` containing composite goal keys matching active goals on `https://draftoutmc.com/wiki`.
+* **Queue Goal List:** The application filters goals for the Queue Pool using a static, local `server/queueGoalIds.json` file. Format: `["ID"]` or `["ID::data"]` containing composite goal keys matching active goals on `https://draftoutmc.com/wiki/goals`.
 
 ---
 
