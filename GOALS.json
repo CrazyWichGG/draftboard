@@ -1239,8 +1239,8 @@
   },
   {
     "id": "OBTAIN_ALL_MUSHROOMS",
-    "text": "Obtain every type of Mushroom",
-    "texture": "/assets/goals/obtain_every_type_of_mushroom.webp"
+    "text": "Obtain 4 Unique Mushrooms",
+    "texture": "/assets/goals/obtain_4_unique_mushrooms.webp"
   },
   {
     "id": "OBTAIN_ALL_PUMPKINS",
@@ -2288,5 +2288,151 @@
     "id": "LOCK_MAP",
     "text": "Lock a Map using Cartography Table",
     "texture": "/assets/goals/lock_map.webp"
+  },
+  {
+    "id": "OBTAIN_SULFUR_CUBE_BUCKET",
+    "text": "Obtain Bucket of Sulfur Cube",
+    "texture": "/assets/goals/obtain_sulfur_cube_bucket.webp"
+  },
+  {
+    "id": "OBTAIN_STRAW_BED",
+    "text": "Obtain Straw Bed",
+    "texture": "/assets/goals/obtain_straw_bed.webp"
+  },
+  {
+    "id": "OBTAIN_64_NAME_TAGS",
+    "text": "Obtain 64 Name Tags",
+    "texture": "/assets/goals/obtain_64_name_tags.webp"
+  },
+  {
+    "id": "OBTAIN_COAL_BLOCK",
+    "text": "Obtain Coal Block",
+    "texture": "/assets/goals/obtain_coal_block.webp"
+  },
+  {
+    "id": "IGNITE_TNT_SULFUR_CUBE",
+    "text": "Ignite a TNT Sulfur Cube",
+    "texture": "/assets/goals/ignite_tnt_sulfur_cube.webp"
+  },
+  {
+    "id": "RIDE_GEYSER",
+    "text": "Ride a Geyser",
+    "texture": "/assets/goals/ride_geyser.webp"
+  },
+  {
+    "id": "DIE_TO_SULFUR_CUBE",
+    "text": "Die to Sulfur Cube",
+    "texture": "/assets/goals/die_to_sulfur_cube.webp"
+  },
+  {
+    "id": "FILL_INVENTORY_MUSHROOM_STEW",
+    "text": "Fill Inventory with Mushroom Stew",
+    "texture": "/assets/goals/fill_inventory_mushroom_stew.webp"
+  },
+  {
+    "id": "BUNDLE_IN_BUNDLE",
+    "text": "Put a Bundle in a Bundle",
+    "texture": "/assets/goals/bundle_in_bundle.webp"
+  },
+  {
+    "id": "GET_POSTMORTAL_ADVANCEMENT",
+    "text": "Obtain \"Postmortal\" Advancement",
+    "texture": "/assets/goals/get_postmortal_advancement.webp"
+  },
+  {
+    "id": "SIT_ON_COLORED_CUSHION",
+    "text": "Sit on Black Cushion",
+    "texture": "/assets/goals/sit_on_black_cushion.webp",
+    "data": "black"
+  },
+  {
+    "id": "SIT_ON_COLORED_CUSHION",
+    "text": "Sit on White Cushion",
+    "texture": "/assets/goals/sit_on_white_cushion.webp",
+    "data": "white"
+  },
+  {
+    "id": "SIT_ON_COLORED_CUSHION",
+    "text": "Sit on Gray Cushion",
+    "texture": "/assets/goals/sit_on_gray_cushion.webp",
+    "data": "gray"
+  },
+  {
+    "id": "SIT_ON_COLORED_CUSHION",
+    "text": "Sit on Light Gray Cushion",
+    "texture": "/assets/goals/sit_on_light_gray_cushion.webp",
+    "data": "light_gray"
+  },
+  {
+    "id": "SIT_ON_COLORED_CUSHION",
+    "text": "Sit on Blue Cushion",
+    "texture": "/assets/goals/sit_on_blue_cushion.webp",
+    "data": "blue"
+  },
+  {
+    "id": "SIT_ON_COLORED_CUSHION",
+    "text": "Sit on Light Blue Cushion",
+    "texture": "/assets/goals/sit_on_light_blue_cushion.webp",
+    "data": "light_blue"
+  },
+  {
+    "id": "SIT_ON_COLORED_CUSHION",
+    "text": "Sit on Orange Cushion",
+    "texture": "/assets/goals/sit_on_orange_cushion.webp",
+    "data": "orange"
+  },
+  {
+    "id": "SIT_ON_COLORED_CUSHION",
+    "text": "Sit on Red Cushion",
+    "texture": "/assets/goals/sit_on_red_cushion.webp",
+    "data": "red"
+  },
+  {
+    "id": "SIT_ON_COLORED_CUSHION",
+    "text": "Sit on Yellow Cushion",
+    "texture": "/assets/goals/sit_on_yellow_cushion.webp",
+    "data": "yellow"
+  },
+  {
+    "id": "SIT_ON_COLORED_CUSHION",
+    "text": "Sit on Magenta Cushion",
+    "texture": "/assets/goals/sit_on_magenta_cushion.webp",
+    "data": "magenta"
+  },
+  {
+    "id": "SIT_ON_COLORED_CUSHION",
+    "text": "Sit on Pink Cushion",
+    "texture": "/assets/goals/sit_on_pink_cushion.webp",
+    "data": "pink"
+  },
+  {
+    "id": "SIT_ON_COLORED_CUSHION",
+    "text": "Sit on Purple Cushion",
+    "texture": "/assets/goals/sit_on_purple_cushion.webp",
+    "data": "purple"
+  },
+  {
+    "id": "SIT_ON_COLORED_CUSHION",
+    "text": "Sit on Green Cushion",
+    "texture": "/assets/goals/sit_on_green_cushion.webp",
+    "data": "green"
+  },
+  {
+    "id": "SIT_ON_COLORED_CUSHION",
+    "text": "Sit on Lime Cushion",
+    "texture": "/assets/goals/sit_on_lime_cushion.webp",
+    "data": "lime"
+  },
+  {
+    "id": "SIT_ON_COLORED_CUSHION",
+    "text": "Sit on Cyan Cushion",
+    "texture": "/assets/goals/sit_on_cyan_cushion.webp",
+    "data": "cyan"
+  },
+  {
+    "id": "SIT_ON_COLORED_CUSHION",
+    "text": "Sit on Brown Cushion",
+    "texture": "/assets/goals/sit_on_brown_cushion.webp",
+    "data": "brown"
   }
 ]

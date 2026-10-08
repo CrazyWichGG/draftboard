@@ -269,14 +269,14 @@ export default function LobbyRoomView({ lobbyData, onLeaveLobby }) {
                   Goal Pool
                 </span>
                 <span className="font-mono text-cyan-300 font-bold uppercase">
-                  {(lobbyData.goalPool || 'queue') === 'queue' ? 'Queue (401)' : 'All Goals (430)'}
+                  {(lobbyData.goalPool || 'queue') === 'queue' ? 'Queue (426)' : 'All Goals (456)'}
                 </span>
               </label>
 
               <div className="grid grid-cols-2 gap-1.5">
                 {[
-                  { id: 'queue', label: 'QUEUE (401)', isDefault: true },
-                  { id: 'all', label: 'ALL (430)', isDefault: false },
+                  { id: 'queue', label: 'QUEUE (426)', isDefault: true },
+                  { id: 'all', label: 'ALL (456)', isDefault: false },
                 ].map((pool) => {
                   const isSelected = (lobbyData.goalPool || 'queue') === pool.id;
 
