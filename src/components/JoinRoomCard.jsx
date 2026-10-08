@@ -64,7 +64,7 @@ export default function JoinRoomCard({ onJoinRoom, defaultCode = '', errorMessag
       {/* Header Bar with BORDERLESS Logo */}
       <div className="flex items-center gap-3 mb-6 pb-4 border-b border-orange-500/20">
         <img 
-          src="/logo.svg" 
+          src="/logo_join_room.svg" 
           alt="Draftout Logo" 
           className="w-10 h-10 object-contain shrink-0 [image-rendering:pixelated]" 
         />
