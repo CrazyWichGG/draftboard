@@ -16,7 +16,7 @@ import {
   Trophy
 } from 'lucide-react';
 
-export default function GoalIcon({ goal, className = "w-5 h-5 text-cyan-300" }) {
+export default function GoalIcon({ goal, className = "w-5 h-5 text-orange-400" }) {
   const [imgError, setImgError] = useState(false);
 
   // Reset error state if goal object changes

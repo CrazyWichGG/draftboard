@@ -56,7 +56,7 @@ export default function CreateRoomCard({ onCreateRoom }) {
   return (
     <div className="draftout-card p-6 sm:p-8 max-w-lg w-full transition-all">
       {/* Header Bar with BORDERLESS Logo */}
-      <div className="flex items-center gap-3 mb-6 pb-4 border-b border-cyan-500/20">
+      <div className="flex items-center gap-3 mb-6 pb-4 border-b border-orange-500/20">
         <img
           src="/logo.svg"
           alt="Draftout Logo"
@@ -79,7 +79,7 @@ export default function CreateRoomCard({ onCreateRoom }) {
           <div className="flex items-center gap-3">
             <div className="mc-bevel-inset relative w-14 h-14 p-1 flex items-center justify-center shrink-0 overflow-hidden shadow-inner">
               {loadingAvatar ? (
-                <Loader2 className="w-6 h-6 text-cyan-300 animate-spin" />
+                <Loader2 className="w-6 h-6 text-orange-400 animate-spin" />
               ) : (
                 <img
                   src={avatarUrl}
@@ -93,7 +93,7 @@ export default function CreateRoomCard({ onCreateRoom }) {
               )}
             </div>
             <div className="relative flex-1">
-              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-cyan-400/50">
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-orange-400/50">
                 <User className="w-4 h-4" />
               </div>
               <input
@@ -103,21 +103,21 @@ export default function CreateRoomCard({ onCreateRoom }) {
                 placeholder="Enter MC Username..."
                 maxLength={16}
                 required
-                className="mc-bevel-inset w-full pl-9 pr-4 py-3 text-white text-sm placeholder-neutral-600 focus:border-cyan-400 focus:outline-none"
+                className="mc-bevel-inset w-full pl-9 pr-4 py-3 text-white text-sm placeholder-neutral-600 focus:border-orange-500 focus:outline-none"
               />
             </div>
           </div>
         </div>
 
         {/* Info Note */}
-        <p className="text-[11px] text-cyan-400/70 bg-cyan-950/30 p-3 border border-cyan-500/20 leading-relaxed font-mono">
+        <p className="text-[11px] text-amber-300/80 bg-neutral-950/40 p-3 border border-orange-500/25 leading-relaxed font-mono">
           💡 You can customize Board Size and Picking Time Limit directly inside your lobby room!
         </p>
 
         {/* Action Button using font-pixel (MinecraftSeven) */}
         <button
           type="submit"
-          className="w-full py-3.5 px-6 bg-cyan-400 hover:bg-cyan-300 text-neutral-950 font-bold text-sm shadow-[0_0_15px_rgba(34,211,238,0.4)] hover:shadow-[0_0_25px_rgba(34,211,238,0.75)] transition-all flex items-center justify-center gap-2 group cursor-pointer"
+          className="w-full py-3.5 px-6 bg-orange-400 hover:bg-orange-300 text-neutral-950 font-bold text-sm shadow-[0_0_15px_rgba(251,146,60,0.45)] hover:shadow-[0_0_25px_rgba(251,146,60,0.75)] transition-all flex items-center justify-center gap-2 group cursor-pointer"
         >
           <CheckCircle2 className="w-4 h-4 text-neutral-950 group-hover:scale-110 transition-transform" />
           <span className="font-pixel text-xs">CREATE ROOM & GENERATE CODE</span>

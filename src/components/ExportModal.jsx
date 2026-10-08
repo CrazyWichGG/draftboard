@@ -42,11 +42,11 @@ export default function ExportModal({ draftState, onResetLobby }) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-sm animate-fadeIn overflow-y-auto">
-      <div className="draftout-panel mc-bevel max-w-3xl w-full p-4 sm:p-6 lg:p-8 space-y-4 sm:space-y-6 shadow-2xl border border-cyan-400/40 my-auto max-h-[92vh] flex flex-col justify-between overflow-y-auto">
+      <div className="draftout-panel mc-bevel max-w-3xl w-full p-4 sm:p-6 lg:p-8 space-y-4 sm:space-y-6 shadow-2xl border border-amber-400/40 my-auto max-h-[92vh] flex flex-col justify-between overflow-y-auto">
         {/* Header */}
-        <div className="flex items-center justify-between pb-3 sm:pb-4 border-b border-cyan-500/20 shrink-0">
+        <div className="flex items-center justify-between pb-3 sm:pb-4 border-b border-orange-500/20 shrink-0">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 sm:w-10 sm:h-10 bg-cyan-400/10 border border-cyan-400/30 flex items-center justify-center text-cyan-300 shrink-0">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-300 shrink-0">
               <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
             <div>
@@ -54,7 +54,7 @@ export default function ExportModal({ draftState, onResetLobby }) {
               <p className="text-[11px] sm:text-xs text-neutral-400">Board fully drafted and ready for export</p>
             </div>
           </div>
-          <span className="text-[11px] sm:text-xs font-mono font-bold bg-neutral-900 text-cyan-300 px-2.5 py-1 border border-cyan-500/30 shrink-0">
+          <span className="text-[11px] sm:text-xs font-mono font-bold bg-neutral-900 text-amber-300 px-2.5 py-1 border border-amber-500/30 shrink-0">
             {draftState.gridSize} Board ({draftState.totalSlots} Goals)
           </span>
         </div>
@@ -64,7 +64,7 @@ export default function ExportModal({ draftState, onResetLobby }) {
           {(draftState.players || []).map((player) => {
             return (
               <div key={player.id} className="mc-bevel-inset p-2.5 flex items-center gap-2.5 bg-neutral-950">
-                <div className="w-7 h-7 sm:w-8 sm:h-8 shrink-0 overflow-hidden bg-neutral-900 border border-cyan-500/30">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 shrink-0 overflow-hidden bg-neutral-900 border border-orange-500/30">
                   <img
                     src={getPlayerAvatar(player)}
                     alt={player.username}
@@ -77,7 +77,7 @@ export default function ExportModal({ draftState, onResetLobby }) {
                 </div>
                 <div className="min-w-0">
                   <p className="text-xs font-bold text-white truncate">{player.username}</p>
-                  <p className="text-[10px] sm:text-[11px] text-cyan-300 font-mono">
+                  <p className="text-[10px] sm:text-[11px] text-orange-300 font-mono">
                     {draftState.claimedCounts?.[player.id] || 0} Goals
                   </p>
                 </div>
@@ -89,8 +89,8 @@ export default function ExportModal({ draftState, onResetLobby }) {
         {/* Visual Final Board Grid Section */}
         <div className="space-y-2 shrink-0">
           <div className="flex items-center justify-between px-1">
-            <div className="text-xs font-pixel text-cyan-300 flex items-center gap-2">
-              <Layers className="w-4 h-4 text-cyan-400" /> FINAL BOARD
+            <div className="text-xs font-pixel text-orange-400 flex items-center gap-2">
+              <Layers className="w-4 h-4 text-orange-400" /> FINAL BOARD
             </div>
             <span className="text-[10px] text-neutral-400 font-mono">
               Hover slots to inspect details
@@ -116,7 +116,7 @@ export default function ExportModal({ draftState, onResetLobby }) {
                     key={index}
                     className={`aspect-square w-full h-full p-0.5 flex flex-col justify-between items-center relative group transition-all ${
                       isClaimed
-                        ? 'mc-bevel-inset bg-neutral-900 border border-cyan-500/40 hover:border-cyan-300 cursor-pointer z-10 hover:z-50'
+                        ? 'mc-bevel-inset bg-neutral-900 border border-orange-500/40 hover:border-orange-300 cursor-pointer z-10 hover:z-50'
                         : 'mc-slot bg-neutral-950/60 border border-neutral-800'
                     }`}
                   >
@@ -128,7 +128,7 @@ export default function ExportModal({ draftState, onResetLobby }) {
                     {/* Slot Icon */}
                     {isClaimed ? (
                       <div className="w-full h-full p-1 flex items-center justify-center overflow-hidden">
-                        <GoalIcon goal={slotItem} className="w-full h-full text-cyan-300 object-contain" />
+                        <GoalIcon goal={slotItem} className="w-full h-full text-orange-300 object-contain" />
                       </div>
                     ) : (
                       <div className="flex-1 flex items-center justify-center">
@@ -139,11 +139,11 @@ export default function ExportModal({ draftState, onResetLobby }) {
                     {/* Hover Tooltip */}
                     {isClaimed && (
                       <div
-                        className={`absolute z-[100] left-1/2 -translate-x-1/2 hidden group-hover:flex flex-col w-48 sm:w-52 p-2.5 bg-neutral-950/95 border border-cyan-400/60 shadow-2xl pointer-events-none text-left backdrop-blur-md ${
+                        className={`absolute z-[100] left-1/2 -translate-x-1/2 hidden group-hover:flex flex-col w-48 sm:w-52 p-2.5 bg-neutral-950/95 border border-orange-500/60 shadow-2xl pointer-events-none text-left backdrop-blur-md ${
                           isTopHalf ? 'top-full mt-2' : 'bottom-full mb-2'
                         }`}
                       >
-                        <p className="text-[9px] font-mono text-cyan-300 font-bold uppercase mb-0.5">
+                        <p className="text-[9px] font-mono text-orange-400 font-bold uppercase mb-0.5">
                           Slot {index + 1}
                         </p>
                         <p className="text-xs font-bold text-white leading-snug mb-1.5">
@@ -165,7 +165,7 @@ export default function ExportModal({ draftState, onResetLobby }) {
                               />
                             </div>
                             <span className="text-[10px] sm:text-[11px] text-neutral-300 font-semibold truncate">
-                              Drafted by <strong className="text-cyan-300">{slotItem.claimedBy?.username || 'Player'}</strong>
+                              Drafted by <strong className="text-orange-300">{slotItem.claimedBy?.username || 'Player'}</strong>
                             </span>
                           </div>
                         )}
@@ -183,9 +183,9 @@ export default function ExportModal({ draftState, onResetLobby }) {
           <div className="flex items-center justify-between">
             <button
               onClick={() => setShowRaw(!showRaw)}
-              className="text-xs font-semibold text-white hover:text-cyan-200 flex items-center gap-1.5 cursor-pointer"
+              className="text-xs font-semibold text-white hover:text-orange-200 flex items-center gap-1.5 cursor-pointer"
             >
-              <FileJson className="w-4 h-4 text-cyan-400" />
+              <FileJson className="w-4 h-4 text-orange-400" />
               {showRaw ? 'Hide Raw BOARD.json Payload' : 'Preview Raw BOARD.json Payload'}
             </button>
 
@@ -194,14 +194,14 @@ export default function ExportModal({ draftState, onResetLobby }) {
                 onClick={handleCopyJson}
                 className="text-xs font-mono text-neutral-400 hover:text-white flex items-center gap-1 cursor-pointer"
               >
-                {copied ? <Check className="w-3.5 h-3.5 text-cyan-300" /> : <Copy className="w-3.5 h-3.5" />}
+                {copied ? <Check className="w-3.5 h-3.5 text-orange-400" /> : <Copy className="w-3.5 h-3.5" />}
                 {copied ? 'Copied!' : 'Copy JSON'}
               </button>
             )}
           </div>
 
           {showRaw && (
-            <pre className="mc-bevel-inset p-3 sm:p-4 text-[11px] font-mono text-cyan-200 max-h-40 sm:max-h-48 overflow-y-auto whitespace-pre-wrap select-all">
+            <pre className="mc-bevel-inset p-3 sm:p-4 text-[11px] font-mono text-orange-200 max-h-40 sm:max-h-48 overflow-y-auto whitespace-pre-wrap select-all">
               {jsonString}
             </pre>
           )}
@@ -211,7 +211,7 @@ export default function ExportModal({ draftState, onResetLobby }) {
         <div className="flex flex-col sm:flex-row items-center gap-3 pt-1 sm:pt-2 shrink-0">
           <button
             onClick={handleDownload}
-            className="w-full sm:flex-1 py-3 px-6 bg-cyan-400 hover:bg-cyan-300 text-neutral-950 font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-[0_0_15px_rgba(34,211,238,0.4)] hover:shadow-[0_0_25px_rgba(34,211,238,0.75)] active:scale-98 cursor-pointer"
+            className="w-full sm:flex-1 py-3 px-6 bg-orange-400 hover:bg-orange-300 text-neutral-950 font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-[0_0_15px_rgba(251,146,60,0.45)] hover:shadow-[0_0_25px_rgba(251,146,60,0.75)] active:scale-98 cursor-pointer"
           >
             <Download className="w-5 h-5 text-neutral-950" />
             <span className="font-pixel text-xs">DOWNLOAD BOARD.JSON</span>
@@ -219,7 +219,7 @@ export default function ExportModal({ draftState, onResetLobby }) {
 
           <button
             onClick={onResetLobby}
-            className="w-full sm:w-auto py-3 px-6 bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 hover:border-cyan-400/40 text-neutral-300 text-xs font-bold flex items-center justify-center gap-2 transition-all hover:shadow-[0_0_15px_rgba(34,211,238,0.35)] cursor-pointer"
+            className="w-full sm:w-auto py-3 px-6 bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 hover:border-orange-500/40 text-neutral-300 text-xs font-bold flex items-center justify-center gap-2 transition-all hover:shadow-[0_0_15px_rgba(249,115,22,0.35)] cursor-pointer"
           >
             <RotateCcw className="w-4 h-4" />
             <span className="font-pixel text-xs">New Draft</span>

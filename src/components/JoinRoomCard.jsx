@@ -62,7 +62,7 @@ export default function JoinRoomCard({ onJoinRoom, defaultCode = '', errorMessag
   return (
     <div className="draftout-card p-6 sm:p-8 max-w-lg w-full transition-all">
       {/* Header Bar with BORDERLESS Logo */}
-      <div className="flex items-center gap-3 mb-6 pb-4 border-b border-cyan-500/20">
+      <div className="flex items-center gap-3 mb-6 pb-4 border-b border-orange-500/20">
         <img 
           src="/logo.svg" 
           alt="Draftout Logo" 
@@ -80,7 +80,7 @@ export default function JoinRoomCard({ onJoinRoom, defaultCode = '', errorMessag
         {/* Room Code Input */}
         <div>
           <label className="block text-xs font-semibold font-pixel text-white uppercase tracking-wider mb-2 flex items-center gap-1.5">
-            <KeyRound className="w-3.5 h-3.5 text-cyan-400" />
+            <KeyRound className="w-3.5 h-3.5 text-orange-400" />
             Room Code
           </label>
           <input
@@ -90,7 +90,7 @@ export default function JoinRoomCard({ onJoinRoom, defaultCode = '', errorMessag
             placeholder="e.g. X7K9P2"
             maxLength={6}
             required
-            className="mc-bevel-inset w-full px-4 py-3 text-cyan-300 text-lg font-mono font-bold tracking-widest placeholder-neutral-600 text-center uppercase focus:border-cyan-400 focus:outline-none"
+            className="mc-bevel-inset w-full px-4 py-3 text-orange-400 text-lg font-mono font-bold tracking-widest placeholder-neutral-600 text-center uppercase focus:border-orange-500 focus:outline-none"
           />
           {errorMessage && (
             <p className="text-xs text-rose-400 font-pixel mt-2 flex items-center justify-center gap-1.5 animate-fadeIn">
@@ -108,7 +108,7 @@ export default function JoinRoomCard({ onJoinRoom, defaultCode = '', errorMessag
           <div className="flex items-center gap-3">
             <div className="mc-bevel-inset relative w-14 h-14 p-1 flex items-center justify-center shrink-0 overflow-hidden shadow-inner">
               {loadingAvatar ? (
-                <Loader2 className="w-6 h-6 text-cyan-300 animate-spin" />
+                <Loader2 className="w-6 h-6 text-orange-400 animate-spin" />
               ) : (
                 <img
                   src={avatarUrl}
@@ -122,7 +122,7 @@ export default function JoinRoomCard({ onJoinRoom, defaultCode = '', errorMessag
               )}
             </div>
             <div className="relative flex-1">
-              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-cyan-400/50">
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-orange-400/50">
                 <User className="w-4 h-4" />
               </div>
               <input
@@ -132,7 +132,7 @@ export default function JoinRoomCard({ onJoinRoom, defaultCode = '', errorMessag
                 placeholder="Enter MC Username..."
                 maxLength={16}
                 required
-                className="mc-bevel-inset w-full pl-9 pr-4 py-3 text-white text-sm placeholder-neutral-600 focus:border-cyan-400 focus:outline-none"
+                className="mc-bevel-inset w-full pl-9 pr-4 py-3 text-white text-sm placeholder-neutral-600 focus:border-orange-500 focus:outline-none"
               />
             </div>
           </div>
@@ -141,7 +141,7 @@ export default function JoinRoomCard({ onJoinRoom, defaultCode = '', errorMessag
         {/* Action Button using font-pixel (MinecraftSeven) */}
         <button
           type="submit"
-          className="w-full py-3.5 px-6 bg-cyan-400 hover:bg-cyan-300 text-neutral-950 font-bold text-sm shadow-[0_0_15px_rgba(34,211,238,0.4)] hover:shadow-[0_0_25px_rgba(34,211,238,0.75)] transition-all flex items-center justify-center gap-2 group cursor-pointer"
+          className="w-full py-3.5 px-6 bg-orange-400 hover:bg-orange-300 text-neutral-950 font-bold text-sm shadow-[0_0_15px_rgba(251,146,60,0.45)] hover:shadow-[0_0_25px_rgba(251,146,60,0.75)] transition-all flex items-center justify-center gap-2 group cursor-pointer"
         >
           <LogIn className="w-4 h-4 text-neutral-950 group-hover:translate-x-1 transition-transform" />
           <span className="font-pixel text-xs">JOIN LOBBY ROOM</span>

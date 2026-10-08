@@ -173,14 +173,14 @@ export default function BanPhaseView({ lobbyData, serverTimer, onResetLobby }) {
           <div className="flex items-center gap-2 min-w-0">
             <span className={`inline-block w-2.5 h-2.5 rounded-full animate-pulse shrink-0 ${
               isIntermission 
-                ? 'bg-amber-400' 
+                ? 'bg-orange-500' 
                 : isCurrentClientTurn 
                   ? 'bg-emerald-400' 
                   : 'bg-rose-500'
             }`}></span>
             <h2 className={`text-xs sm:text-sm font-pixel tracking-wider truncate ${
               isIntermission 
-                ? 'text-amber-300' 
+                ? 'text-orange-400' 
                 : isCurrentClientTurn 
                   ? 'text-emerald-400' 
                   : 'text-rose-400'
@@ -195,9 +195,9 @@ export default function BanPhaseView({ lobbyData, serverTimer, onResetLobby }) {
 
           {/* Turn Progress & Countdown Timer */}
           <div className="flex items-center gap-2.5 shrink-0">
-            <div className="mc-bevel-inset px-2 py-0.5 flex items-center gap-1.5">
-              <Clock className={`w-3.5 h-3.5 ${timeLeft <= 5 ? 'text-rose-400 animate-pulse' : 'text-cyan-300'}`} />
-              <span className={`text-xs font-mono font-bold ${timeLeft <= 5 ? 'text-rose-400' : 'text-cyan-300'}`}>
+            <div className="mc-bevel-inset px-2 py-0.5 flex items-center gap-1.5 border border-orange-500/40 bg-neutral-950/80">
+              <Clock className={`w-3.5 h-3.5 ${timeLeft <= 5 ? 'text-rose-400 animate-pulse' : 'text-orange-400'}`} />
+              <span className={`text-xs font-mono font-bold ${timeLeft <= 5 ? 'text-rose-400' : 'text-orange-400'}`}>
                 {timeLeft}s
               </span>
             </div>
@@ -215,7 +215,7 @@ export default function BanPhaseView({ lobbyData, serverTimer, onResetLobby }) {
           <div
             className={`h-full transition-all duration-1000 ease-linear ${
               isIntermission 
-                ? 'bg-amber-400' 
+                ? 'bg-orange-500' 
                 : isCurrentClientTurn 
                   ? 'bg-emerald-400' 
                   : 'bg-rose-500'
@@ -230,9 +230,9 @@ export default function BanPhaseView({ lobbyData, serverTimer, onResetLobby }) {
 
         {/* LEFT SIDEBAR: Anchored Client Player (3 Cols) */}
         <div className="lg:col-span-3 flex flex-col justify-start relative z-10 min-h-0">
-          <div className="draftout-panel mc-bevel p-2.5 border border-cyan-400/30 bg-neutral-900 space-y-2.5">
-            <div className="flex items-center gap-2 text-[10px] font-pixel text-cyan-300 border-b border-cyan-500/20 pb-1">
-              <Sparkles className="w-3.5 h-3.5 text-cyan-400" /> YOU
+          <div className="draftout-panel mc-bevel p-2.5 border border-orange-500/30 bg-neutral-900 space-y-2.5">
+            <div className="flex items-center gap-2 text-[10px] font-pixel text-orange-400 border-b border-orange-500/20 pb-1">
+              <Sparkles className="w-3.5 h-3.5 text-orange-400" /> YOU
             </div>
 
             <div className="flex items-center gap-2.5">
@@ -250,7 +250,7 @@ export default function BanPhaseView({ lobbyData, serverTimer, onResetLobby }) {
 
               <div className="min-w-0 flex-1">
                 <h3 className="font-bold text-white text-xs sm:text-sm truncate">{clientPlayer?.username}</h3>
-                <p className="text-[11px] text-cyan-300 font-mono">
+                <p className="text-[11px] text-orange-300 font-mono">
                   {getPlayerBans(clientPlayer?.id).length}/{bansPerPlayer} Bans Used
                 </p>
               </div>
@@ -260,7 +260,7 @@ export default function BanPhaseView({ lobbyData, serverTimer, onResetLobby }) {
             <div className="p-1.5 bg-neutral-950 border border-neutral-800 flex items-center justify-between">
               <span className="text-neutral-400 text-[10px]">Status:</span>
               {isIntermission ? (
-                <span className="font-pixel text-[8px] text-amber-400 bg-amber-400/20 px-1.5 py-0.5 border border-amber-400/40 animate-pulse">
+                <span className="font-pixel text-[8px] text-orange-400 bg-orange-400/20 px-1.5 py-0.5 border border-orange-400/40 animate-pulse">
                   INTERMISSION
                 </span>
               ) : isCurrentClientTurn ? (
@@ -322,7 +322,7 @@ export default function BanPhaseView({ lobbyData, serverTimer, onResetLobby }) {
         <div className="lg:col-span-6 flex flex-col justify-start h-full min-h-0 relative z-20 overflow-hidden">
           {isIntermission ? (
             /* CENTER INTERMISSION BOX: Natural content height without stretching to bottom */
-            <div className="draftout-panel mc-bevel p-3 sm:p-4 border-amber-400/40 space-y-3 shadow-lg h-auto self-start w-full">
+            <div className="draftout-panel mc-bevel p-3 sm:p-4 border-orange-500/40 space-y-3 shadow-lg h-auto self-start w-full">
               {/* Intermission Header */}
               <div className="text-center pb-1">
                 <h3 className="text-xs sm:text-sm font-pixel text-neutral-200 tracking-wide">
@@ -353,13 +353,13 @@ export default function BanPhaseView({ lobbyData, serverTimer, onResetLobby }) {
                           >
                             {/* Goal Texture */}
                             <div className="mc-bevel-inset w-12 h-12 shrink-0 bg-neutral-900 relative flex items-center justify-center overflow-hidden p-1">
-                              <GoalIcon goal={cat} className="w-full h-full object-contain text-cyan-300" />
+                              <GoalIcon goal={cat} className="w-full h-full object-contain text-orange-300" />
                             </div>
 
                             <div className="min-w-0 flex-1">
                               <h4 className="font-bold text-white text-xs truncate leading-snug">{cat?.text}</h4>
                               <p className="text-[10px] text-neutral-400 font-mono mt-0.5 truncate">
-                                Banned by <strong className="text-cyan-300">{banItem.bannedBy?.username || 'Player'}</strong>
+                                Banned by <strong className="text-orange-400">{banItem.bannedBy?.username || 'Player'}</strong>
                               </p>
                             </div>
                           </div>
@@ -375,8 +375,8 @@ export default function BanPhaseView({ lobbyData, serverTimer, onResetLobby }) {
             <div className="draftout-panel mc-bevel p-2 flex flex-col justify-start shadow-lg h-full min-h-0 space-y-2">
               {/* Header & Search Bar */}
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2 shrink-0 px-1">
-                <div className="text-[10px] font-pixel text-cyan-300 flex items-center gap-1.5 shrink-0">
-                  <Layers className="w-3.5 h-3.5 text-cyan-400" />
+                <div className="text-[10px] font-pixel text-orange-400 flex items-center gap-1.5 shrink-0">
+                  <Layers className="w-3.5 h-3.5 text-orange-400" />
                   <span>GOALS POOL ({filteredCategories.length})</span>
                 </div>
 
@@ -388,13 +388,13 @@ export default function BanPhaseView({ lobbyData, serverTimer, onResetLobby }) {
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="Search goals..."
-                    className="mc-bevel-inset w-full pl-8 pr-2.5 py-1 text-xs text-white placeholder-neutral-600 focus:border-rose-400 focus:outline-none font-sans"
+                    className="mc-bevel-inset w-full pl-8 pr-2.5 py-1 text-xs text-white placeholder-neutral-600 focus:border-orange-500 focus:outline-none font-sans"
                   />
                 </div>
               </div>
 
               {/* Scrollable Square Category Cards Grid */}
-              <div className="flex-1 min-h-0 overflow-y-auto p-1 border border-neutral-850 bg-neutral-950/60">
+              <div className="flex-1 min-h-0 overflow-y-auto p-1 border border-neutral-800 bg-neutral-950/60">
                 <div className="grid grid-cols-5 sm:grid-cols-6 md:grid-cols-7 lg:grid-cols-8 gap-1.5">
                   {filteredCategories.map((category) => {
                     const isBanned = banState.bannedGoalIds?.includes(category.id);
@@ -418,7 +418,7 @@ export default function BanPhaseView({ lobbyData, serverTimer, onResetLobby }) {
                           <GoalIcon
                             goal={category}
                             className={`w-full h-full object-contain ${
-                              isBanned ? 'grayscale opacity-60' : 'text-cyan-300'
+                              isBanned ? 'grayscale opacity-60' : 'text-orange-300'
                             }`}
                           />
                         </div>
@@ -446,8 +446,8 @@ export default function BanPhaseView({ lobbyData, serverTimer, onResetLobby }) {
         {/* RIGHT SIDEBAR: Vertical Opponents List (3 Cols) */}
         <div className="lg:col-span-3 flex flex-col justify-start relative z-10 min-h-0">
           <div className="draftout-panel mc-bevel p-2.5 border border-neutral-800 space-y-2 overflow-y-auto max-h-full">
-            <div className="flex items-center gap-2 text-[10px] font-pixel text-cyan-300 border-b border-cyan-500/20 pb-1">
-              <UserCheck className="w-3.5 h-3.5 text-cyan-400" /> OPPONENTS ({opponentPlayers.length})
+            <div className="flex items-center gap-2 text-[10px] font-pixel text-orange-400 border-b border-orange-500/20 pb-1">
+              <UserCheck className="w-3.5 h-3.5 text-orange-400" /> OPPONENTS ({opponentPlayers.length})
             </div>
 
             <div className="space-y-2">
@@ -551,7 +551,7 @@ export default function BanPhaseView({ lobbyData, serverTimer, onResetLobby }) {
           }}
         >
           <div className="flex items-center justify-between gap-1 mb-1">
-            <span className="text-[9px] font-mono text-cyan-300 uppercase">GOAL DETAILS</span>
+            <span className="text-[9px] font-mono text-orange-400 uppercase">GOAL DETAILS</span>
             {banState.bannedGoalIds?.includes(hoveredCategory.id) ? (
               <span className="font-pixel text-[8px] text-rose-400 bg-rose-500/20 px-1 py-0.5 border border-rose-500/40">
                 BANNED
@@ -574,7 +574,7 @@ export default function BanPhaseView({ lobbyData, serverTimer, onResetLobby }) {
           {/* Child Variants List / Explanation */}
           {hoveredCategory.variantCount > 1 && (
             <div className="pt-1.5 border-t border-neutral-800 space-y-1">
-              <span className="text-[9px] font-mono text-amber-300 font-bold block">
+              <span className="text-[9px] font-mono text-yellow-400 font-bold block">
                 Includes All {hoveredCategory.variantCount} Variants:
               </span>
               <p className="text-[10px] text-neutral-400 leading-tight break-words font-mono line-clamp-3">

@@ -105,17 +105,17 @@ export default function LobbyRoomView({ lobbyData, onLeaveLobby }) {
         <div className="flex items-center gap-3">
           <div>
             <div className="flex items-center gap-2 mb-1">
-              <span className="inline-block w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse"></span>
+              <span className="inline-block w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse"></span>
               <span className="text-sm font-title text-white tracking-wide uppercase">DRAFTBOARD LOBBY</span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight flex items-center gap-3">
               ROOM CODE:
-              <span className="font-mono text-cyan-300 font-bold bg-neutral-900 px-3 py-1 border border-cyan-400/30 flex items-center gap-2">
+              <span className="font-mono text-orange-400 font-bold bg-neutral-900 px-3 py-1 border border-orange-500/40 flex items-center gap-2">
                 <span>{showRoomCode ? lobbyData.roomCode : '••••••'}</span>
                 <button
                   type="button"
                   onClick={() => setShowRoomCode(!showRoomCode)}
-                  className="text-neutral-400 hover:text-cyan-300 transition-colors p-0.5 cursor-pointer"
+                  className="text-neutral-400 hover:text-orange-300 transition-colors p-0.5 cursor-pointer"
                   title={showRoomCode ? "Hide Room Code" : "Show Room Code"}
                 >
                   {showRoomCode ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
@@ -128,16 +128,16 @@ export default function LobbyRoomView({ lobbyData, onLeaveLobby }) {
         <div className="flex items-center gap-3 w-full md:w-auto">
           <button
             onClick={handleCopyCode}
-            className="flex-1 md:flex-none py-2.5 px-4 bg-neutral-900 hover:bg-neutral-800 border border-cyan-400/40 text-cyan-200 text-xs font-bold flex items-center justify-center gap-2 transition-all hover:shadow-[0_0_15px_rgba(34,211,238,0.4)] active:scale-95 cursor-pointer"
+            className="flex-1 md:flex-none py-2.5 px-4 bg-neutral-900 hover:bg-neutral-800 border border-orange-500/40 text-orange-200 text-xs font-bold flex items-center justify-center gap-2 transition-all hover:shadow-[0_0_15px_rgba(249,115,22,0.4)] active:scale-95 cursor-pointer"
           >
             {copied ? (
               <>
-                <Check className="w-4 h-4 text-cyan-300" />
-                <span className="text-cyan-300 font-pixel text-[10px]">COPIED TO CLIPBOARD!</span>
+                <Check className="w-4 h-4 text-orange-400" />
+                <span className="text-orange-300 font-pixel text-[10px]">COPIED TO CLIPBOARD!</span>
               </>
             ) : (
               <>
-                <Copy className="w-4 h-4 text-cyan-400" />
+                <Copy className="w-4 h-4 text-orange-400" />
                 <span className="font-pixel text-[10px]">COPY ROOM CODE</span>
               </>
             )}
@@ -145,7 +145,7 @@ export default function LobbyRoomView({ lobbyData, onLeaveLobby }) {
 
           <button
             onClick={onLeaveLobby}
-            className="py-2.5 px-4 bg-rose-500/10 hover:bg-rose-500/20 border border-rose-500/30 text-rose-300 text-xs font-semibold flex items-center justify-center gap-2 transition-all hover:shadow-[0_0_15px_rgba(244,63,94,0.4)] cursor-pointer"
+            className="py-2.5 px-4 bg-rose-600/30 hover:bg-rose-600/50 border border-rose-500 text-rose-200 hover:text-white text-xs font-semibold flex items-center justify-center gap-2 transition-all hover:shadow-[0_0_18px_rgba(244,63,94,0.5)] cursor-pointer"
           >
             <LogOut className="w-4 h-4" />
             <span className="font-pixel text-[10px]">LEAVE</span>
@@ -164,7 +164,7 @@ export default function LobbyRoomView({ lobbyData, onLeaveLobby }) {
         <div className="lg:col-span-7 space-y-4">
           <div className="flex items-center justify-between px-1">
             <div className="flex items-center gap-2">
-              <Users className="w-4 h-4 text-cyan-400" />
+              <Users className="w-4 h-4 text-orange-400" />
               <h2 className="text-xs font-pixel text-white tracking-wider">
                 PLAYERS ({players.length} / 4)
               </h2>
@@ -176,7 +176,7 @@ export default function LobbyRoomView({ lobbyData, onLeaveLobby }) {
               <div
                 key={player.id || player.socketId}
                 className={`draftout-panel mc-bevel p-4 border transition-all flex items-center gap-4 relative overflow-hidden ${player.isCurrentClient
-                  ? 'border-cyan-400/60 bg-cyan-950/20'
+                  ? 'border-orange-500/60 bg-orange-950/20'
                   : 'border-neutral-800 bg-neutral-900/60'
                   }`}
               >
@@ -200,7 +200,7 @@ export default function LobbyRoomView({ lobbyData, onLeaveLobby }) {
                       {player.username}
                     </span>
                     {player.isCurrentClient && (
-                      <span className="text-[9px] font-pixel bg-cyan-400/20 text-cyan-300 px-1.5 py-0.5 border border-cyan-400/30">
+                      <span className="text-[9px] font-pixel bg-orange-500/20 text-orange-300 px-1.5 py-0.5 border border-orange-500/30">
                         YOU
                       </span>
                     )}
@@ -208,7 +208,7 @@ export default function LobbyRoomView({ lobbyData, onLeaveLobby }) {
 
                   <div className="flex items-center gap-2 mt-1">
                     {player.isHost ? (
-                      <span className="text-xs font-semibold text-amber-300">Host</span>
+                      <span className="text-xs font-semibold text-orange-300">Host</span>
                     ) : (
                       <span className="text-xs text-neutral-400">Player</span>
                     )}
@@ -216,8 +216,8 @@ export default function LobbyRoomView({ lobbyData, onLeaveLobby }) {
                     <span className="text-neutral-600">•</span>
 
                     {player.isReady ? (
-                      <span className="text-xs font-semibold text-cyan-300 flex items-center gap-1">
-                        <CheckCircle className="w-3 h-3 text-cyan-400" /> Ready
+                      <span className="text-xs font-semibold text-emerald-400 flex items-center gap-1">
+                        <CheckCircle className="w-3 h-3 text-emerald-400" /> Ready
                       </span>
                     ) : (
                       <span className="text-xs font-medium text-amber-400 flex items-center gap-1">
@@ -233,9 +233,9 @@ export default function LobbyRoomView({ lobbyData, onLeaveLobby }) {
             {Array.from({ length: Math.max(0, 4 - players.length) }).map((_, index) => (
               <div
                 key={`empty-${index}`}
-                className="p-4 border border-dashed border-cyan-500/20 bg-neutral-950/40 flex items-center justify-center gap-2 text-neutral-600 text-xs font-medium min-h-[82px]"
+                className="p-4 border border-dashed border-orange-500/20 bg-neutral-950/40 flex items-center justify-center gap-2 text-neutral-600 text-xs font-medium min-h-[82px]"
               >
-                <Users className="w-4 h-4 opacity-40 text-cyan-400" />
+                <Users className="w-4 h-4 opacity-40 text-orange-400" />
                 <span className="font-mono">Waiting for slot #{players.length + index + 1}...</span>
               </div>
             ))}
@@ -245,13 +245,13 @@ export default function LobbyRoomView({ lobbyData, onLeaveLobby }) {
         {/* Room Settings Control Panel (Right 5 cols) */}
         <div className="lg:col-span-5 space-y-4">
           <div className="draftout-panel mc-bevel p-6 space-y-4">
-            <div className="flex items-center justify-between border-b border-cyan-500/20 pb-3">
+            <div className="flex items-center justify-between border-b border-orange-500/20 pb-3">
               <h3 className="text-xs font-pixel text-white tracking-wider flex items-center gap-2">
-                <Settings className="w-4 h-4 text-cyan-400" />
+                <Settings className="w-4 h-4 text-orange-400" />
                 ROOM CONFIGURATION
               </h3>
               {isHost ? (
-                <span className="text-[9px] font-pixel text-amber-300 bg-amber-400/10 px-2 py-0.5 border border-amber-400/30">
+                <span className="text-[9px] font-pixel text-orange-300 bg-orange-500/10 px-2 py-0.5 border border-orange-500/30">
                   EDITABLE (HOST)
                 </span>
               ) : (
@@ -265,10 +265,10 @@ export default function LobbyRoomView({ lobbyData, onLeaveLobby }) {
             <div className="space-y-1.5">
               <label className="block text-xs font-semibold text-white uppercase tracking-wider flex items-center justify-between">
                 <span className="flex items-center gap-1.5">
-                  <Target className="w-3.5 h-3.5 text-cyan-400" />
+                  <Target className="w-3.5 h-3.5 text-orange-400" />
                   Goal Pool
                 </span>
-                <span className="font-mono text-cyan-300 font-bold uppercase">
+                <span className="font-mono text-orange-300 font-bold uppercase">
                   {(lobbyData.goalPool || 'queue') === 'queue' ? 'Queue (426)' : 'All Goals (456)'}
                 </span>
               </label>
@@ -287,9 +287,9 @@ export default function LobbyRoomView({ lobbyData, onLeaveLobby }) {
                       disabled={!isHost}
                       onClick={() => handleGoalPoolChange(pool.id)}
                       className={`py-1.5 px-1 text-xs font-bold transition-all border flex flex-col items-center justify-center gap-0.5 ${isSelected
-                        ? 'bg-cyan-400/20 border-cyan-400 text-cyan-200 shadow-[0_0_12px_rgba(34,211,238,0.4)]'
+                        ? 'bg-orange-500/20 border-orange-400 text-orange-200 shadow-[0_0_12px_rgba(249,115,22,0.4)]'
                         : isHost
-                          ? 'bg-neutral-900 border-neutral-800 text-neutral-400 hover:border-cyan-500/50 hover:text-neutral-200 hover:shadow-[0_0_12px_rgba(34,211,238,0.3)] cursor-pointer'
+                          ? 'bg-neutral-900 border-neutral-800 text-neutral-400 hover:border-orange-500/50 hover:text-neutral-200 hover:shadow-[0_0_12px_rgba(249,115,22,0.3)] cursor-pointer'
                           : 'bg-neutral-950 border-neutral-800 text-neutral-600 opacity-60 cursor-not-allowed'
                         }`}
                     >
@@ -309,10 +309,10 @@ export default function LobbyRoomView({ lobbyData, onLeaveLobby }) {
             <div className="space-y-1.5">
               <label className="block text-xs font-semibold text-white uppercase tracking-wider flex items-center justify-between">
                 <span className="flex items-center gap-1.5">
-                  <Grid className="w-3.5 h-3.5 text-cyan-400" />
+                  <Grid className="w-3.5 h-3.5 text-orange-400" />
                   Board Size
                 </span>
-                <span className="font-mono text-cyan-300 font-bold">{lobbyData.boardSize}</span>
+                <span className="font-mono text-orange-300 font-bold">{lobbyData.boardSize}</span>
               </label>
 
               <div className="grid grid-cols-5 gap-1.5">
@@ -327,9 +327,9 @@ export default function LobbyRoomView({ lobbyData, onLeaveLobby }) {
                       disabled={!isHost}
                       onClick={() => handleBoardSizeChange(size)}
                       className={`py-1.5 px-1 text-xs font-bold transition-all border flex flex-col items-center justify-center gap-0.5 ${isSelected
-                        ? 'bg-cyan-400/20 border-cyan-400 text-cyan-200 shadow-[0_0_12px_rgba(34,211,238,0.4)]'
+                        ? 'bg-orange-500/20 border-orange-400 text-orange-200 shadow-[0_0_12px_rgba(249,115,22,0.4)]'
                         : isHost
-                          ? 'bg-neutral-900 border-neutral-800 text-neutral-400 hover:border-cyan-500/50 hover:text-neutral-200 hover:shadow-[0_0_12px_rgba(34,211,238,0.3)] cursor-pointer'
+                          ? 'bg-neutral-900 border-neutral-800 text-neutral-400 hover:border-orange-500/50 hover:text-neutral-200 hover:shadow-[0_0_12px_rgba(249,115,22,0.3)] cursor-pointer'
                           : 'bg-neutral-950 border-neutral-800 text-neutral-600 opacity-60 cursor-not-allowed'
                         }`}
                     >
@@ -349,10 +349,10 @@ export default function LobbyRoomView({ lobbyData, onLeaveLobby }) {
             <div className="space-y-1.5">
               <label className="block text-xs font-semibold text-white uppercase tracking-wider flex items-center justify-between">
                 <span className="flex items-center gap-1.5">
-                  <Clock className="w-3.5 h-3.5 text-cyan-400" />
+                  <Clock className="w-3.5 h-3.5 text-orange-400" />
                   Picking Time Limit
                 </span>
-                <span className="font-mono text-cyan-300 font-bold">{lobbyData.turnTime}s</span>
+                <span className="font-mono text-orange-300 font-bold">{lobbyData.turnTime}s</span>
               </label>
 
               <div className="grid grid-cols-5 gap-1.5">
@@ -367,9 +367,9 @@ export default function LobbyRoomView({ lobbyData, onLeaveLobby }) {
                       disabled={!isHost}
                       onClick={() => handleTurnTimeChange(time)}
                       className={`py-1.5 px-1 text-xs font-bold transition-all border flex flex-col items-center justify-center gap-0.5 ${isSelected
-                        ? 'bg-cyan-400/20 border-cyan-400 text-cyan-200 shadow-[0_0_12px_rgba(34,211,238,0.4)]'
+                        ? 'bg-orange-500/20 border-orange-400 text-orange-200 shadow-[0_0_12px_rgba(249,115,22,0.4)]'
                         : isHost
-                          ? 'bg-neutral-900 border-neutral-800 text-neutral-400 hover:border-cyan-500/50 hover:text-neutral-200 hover:shadow-[0_0_12px_rgba(34,211,238,0.3)] cursor-pointer'
+                          ? 'bg-neutral-900 border-neutral-800 text-neutral-400 hover:border-orange-500/50 hover:text-neutral-200 hover:shadow-[0_0_12px_rgba(249,115,22,0.3)] cursor-pointer'
                           : 'bg-neutral-950 border-neutral-800 text-neutral-600 opacity-60 cursor-not-allowed'
                         }`}
                     >
@@ -393,15 +393,15 @@ export default function LobbyRoomView({ lobbyData, onLeaveLobby }) {
               onClick={() => isHost && handleBanPhaseChange(!lobbyData.enableBanPhase)}
               className={`py-2.5 px-3 border flex items-center justify-between transition-all ${
                 isHost
-                  ? 'cursor-pointer bg-neutral-900 border-neutral-800 hover:border-cyan-500/50 hover:bg-neutral-850'
+                  ? 'cursor-pointer bg-neutral-900 border-neutral-800 hover:border-orange-500/50 hover:bg-neutral-850'
                   : 'cursor-not-allowed bg-neutral-950 border-neutral-800/80'
-              } ${lobbyData.enableBanPhase ? (isHost ? 'border-cyan-500/40 bg-cyan-950/20' : 'border-cyan-500/20 bg-cyan-950/10') : ''}`}
+              } ${lobbyData.enableBanPhase ? (isHost ? 'border-orange-500/40 bg-orange-950/20' : 'border-orange-500/20 bg-orange-950/10') : ''}`}
             >
               <div className="flex items-center gap-1.5">
                 <span className={`text-xs font-semibold uppercase tracking-wider flex items-center gap-1.5 ${
                   isHost ? 'text-white' : 'text-neutral-200'
                 }`}>
-                  <Ban className="w-3.5 h-3.5 text-cyan-400" />
+                  <Ban className="w-3.5 h-3.5 text-orange-400" />
                   Enable Ban Phase
                 </span>
 
@@ -410,11 +410,11 @@ export default function LobbyRoomView({ lobbyData, onLeaveLobby }) {
                   className="relative group/info flex items-center cursor-help"
                   onClick={(e) => e.stopPropagation()}
                 >
-                  <Info className="w-3.5 h-3.5 text-neutral-400 hover:text-cyan-300 transition-colors" />
+                  <Info className="w-3.5 h-3.5 text-neutral-400 hover:text-orange-300 transition-colors" />
 
                   {/* Tooltip Content (Always 100% Opaque) */}
-                  <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 hidden group-hover/info:block z-50 w-60 sm:w-64 p-2.5 bg-neutral-950/95 border border-cyan-500/40 shadow-2xl backdrop-blur-md text-left pointer-events-none">
-                    <div className="text-[10px] font-pixel text-cyan-300 uppercase mb-1">
+                  <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 hidden group-hover/info:block z-50 w-60 sm:w-64 p-2.5 bg-neutral-950/95 border border-orange-500/40 shadow-2xl backdrop-blur-md text-left pointer-events-none">
+                    <div className="text-[10px] font-pixel text-orange-400 uppercase mb-1">
                       BAN PHASE
                     </div>
                     <p className="text-[11px] text-neutral-300 font-sans leading-snug">
@@ -427,13 +427,13 @@ export default function LobbyRoomView({ lobbyData, onLeaveLobby }) {
               {/* Minecraft-styled Square Switch */}
               <div
                 className={`w-10 h-5 px-0.5 flex items-center relative transition-colors shrink-0 ${
-                  lobbyData.enableBanPhase ? 'bg-cyan-950' : 'bg-neutral-950'
+                  lobbyData.enableBanPhase ? 'bg-orange-950' : 'bg-neutral-950'
                 } ${!isHost ? 'opacity-60' : ''}`}
               >
                 <div
                   className={`w-4 h-4 transition-transform duration-150 ${
                     lobbyData.enableBanPhase
-                      ? 'translate-x-5 bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.6)]'
+                      ? 'translate-x-5 bg-orange-500 shadow-[0_0_8px_rgba(249,115,22,0.6)]'
                       : 'translate-x-0 bg-neutral-700'
                   }`}
                 />
@@ -441,7 +441,7 @@ export default function LobbyRoomView({ lobbyData, onLeaveLobby }) {
             </div>
 
             {/* Total Goals Summary */}
-            {/* <div className="p-3 bg-neutral-950 border border-cyan-500/20 flex items-center justify-between text-xs">
+            {/* <div className="p-3 bg-neutral-950 border border-orange-500/20 flex items-center justify-between text-xs">
               <span className="text-neutral-400 font-medium">Total Goals:</span>
               <span className="font-mono font-bold text-amber-300 text-sm">
                 {parseInt(lobbyData.boardSize) * parseInt(lobbyData.boardSize)} Goals
@@ -449,13 +449,13 @@ export default function LobbyRoomView({ lobbyData, onLeaveLobby }) {
             </div> */}
 
             {/* Actions */}
-            <div className="pt-3 border-t border-cyan-500/20">
+            <div className="pt-3 border-t border-orange-500/20">
               <div className="grid grid-cols-2 gap-2">
                 <button
                   onClick={handleToggleReady}
                   className={`w-full py-3 px-2 font-bold text-xs transition-all border cursor-pointer flex items-center justify-center text-center ${isReady
                     ? 'bg-emerald-500/20 border-emerald-400 text-emerald-300 shadow-[0_0_15px_rgba(16,185,129,0.4)] hover:shadow-[0_0_22px_rgba(16,185,129,0.65)] font-pixel'
-                    : 'bg-amber-500/20 border-amber-400 text-amber-300 hover:shadow-[0_0_15px_rgba(245,158,11,0.4)] font-pixel'
+                    : 'bg-orange-400/20 border-orange-400 text-orange-200 hover:shadow-[0_0_15px_rgba(251,146,60,0.4)] font-pixel'
                     }`}
                 >
                   {isReady ? 'READY' : 'MARK READY'}
@@ -466,7 +466,7 @@ export default function LobbyRoomView({ lobbyData, onLeaveLobby }) {
                     disabled={!canStartDraft}
                     onClick={handleLaunchDraft}
                     className={`w-full py-3 px-2 font-bold text-xs flex items-center justify-center gap-1.5 transition-all text-center ${canStartDraft
-                      ? 'bg-cyan-400 hover:bg-cyan-300 text-neutral-950 font-pixel cursor-pointer shadow-[0_0_18px_rgba(34,211,238,0.5)] hover:shadow-[0_0_28px_rgba(34,211,238,0.8)]'
+                      ? 'bg-orange-400 hover:bg-orange-300 text-neutral-950 font-pixel cursor-pointer shadow-[0_0_18px_rgba(251,146,60,0.5)] hover:shadow-[0_0_28px_rgba(251,146,60,0.8)]'
                       : 'bg-neutral-800 text-neutral-500 border border-neutral-700 cursor-not-allowed font-pixel'
                       }`}
                   >

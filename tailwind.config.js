@@ -7,6 +7,12 @@ export default {
   theme: {
     extend: {
       colors: {
+        dapple: {
+          red: '#ef4444',
+          orange: '#f97316',
+          yellow: '#facc15',
+          amber: '#f59e0b',
+        },
         cyan: {
           300: '#67e8f9',
           400: '#22d3ee',

@@ -158,11 +158,11 @@ export default function App() {
   };
 
   return (
-    <div className={`flex flex-col justify-between selection:bg-cyan-500/30 selection:text-cyan-200 ${
+    <div className={`flex flex-col justify-between selection:bg-orange-500/30 selection:text-orange-100 ${
       isMatchActive ? 'h-screen h-dvh p-2 sm:p-3 overflow-hidden' : 'min-h-screen p-4 sm:p-6 lg:p-8'
     }`}>
       {/* Header Bar */}
-      <header className={`max-w-6xl w-full mx-auto flex items-center justify-between border-b border-cyan-500/20 shrink-0 ${
+      <header className={`max-w-6xl w-full mx-auto flex items-center justify-between border-b border-orange-500/20 shrink-0 ${
         isMatchActive ? 'py-1.5 mb-1.5' : 'py-4 mb-6'
       }`}>
         <div className="flex items-center gap-3.5">
@@ -213,10 +213,10 @@ export default function App() {
         ) : (
           <div className="flex flex-col items-center w-full space-y-6">
             {/* Glowing Slider Tab Switcher */}
-            <div className="relative bg-neutral-900/90 p-1.5 flex items-center border border-cyan-500/30 max-w-sm w-full shadow-inner overflow-hidden">
+            <div className="relative bg-neutral-900/90 p-1.5 flex items-center border border-orange-500/30 max-w-sm w-full shadow-inner overflow-hidden">
               {/* Sliding Glowing Background Pill */}
               <div
-                className="absolute top-1.5 bottom-1.5 w-[calc(50%-6px)] bg-cyan-400 tab-slider-glow transition-all duration-300 ease-out"
+                className="absolute top-1.5 bottom-1.5 w-[calc(50%-6px)] bg-orange-400 tab-slider-glow transition-all duration-300 ease-out"
                 style={{
                   left: activeTab === 'create' ? '6px' : 'calc(50% + 0px)',
                 }}
@@ -227,7 +227,7 @@ export default function App() {
                 onClick={() => { setActiveTab('create'); setErrorMessage(''); }}
                 className={`relative z-10 flex-1 py-2.5 px-3 font-bold flex items-center justify-center gap-1.5 transition-colors duration-200 cursor-pointer ${activeTab === 'create'
                   ? 'text-neutral-950 font-extrabold'
-                  : 'text-white hover:text-cyan-200'
+                  : 'text-white hover:text-orange-200'
                   }`}
               >
                 <Sparkles className={`w-4 h-4 transition-transform ${activeTab === 'create' ? 'scale-110' : ''}`} />
@@ -239,7 +239,7 @@ export default function App() {
                 onClick={() => { setActiveTab('join'); setErrorMessage(''); }}
                 className={`relative z-10 flex-1 py-2.5 px-3 font-bold flex items-center justify-center gap-1.5 transition-colors duration-200 cursor-pointer ${activeTab === 'join'
                   ? 'text-neutral-950 font-extrabold'
-                  : 'text-white hover:text-cyan-200'
+                  : 'text-white hover:text-orange-200'
                   }`}
               >
                 <LogIn className={`w-4 h-4 transition-transform ${activeTab === 'join' ? 'scale-110' : ''}`} />
@@ -259,7 +259,7 @@ export default function App() {
 
       {/* Footer (Hidden completely during active match phase) */}
       {!isMatchActive && (
-        <footer className="max-w-6xl w-full mx-auto text-center border-t border-cyan-500/10 text-xs text-neutral-500 shrink-0 pt-6">
+        <footer className="max-w-6xl w-full mx-auto text-center border-t border-orange-500/10 text-xs text-neutral-500 shrink-0 pt-6">
           <div className="flex items-center justify-center gap-2 flex-wrap">
             <span className="flex items-center gap-1">
               <span>Made by</span>

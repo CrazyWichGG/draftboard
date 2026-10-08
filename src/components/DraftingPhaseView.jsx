@@ -131,7 +131,7 @@ export default function DraftingPhaseView({ lobbyData, serverTimer, onResetLobby
 
       {/* 1. TOP GOAL SELECTION & CONTROL BAR */}
       {!draftState.isComplete && (
-        <div className="draftout-panel mc-bevel p-2 sm:p-2.5 border-cyan-400/40 space-y-1.5 shrink-0 shadow-lg">
+        <div className="draftout-panel mc-bevel p-2 sm:p-2.5 border-amber-400/40 space-y-1.5 shrink-0 shadow-lg">
 
           {/* Top Status & Controls Row */}
           <div className="flex items-center justify-between gap-2.5">
@@ -150,9 +150,9 @@ export default function DraftingPhaseView({ lobbyData, serverTimer, onResetLobby
 
             {/* Timer Badge & Reroll Button */}
             <div className="flex items-center gap-2.5 shrink-0">
-              <div className="mc-bevel-inset px-2 py-0.5 flex items-center gap-1.5">
-                <Clock className={`w-3.5 h-3.5 ${timeLeft <= 5 ? 'text-rose-400 animate-pulse' : 'text-cyan-300'}`} />
-                <span className={`text-xs font-mono font-bold ${timeLeft <= 5 ? 'text-rose-400' : 'text-cyan-300'}`}>
+              <div className="mc-bevel-inset px-2 py-0.5 flex items-center gap-1.5 border border-orange-500/40 bg-neutral-950/80">
+                <Clock className={`w-3.5 h-3.5 ${timeLeft <= 5 ? 'text-rose-400 animate-pulse' : 'text-orange-400'}`} />
+                <span className={`text-xs font-mono font-bold ${timeLeft <= 5 ? 'text-rose-400' : 'text-orange-400'}`}>
                   {timeLeft}s
                 </span>
               </div>
@@ -163,11 +163,11 @@ export default function DraftingPhaseView({ lobbyData, serverTimer, onResetLobby
                   onClick={handleReroll}
                   disabled={draftState.usedRerolls?.[activePlayer?.id]}
                   className={`py-0.5 px-2 font-pixel text-[9px] flex items-center gap-1 transition-all border ${!draftState.usedRerolls?.[activePlayer?.id]
-                    ? 'bg-neutral-900 hover:bg-neutral-800 border-cyan-400/50 text-cyan-300 hover:shadow-[0_0_12px_rgba(34,211,238,0.4)] cursor-pointer'
+                    ? 'bg-neutral-900 hover:bg-neutral-800 border-orange-500/40 text-orange-300 hover:border-orange-400 hover:shadow-[0_0_12px_rgba(249,115,22,0.4)] cursor-pointer'
                     : 'bg-neutral-900 border-neutral-800 text-neutral-600 cursor-not-allowed'
                     }`}
                 >
-                  <RefreshCw className={`w-3 h-3 ${!draftState.usedRerolls?.[activePlayer?.id] ? 'text-cyan-400' : ''}`} />
+                  <RefreshCw className={`w-3 h-3 ${!draftState.usedRerolls?.[activePlayer?.id] ? 'text-orange-400' : ''}`} />
                   <span>
                     {draftState.usedRerolls?.[activePlayer?.id] ? 'REROLL USED' : 'REROLL (1 LEFT)'}
                   </span>
@@ -196,21 +196,21 @@ export default function DraftingPhaseView({ lobbyData, serverTimer, onResetLobby
                   onClick={() => handleUserPick(goal)}
                   className={`mc-bevel p-2 sm:p-2.5 flex items-center gap-2.5 transition-all ${isLeftOption ? 'flex-row-reverse text-right' : 'flex-row text-left'
                     } ${isCurrentClientTurn
-                      ? 'bg-neutral-900 border-cyan-400/40 hover:border-cyan-300 hover:bg-neutral-850 cursor-pointer shadow-[0_0_14px_rgba(34,211,238,0.3)] hover:shadow-[0_0_22px_rgba(34,211,238,0.6)] active:scale-[0.99]'
+                      ? 'bg-neutral-900 border-orange-500/40 hover:border-orange-400 hover:bg-neutral-850 cursor-pointer shadow-[0_0_14px_rgba(249,115,22,0.3)] hover:shadow-[0_0_22px_rgba(249,115,22,0.6)] active:scale-[0.99]'
                       : 'bg-neutral-950 border-neutral-800 opacity-75 cursor-not-allowed'
                     }`}
                 >
                   {/* Thematic Icon Container */}
-                  <div className="mc-bevel-inset w-11 h-11 sm:w-12 sm:h-12 p-1 shrink-0 flex items-center justify-center bg-neutral-950 border border-cyan-500/40 overflow-hidden">
-                    <GoalIcon goal={goal} className="w-full h-full text-cyan-300" />
+                  <div className="mc-bevel-inset w-11 h-11 sm:w-12 sm:h-12 p-1 shrink-0 flex items-center justify-center bg-neutral-950 border border-orange-500/40 overflow-hidden">
+                    <GoalIcon goal={goal} className="w-full h-full text-orange-300" />
                   </div>
 
                   {/* Goal Option Text */}
                   <div className="flex-1 min-w-0">
                     <div className={`flex items-center justify-between ${isLeftOption ? 'flex-row-reverse' : 'flex-row'}`}>
-                      <span className="text-[9px] font-mono text-cyan-300/70 uppercase">OPTION {optionIdx + 1}</span>
+                      <span className="text-[9px] font-mono text-orange-300/70 uppercase">OPTION {optionIdx + 1}</span>
                       {isCurrentClientTurn && (
-                        <span className="text-[9px] font-pixel text-cyan-300 bg-cyan-400/10 px-1.5 py-0.5 border border-cyan-400/30">
+                        <span className="text-[9px] font-pixel text-orange-300 bg-orange-500/10 px-1.5 py-0.5 border border-orange-500/30">
                           CLICK TO PICK
                         </span>
                       )}
@@ -229,9 +229,9 @@ export default function DraftingPhaseView({ lobbyData, serverTimer, onResetLobby
 
         {/* LEFT SIDEBAR: Anchored Client Player (3 Cols) */}
         <div className="lg:col-span-3 flex flex-col justify-start relative z-10 min-h-0">
-          <div className="draftout-panel mc-bevel p-2.5 border border-cyan-400/30 bg-neutral-900 space-y-2">
-            <div className="flex items-center gap-2 text-[10px] font-pixel text-cyan-300 border-b border-cyan-500/20 pb-1">
-              <Sparkles className="w-3.5 h-3.5 text-cyan-400" /> YOU
+          <div className="draftout-panel mc-bevel p-2.5 border border-orange-500/30 bg-neutral-900 space-y-2">
+            <div className="flex items-center gap-2 text-[10px] font-pixel text-orange-400 border-b border-orange-500/20 pb-1">
+              <Sparkles className="w-3.5 h-3.5 text-orange-400" /> YOU
             </div>
 
             <div className="flex items-center gap-2.5">
@@ -249,7 +249,7 @@ export default function DraftingPhaseView({ lobbyData, serverTimer, onResetLobby
 
               <div className="min-w-0 flex-1">
                 <h3 className="font-bold text-white text-xs sm:text-sm truncate">{clientPlayer?.username}</h3>
-                <p className="text-[11px] text-cyan-300 font-mono">
+                <p className="text-[11px] text-orange-300 font-mono">
                   {draftState.claimedCounts[clientPlayer?.id] || 0} Goals Claimed
                 </p>
               </div>
@@ -272,7 +272,7 @@ export default function DraftingPhaseView({ lobbyData, serverTimer, onResetLobby
                 {draftState.usedRerolls?.[clientPlayer?.id] ? (
                   <span className="text-rose-400 font-semibold text-[10px]">USED</span>
                 ) : (
-                  <span className="text-cyan-300 font-semibold text-[10px]">READY (1)</span>
+                  <span className="text-orange-300 font-semibold text-[10px]">READY (1)</span>
                 )}
               </div>
             </div>
@@ -329,8 +329,8 @@ export default function DraftingPhaseView({ lobbyData, serverTimer, onResetLobby
         <div className="lg:col-span-6 flex flex-col justify-start h-full min-h-0 relative z-20 overflow-visible">
           <div className="draftout-panel mc-bevel p-2 flex flex-col justify-start shadow-lg min-h-0 overflow-visible relative z-30 h-auto">
             <div className="flex items-center justify-between mb-1 px-1 shrink-0">
-              <div className="text-[10px] font-pixel text-cyan-300 flex items-center gap-1.5">
-                <Layers className="w-3.5 h-3.5 text-cyan-400" /> BOARD ({draftState.gridSize})
+              <div className="text-[10px] font-pixel text-orange-400 flex items-center gap-1.5">
+                <Layers className="w-3.5 h-3.5 text-orange-400" /> BOARD ({draftState.gridSize})
               </div>
               <span className="text-[10px] text-neutral-400 font-mono">
                 {draftState.currentSlotIndex}/{draftState.totalSlots} Filled
@@ -359,7 +359,7 @@ export default function DraftingPhaseView({ lobbyData, serverTimer, onResetLobby
                     <div
                       key={index}
                       className={`aspect-square w-full h-full p-0.5 flex flex-col justify-between items-center relative group transition-all ${isClaimed
-                        ? 'mc-bevel-inset bg-neutral-900 border-cyan-500/40 hover:border-cyan-300 cursor-pointer z-10 hover:z-50'
+                        ? 'mc-bevel-inset bg-neutral-900 border-orange-500/40 hover:border-orange-300 cursor-pointer z-10 hover:z-50'
                         : isActiveSlot
                           ? 'mc-slot-active bg-neutral-950 animate-pulse'
                           : 'mc-slot bg-neutral-950/60'
@@ -373,12 +373,12 @@ export default function DraftingPhaseView({ lobbyData, serverTimer, onResetLobby
                       {/* Slot Content - FULL ICON IN GRID CELL */}
                       {isClaimed ? (
                         <div className="w-full h-full p-0.5 sm:p-1 flex items-center justify-center overflow-hidden">
-                          <GoalIcon goal={slotItem} className="w-full h-full text-cyan-300 object-contain" />
+                          <GoalIcon goal={slotItem} className="w-full h-full text-orange-300 object-contain" />
                         </div>
                       ) : isActiveSlot ? (
                         <div className="flex-1 flex flex-col items-center justify-center text-center">
-                          <ArrowRight className="w-3.5 h-3.5 text-cyan-300 animate-bounce" />
-                          <span className="font-pixel text-[7px] text-cyan-300">NEXT</span>
+                          <ArrowRight className="w-3.5 h-3.5 text-orange-400 animate-bounce" />
+                          <span className="font-pixel text-[7px] text-orange-400">NEXT</span>
                         </div>
                       ) : (
                         <div className="flex-1 flex items-center justify-center">
@@ -403,9 +403,9 @@ export default function DraftingPhaseView({ lobbyData, serverTimer, onResetLobby
 
                       {/* RICH HOVER TOOLTIP FOR CLAIMED GOALS */}
                       {isClaimed && (
-                        <div className={`absolute z-[100] left-1/2 -translate-x-1/2 hidden group-hover:flex flex-col w-52 p-2.5 bg-neutral-950/95 border border-cyan-400/60 shadow-2xl pointer-events-none text-left backdrop-blur-md ${isTopHalf ? 'top-full mt-2' : 'bottom-full mb-2'
+                        <div className={`absolute z-[100] left-1/2 -translate-x-1/2 hidden group-hover:flex flex-col w-52 p-2.5 bg-neutral-950/95 border border-orange-500/60 shadow-2xl pointer-events-none text-left backdrop-blur-md ${isTopHalf ? 'top-full mt-2' : 'bottom-full mb-2'
                           }`}>
-                          <p className="text-[10px] font-mono text-cyan-300 font-bold uppercase mb-1">
+                          <p className="text-[10px] font-mono text-orange-400 font-bold uppercase mb-1">
                             Slot {index + 1}
                           </p>
                           <p className="text-xs font-bold text-white leading-snug mb-2">
@@ -425,7 +425,7 @@ export default function DraftingPhaseView({ lobbyData, serverTimer, onResetLobby
                                 />
                               </div>
                               <span className="text-[11px] text-neutral-300 font-semibold truncate">
-                                Drafted by <strong className="text-cyan-300">{slotItem.claimedBy?.username || 'Player'}</strong>
+                                Drafted by <strong className="text-orange-300">{slotItem.claimedBy?.username || 'Player'}</strong>
                               </span>
                             </div>
                           )}
@@ -442,8 +442,8 @@ export default function DraftingPhaseView({ lobbyData, serverTimer, onResetLobby
         {/* RIGHT SIDEBAR: Vertical Opponents List (3 Cols) */}
         <div className="lg:col-span-3 flex flex-col justify-start relative z-10 min-h-0">
           <div className="draftout-panel mc-bevel p-2.5 border border-neutral-800 space-y-2 overflow-y-auto max-h-full">
-            <div className="flex items-center gap-2 text-[10px] font-pixel text-cyan-300 border-b border-cyan-500/20 pb-1">
-              <UserCheck className="w-3.5 h-3.5 text-cyan-400" /> OPPONENTS ({opponentPlayers.length})
+            <div className="flex items-center gap-2 text-[10px] font-pixel text-orange-400 border-b border-orange-500/20 pb-1">
+              <UserCheck className="w-3.5 h-3.5 text-orange-400" /> OPPONENTS ({opponentPlayers.length})
             </div>
 
             <div className="space-y-1.5">
@@ -490,7 +490,7 @@ export default function DraftingPhaseView({ lobbyData, serverTimer, onResetLobby
                               REROLL USED
                             </span>
                           ) : (
-                            <span className="text-[7px] font-pixel text-cyan-300 bg-cyan-400/10 px-1 py-0.5 border border-cyan-400/20">
+                            <span className="text-[7px] font-pixel text-amber-300 bg-amber-400/10 px-1 py-0.5 border border-amber-400/20">
                               1 REROLL
                             </span>
                           )}
