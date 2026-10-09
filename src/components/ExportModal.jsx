@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Download, FileJson, CheckCircle2, RotateCcw, Copy, Check, Layers } from 'lucide-react';
+import { Download, FileJson, CheckCircle2, LogOut, Copy, Check, Layers } from 'lucide-react';
 import { generateFinalJsonPayload } from '../services/draftEngine';
 import { getAvatarUrl } from '../services/mojangApi';
 import GoalIcon from './GoalIcon';
@@ -219,10 +219,10 @@ export default function ExportModal({ draftState, onResetLobby }) {
 
           <button
             onClick={onResetLobby}
-            className="w-full sm:w-auto py-3 px-6 bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 hover:border-orange-500/40 text-neutral-300 text-xs font-bold flex items-center justify-center gap-2 transition-all hover:shadow-[0_0_15px_rgba(249,115,22,0.35)] cursor-pointer"
+            className="w-full sm:w-auto py-3 px-6 bg-rose-600/30 hover:bg-rose-600/50 border border-rose-500 text-rose-200 hover:text-white text-xs font-semibold flex items-center justify-center gap-2 transition-all hover:shadow-[0_0_18px_rgba(244,63,94,0.5)] cursor-pointer"
           >
-            <RotateCcw className="w-4 h-4" />
-            <span className="font-pixel text-xs">New Draft</span>
+            <LogOut className="w-4 h-4" />
+            <span className="font-pixel text-xs">LEAVE</span>
           </button>
         </div>
       </div>

@@ -79,10 +79,18 @@ export default function App() {
       onRoomStateUpdated(roomData);
     }
 
+    function onRoomClosed() {
+      leaveRoomSocket();
+      setCurrentLobby(null);
+      setInBanPhase(false);
+      setInDraftPhase(false);
+    }
+
     socket.on('connect', onConnect);
     socket.on('room_state_updated', onRoomStateUpdated);
     socket.on('turn_timer_tick', onTurnTimerTick);
     socket.on('draft_started', onDraftStarted);
+    socket.on('room_closed', onRoomClosed);
 
     if (socket.connected) {
       setSocketId(socket.id);
@@ -93,6 +101,7 @@ export default function App() {
       socket.off('room_state_updated', onRoomStateUpdated);
       socket.off('turn_timer_tick', onTurnTimerTick);
       socket.off('draft_started', onDraftStarted);
+      socket.off('room_closed', onRoomClosed);
     };
   }, []);
 

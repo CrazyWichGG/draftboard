@@ -11,6 +11,7 @@ const rooms = new Map();
 
 const BAN_TURN_TIME = 60;
 const INTERMISSION_TIME = 15;
+const POST_DRAFT_TIMEOUT = 300; // 5 minutes post-draft timeout in seconds
 
 // Helper to fetch Mojang UUID and avatar
 export async function resolvePlayerIdentity(username) {
@@ -444,6 +445,7 @@ export function handleMakePick(socketId, roomCode, selectedGoal, io) {
 
   if (room.draftState.isComplete) {
     clearTurnTimer(room);
+    startPostDraftTimeout(roomCode, io);
   } else {
     resetTurnTimer(roomCode, io);
   }
@@ -500,6 +502,7 @@ export function startTurnTimer(roomCode, io) {
 
         if (currentRoom.draftState && currentRoom.draftState.isComplete) {
           clearTurnTimer(currentRoom);
+          startPostDraftTimeout(roomCode, io);
         } else {
           currentRoom.remainingTime = currentRoom.turnTime;
         }
@@ -516,6 +519,35 @@ export function resetTurnTimer(roomCode, io) {
   room.remainingTime = room.turnTime;
 }
 
+export function startPostDraftTimeout(roomCode, io) {
+  const room = rooms.get(roomCode);
+  if (!room) return;
+
+  clearPostDraftTimeout(room);
+
+  room.postDraftTimer = setTimeout(() => {
+    const currentRoom = rooms.get(roomCode);
+    if (!currentRoom) return;
+
+    clearPostDraftTimeout(currentRoom);
+
+    // Silently kick all players in the room back to the main page
+    if (io) {
+      io.to(roomCode).emit('room_closed');
+      io.in(roomCode).socketsLeave(roomCode);
+    }
+
+    destroyRoom(roomCode, 'post-draft timeout expired');
+  }, POST_DRAFT_TIMEOUT * 1000);
+}
+
+export function clearPostDraftTimeout(room) {
+  if (room && room.postDraftTimer) {
+    clearTimeout(room.postDraftTimer);
+    room.postDraftTimer = null;
+  }
+}
+
 export function clearTurnTimer(room) {
   if (room && room.turnTimer) {
     clearInterval(room.turnTimer);
@@ -523,12 +555,13 @@ export function clearTurnTimer(room) {
   }
 }
 
-export function destroyRoom(roomCode) {
+export function destroyRoom(roomCode, reason = 'has no remaining players') {
   const room = rooms.get(roomCode);
   if (room) {
     clearTurnTimer(room);
+    clearPostDraftTimeout(room);
     rooms.delete(roomCode);
-    console.log(`[RoomManager] Room '${roomCode}' has no remaining players and was destroyed. Active rooms: ${rooms.size}`);
+    console.log(`[RoomManager] Room '${roomCode}' ${reason} and was destroyed. Active rooms: ${rooms.size}`);
   }
 }
 
@@ -542,7 +575,7 @@ export function getRoom(roomCode) {
 
 export function sanitizeRoomState(room) {
   if (!room) return null;
-  const { turnTimer, ...cleanRoom } = room;
+  const { turnTimer, postDraftTimer, ...cleanRoom } = room;
   return cleanRoom;
 }
 
