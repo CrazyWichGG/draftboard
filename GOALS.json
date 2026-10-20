@@ -136,7 +136,7 @@
   },
   {
     "id": "CONSTRUCT_COPPER_GOLEM",
-    "text": "Construct a Copper Golem",
+    "text": "Create a Copper Golem",
     "texture": "/assets/goals/construct_a_copper_golem.webp"
   },
   {
@@ -2311,7 +2311,7 @@
   },
   {
     "id": "IGNITE_TNT_SULFUR_CUBE",
-    "text": "Ignite a TNT Sulfur Cube",
+    "text": "Obtain \"Uh Oh\" Advancement",
     "texture": "/assets/goals/ignite_tnt_sulfur_cube.webp"
   },
   {
@@ -2434,5 +2434,40 @@
     "text": "Sit on Brown Cushion",
     "texture": "/assets/goals/sit_on_brown_cushion.webp",
     "data": "brown"
+  },
+  {
+    "id": "GET_IT_SPREADS_ADVANCEMENT",
+    "text": "Obtain \"It Spreads\" Advancement",
+    "texture": "/assets/goals/get_it_spreads_advancement.webp"
+  },
+  {
+    "id": "OBTAIN_12_UNIQUE_DYES",
+    "text": "Obtain 12 Unique Dyes",
+    "texture": "/assets/goals/obtain_12_unique_dyes.webp"
+  },
+  {
+    "id": "OBTAIN_64_OF_ANY_FLOWER",
+    "text": "Obtain 64 of any Flower",
+    "texture": "/assets/goals/obtain_64_of_any_flower.webp"
+  },
+  {
+    "id": "OBTAIN_3_UNIQUE_MUSIC_DISCS",
+    "text": "Obtain 3 Unique Music Discs",
+    "texture": "/assets/goals/obtain_3_unique_music_discs.webp"
+  },
+  {
+    "id": "OBTAIN_BAMBOO_MOSAIC_STAIRS",
+    "text": "Obtain Bamboo Mosaic Stairs",
+    "texture": "/assets/goals/obtain_bamboo_mosaic_stairs.webp"
+  },
+  {
+    "id": "GIVE_DIAMOND_TO_FOX",
+    "text": "Give a Diamond to a Fox",
+    "texture": "/assets/goals/give_diamond_to_fox.webp"
+  },
+  {
+    "id": "MINE_SEA_LANTERN",
+    "text": "Mine Sea Lantern",
+    "texture": "/assets/goals/mine_sea_lantern.webp"
   }
 ]
