@@ -4,6 +4,7 @@ import JoinRoomCard from './components/JoinRoomCard';
 import LobbyRoomView from './components/LobbyRoomView';
 import BanPhaseView from './components/BanPhaseView';
 import DraftingPhaseView from './components/DraftingPhaseView';
+import AnnouncementBanner from './components/AnnouncementBanner';
 import { socket, createRoomSocket, joinRoomSocket, leaveRoomSocket } from './services/socket';
 import { Gamepad2, Sparkles, LogIn, Swords, Github } from 'lucide-react';
 
@@ -15,6 +16,7 @@ export default function App() {
   const [socketId, setSocketId] = useState(socket.id);
   const [serverTimer, setServerTimer] = useState(10);
   const [errorMessage, setErrorMessage] = useState('');
+  const [showAnnouncement, setShowAnnouncement] = useState(true);
 
   const isMatchActive = inBanPhase || inDraftPhase;
 
@@ -172,7 +174,7 @@ export default function App() {
     }`}>
       {/* Header Bar */}
       <header className={`max-w-6xl w-full mx-auto flex items-center justify-between border-b border-orange-500/20 shrink-0 ${
-        isMatchActive ? 'py-1.5 mb-1.5' : 'py-4 mb-6'
+        isMatchActive ? 'py-1.5 mb-1.5' : 'py-4 mb-4 sm:mb-5'
       }`}>
         <div className="flex items-center gap-3.5">
           <img
@@ -197,6 +199,13 @@ export default function App() {
           <Github className="w-5 h-5 sm:w-6 sm:h-6 shrink-0" />
         </a>
       </header>
+
+      {/* Announcement Notification (Under top titles) */}
+      {showAnnouncement && (
+        <div className={`max-w-6xl w-full mx-auto shrink-0 ${isMatchActive ? 'mb-1.5' : 'mb-4 sm:mb-5'}`}>
+          <AnnouncementBanner onClose={() => setShowAnnouncement(false)} />
+        </div>
+      )}
 
       {/* Main Content View */}
       <main className={`flex-1 flex items-center justify-center min-h-0 ${isMatchActive ? 'my-0.5 overflow-hidden' : 'my-4'}`}>
